@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: CodecPro-ExtraBold;
+  src: url('/fonts/CodecPro-ExtraBold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: CodecPro-Bold;
+  src: url('/fonts/CodecPro-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: CodecPro-Fat;
+  src: url('/fonts/CodecPro-Fat.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: CodecPro-Heavy;
+  src: url('/fonts/CodecPro-Heavy.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: CodecPro-Light;
+  src: url('/fonts/CodecPro-Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: CodecPro-News;
+  src: url('/fonts/CodecPro-News.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: CodecPro-Thin;
+  src: url('/fonts/CodecPro-Thin.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: CodecPro-Ultra;
+  src: url('/fonts/CodecPro-Ultra.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: CodecPro-UltralBlack;
+  src: url('/fonts/CodecPro-UltralBlack.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
