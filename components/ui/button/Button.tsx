@@ -6,7 +6,7 @@ interface ButtonType extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg'
 }
 
-const Button: FC<ButtonType> = ({ children, format, variant, size = 'md' }) => {
+const Button: FC<ButtonType> = ({ children, format, variant, size = 'md', ...props }) => {
   const Variants = {
     primary: { bg: 'bg-primary', color: 'text-primary', border: 'border-primary' },
     secondary: { bg: 'bg-secondary', color: 'text-secondary', border: 'border-secondary' },
@@ -17,7 +17,9 @@ const Button: FC<ButtonType> = ({ children, format, variant, size = 'md' }) => {
   const border = format === 'fill' ? '' : 'border ' + Variants[variant].border
 
   return (
-    <button className={`${bg} ${color} ${border} ${padding} font-medium rounded-full text-sm text-center`}>
+    <button
+      {...props}
+      className={`${bg} ${color} ${border} ${padding} font-medium rounded-full text-center text-xl ${props.className}`}>
       <>{children}</>
     </button>
   )
