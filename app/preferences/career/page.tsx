@@ -1,11 +1,8 @@
 import React from 'react'
+import Career from '@/components/preferences/career/Career'
 
 const CareerPage = () => {
-  return (
-    <div className=" w-full ">
-      <h1 className="font-[CodecPro-Heavy] text-[70px] text-center py-8">What it couldbe?</h1>
-    </div>
-  )
+  return <Career />
 }
 
 export default CareerPage
