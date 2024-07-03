@@ -19,12 +19,7 @@ const PreferencesLayout: FC<Props> = ({ children }) => {
           <CloseIcon />
         </div>
       </header>
-      <article className="flex flex-1">{children}</article>
-      <footer className="flex justify-end shadow-[0_4px_18.5px_rgba(0,0,0,0.1)] py-6 px-20">
-        <Button format="fill" variant="primary" className="w-[235px]">
-          Next
-        </Button>
-      </footer>
+      {children}
     </div>
   )
 }

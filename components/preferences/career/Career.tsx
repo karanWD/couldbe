@@ -1,25 +1,13 @@
 'use client'
 import React, { useState } from 'react'
+import { careersOptions } from '@/components/constants/CareerSuggestions'
 
-const careers = [
+const popularCareers = [
   { title: 'Software Developer' },
   { title: 'Marketing Manager' },
   { title: 'Financial Analyst' },
   { title: 'Graphic Designer' },
   { title: 'Project Manager' },
-]
-
-const careersOptions = [
-  { title: 'Accountant', category: 'Accounting and Finance' },
-  { title: 'Financial Analyst', category: 'Accounting and Finance' },
-  { title: 'Auditor', category: 'Accounting and Finance' },
-  { title: 'Tax Advisor', category: 'Accounting and Finance' },
-  { title: 'Investment Banker', category: 'Accounting and Finance' },
-  { title: 'Doctor', category: 'Healthcare and Medicine' },
-  { title: 'Nurse', category: 'Healthcare and Medicine' },
-  { title: 'Pharmacist', category: 'Healthcare and Medicine' },
-  { title: 'Dentist', category: 'Healthcare and Medicine' },
-  { title: 'Physical Therapist', category: 'Healthcare and Medicine' },
 ]
 
 const Career = () => {
@@ -28,7 +16,7 @@ const Career = () => {
     career.length > 0 ? careersOptions.filter((item) => item.title.toLocaleLowerCase().includes(career)) : []
 
   return (
-    <div className="w-full">
+    <article className="w-full">
       <h1 className="font-[CodecPro-Heavy] text-[50px] text-center py-8">What it couldbe?</h1>
       <div className="max-w-2xl mx-auto relative bg-white shadow-[0_4px_18px_rgba(0,0,0,0.1)] rounded-xl">
         <form>
@@ -73,17 +61,17 @@ const Career = () => {
         </form>
       </div>
 
-      <div className={'mt-12 max-w-6xl mx-auto'}>
+      <div className={'mt-32 max-w-6xl mx-auto'}>
         <span className="font-[CodecPro-Bold] text-2xl ">Popular Careers</span>
         <div className="flex items-center justify-between gap-1 mt-4">
-          {careers.map((item, index) => (
+          {popularCareers.map((item, index) => (
             <div key={index} className="w-[200px] h-[200px] flex items-center justify-center bg-gray-200 rounded-md">
               {item.title}
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </article>
   )
 }
 
