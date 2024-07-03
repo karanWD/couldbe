@@ -3,8 +3,8 @@ import { FC } from 'react'
 
 const Banner: FC = () => {
   return (
-    <div className="flex flex-col justify-center items-center max-w-[1526px] lg:max-w-[90%] w-full gap-y-24 mb-28">
-      <div className="bg-[url('/images/banner.svg')] bg-contain bg-no-repeat bg-center w-full h-[682px] flex  items-center">
+    <div className="flex flex-col justify-center items-center max-w-[80%] w-full gap-y-24 mb-28">
+      <div className="bg-[url('/images/banner.svg')] bg-cover bg-no-repeat bg-center w-full h-[682px] rounded-[45px] flex  items-center">
         <div className="flex flex-col w-[40%] pl-[104px] ">
           <span className="font-[CodecPro-Heavy] text-[50px] text-white ">
             Get started for free in 1 minute or less

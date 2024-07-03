@@ -3,8 +3,8 @@ import { FC } from 'react'
 
 const Introduction: FC = () => {
   return (
-    <div className="flex flex-col justify-center items-center max-w-[1526px] lg:max-w-[90%] w-full gap-y-24">
-      <div className="bg-[url('/images/introduction.svg')] bg-contain bg-no-repeat bg-center w-full h-[682px] flex  items-center">
+    <div className="flex flex-col justify-center items-center max-w-[80%]  w-full gap-y-24">
+      <div className="bg-[url('/images/introduction.svg')] bg-cover bg-no-repeat bg-center w-full h-[682px] rounded-[45px] flex  items-center">
         <div className="flex flex-col w-[50%] pl-[104px] ">
           <span className="font-[CodecPro-Heavy] text-[50px] text-white ">
             Build your future development plan in minutes with AI
@@ -18,7 +18,7 @@ const Introduction: FC = () => {
           </Button>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-center text-center gap-y-3 max-w-[65%] md:max-w-[69%]">
+      <div className="flex flex-col justify-center items-center text-center gap-y-3 max-w-[65%] ">
         <span className="font-[CodecPro-Bold] text-[20px] text-[#1232F0] uppercase">Imagine what it couldbe</span>
         <span className="font-[CodecPro-ExtraBold] text-[70px]">
           {' '}
