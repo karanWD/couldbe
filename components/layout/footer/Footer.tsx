@@ -4,8 +4,8 @@ import { FC } from 'react'
 
 const Footer: FC = () => {
   return (
-    <div className="flex w-full h-[800px] bg-black ">
-      <div className="bg-[url('/images/footer.svg')] bg-cover bg-no-repeat bg-center w-full h-[800px] flex  ">
+    <div className="flex w-full h-[767px] bg-black ">
+      <div className="bg-[url('/images/footer.svg')] bg-cover bg-no-repeat bg-center w-full h-[100%] flex  ">
         <div className="w-[80%] flex mx-auto justify-between mt-44">
           <div className="flex flex-col gap-y-16">
             <span className="text-[29px] font-[CodecPro-Heavy] text-white">Social Media</span>
