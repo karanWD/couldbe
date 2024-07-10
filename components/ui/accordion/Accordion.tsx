@@ -10,8 +10,18 @@ interface AccordionType extends HTMLAttributes<HTMLDivElement> {
 }
 const Accordion: FC<AccordionType> = ({ children, title, variant, index, activeIndex, setActiveIndex, ...props }) => {
   const Variant = {
-    contained: { fontFamily: 'font-[CodecPro-Light]', fontSize: 'text-[30px]' },
-    text: { fontFamily: 'font-[CodecPro-Light]', fontSize: 'text-[30px]' },
+    contained: {
+      fontFamily: 'font-[CodecPro-Light]',
+      fontSize: 'text-[30px]',
+      color: 'white',
+      textColor: 'text-white',
+    },
+    text: {
+      fontFamily: 'font-[CodecPro-ExtraBold]',
+      fontSize: 'text-[30px]',
+      color: '#4D67F0',
+      textColor: 'text-[#4D67F0]',
+    },
   }
   const handleSetIndex = (index: number) => activeIndex !== index && setActiveIndex(index)
   return (
@@ -19,8 +29,16 @@ const Accordion: FC<AccordionType> = ({ children, title, variant, index, activeI
       <div
         onClick={() => handleSetIndex(index)}
         className={`flex items-center justify-between w-full gap-3 px-9 py-3.5 ${props.className}`}>
-        <span className={`${Variant[variant].fontFamily} ${Variant[variant].fontSize}`}>{title}</span>
-        <div className="w-[18px]">{activeIndex === index ? <ArrowUp /> : <ArrowDown />}</div>
+        <span className={`${Variant[variant].fontFamily} ${Variant[variant].fontSize} ${Variant[variant].textColor}`}>
+          {title}
+        </span>
+        <div className="w-[18px]">
+          {activeIndex === index ? (
+            <ArrowUp color={Variant[variant].color} />
+          ) : (
+            <ArrowDown color={Variant[variant].color} />
+          )}
+        </div>
       </div>
       {activeIndex === index && (
         <div className="bg-white rounded-[24px] p-4 mb-6 transition ease-in-out delay-3000 duration-300">
