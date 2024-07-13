@@ -9,7 +9,13 @@ const BudgetPage = () => {
   const budgetRef = useRef({ value: [0, 100000] })
   const submitHandler = () => {
     const values = JSON.parse(sessionStorage.getItem('preferences') as any)
-    sessionStorage.setItem('preferences', JSON.stringify({ ...values, budget: budgetRef.current.value }))
+    sessionStorage.setItem(
+      'preferences',
+      JSON.stringify({
+        ...values,
+        budget_amount: { min: budgetRef.current.value[0], max: budgetRef.current.value[1] },
+      })
+    )
     router.push('experience')
   }
   return (

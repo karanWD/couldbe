@@ -14,7 +14,7 @@ const ExperiencePage = () => {
           'job experience'
         }
       />
-      <PageContent options={Options} name={'experience'} />
+      <PageContent options={Options} name={'work_experience'} />
     </article>
   )
 }

@@ -15,7 +15,7 @@ const DegreePage = () => {
             'please let us know which course format you prefer'
           }
         />
-        <PageContent options={Options} name={'degree'} />
+        <PageContent options={Options} name={'need_degree'} />
       </article>
     </>
   )

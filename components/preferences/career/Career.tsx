@@ -1,20 +1,33 @@
 'use client'
-import React, { useState } from 'react'
-import { careersOptions } from '@/components/constants/CareerSuggestions'
+import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import useFetch from '@/hooks/useFetch'
+import { ApiRoutes } from '@/constants/routes'
+import { popularCareers } from '@/constants/CareerSuggestions'
 
-const popularCareers = [
-  { title: 'Software Developer' },
-  { title: 'Marketing Manager' },
-  { title: 'Financial Analyst' },
-  { title: 'Graphic Designer' },
-  { title: 'Project Manager' },
-]
+type careerItemType = { id: number; title: string; category: string }
+type careerType = { data: careerItemType[] }
 
 const Career = () => {
+  const router = useRouter()
+  const { request, response } = useFetch()
   const [career, setCareer] = useState('')
-  const suggestions =
-    career.length > 0 ? careersOptions.filter((item) => item.title.toLocaleLowerCase().includes(career)) : []
+  const suggestions: careerItemType[] =
+    career.length > 0 && response
+      ? (response as careerType)?.data?.filter((item) => item.title.toLocaleLowerCase().includes(career))
+      : []
 
+  useEffect(() => {
+    request({
+      url: ApiRoutes.CAREERS,
+      method: 'get',
+    })
+  }, [])
+
+  const careerHandler = (value: number) => {
+    sessionStorage.setItem('preferences', JSON.stringify({ career: value }))
+    router.push('/preferences/budget')
+  }
   return (
     <article className="w-full">
       <h1 className="font-[CodecPro-Heavy] text-[50px] text-center py-8">What it couldbe?</h1>
@@ -51,7 +64,7 @@ const Career = () => {
             <div className="max-h-60 overflow-auto shadow-[0_4px_18px_rgba(0,0,0,0.1)] absolute transform -translate-y-2 z-10 border-t border-gray-800 w-full bg-white">
               <ul className="py-2  text-sm text-gray-700 divide-y divide-gray-100">
                 {suggestions.map((item, index) => (
-                  <li key={'SUGGESTION_ITEM_' + index} className=" py-2 px-4">
+                  <li key={'SUGGESTION_ITEM_' + index} className=" py-2 px-4" onClick={() => careerHandler(item.id)}>
                     {item.title}
                   </li>
                 ))}
@@ -65,7 +78,10 @@ const Career = () => {
         <span className="font-[CodecPro-Bold] text-2xl ">Popular Careers</span>
         <div className="flex items-center justify-between gap-1 mt-4">
           {popularCareers.map((item, index) => (
-            <div key={index} className="w-[200px] h-[200px] flex items-center justify-center bg-gray-200 rounded-md">
+            <div
+              onClick={() => careerHandler(item.id)}
+              key={index}
+              className="w-[200px] h-[200px] flex items-center justify-center bg-gray-200 rounded-md">
               {item.title}
             </div>
           ))}

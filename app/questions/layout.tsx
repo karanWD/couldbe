@@ -2,31 +2,21 @@
 import React, { FC, ReactNode } from 'react'
 import CloseIcon from '@/components/icons/CloseIcon'
 import Image from 'next/image'
-import Button from '@/components/ui/button/Button'
-import { usePathname, useRouter } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 
 type Props = {
   children: ReactNode
 }
-const steps = {
-  career: 1,
-  budget: 2,
-  experience: 3,
-  degree: 4,
-  duration: 5,
-  format: 6,
-}
-const percent = 100 / 6
+const percent = 100 / 20
 const PreferencesLayout: FC<Props> = ({ children }) => {
   const router = useRouter()
-  const pathname = usePathname()
-  const paths = pathname.split('/')
-  const path = paths[paths.length - 1] as keyof typeof steps
-  const width = Math.floor(percent * steps[path])
+  const searchParams = useSearchParams()
+  const id = +(searchParams.get('id') as string)
+  const width = Math.floor(percent * id)
 
   return (
-    <div className="flex flex-col h-screen">
-      <header className="flex items-center justify-between border-b border-gray-300 py-6 px-20 relative">
+    <div className="flex flex-col h-screen max-h-screen">
+      <header className="flex items-center justify-between border-b border-gray-300 py-6 px-20">
         <div className="w-6 h-6"></div>
         <Image src={'/images/db-logo.svg'} alt={'logo'} width={'186'} height={'50'} layout={'fixed'} />
         <div className="w-6 h-6" onClick={() => router.push('/')}>

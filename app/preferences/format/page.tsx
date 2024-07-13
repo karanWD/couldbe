@@ -14,7 +14,7 @@ const FormatPage = () => {
           'please let us know which course format you prefer'
         }
       />
-      <PageContent options={Options} name={'format'} />
+      <PageContent options={Options} name={'course_format'} />
     </article>
   )
 }

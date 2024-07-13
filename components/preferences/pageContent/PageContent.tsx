@@ -2,8 +2,10 @@ import React, { FC, useState } from 'react'
 import Chips from '@/components/ui/chips/Chips'
 import SubmitHandler from '@/components/preferences/submitHandler/SubmitHandler'
 import { usePathname, useRouter } from 'next/navigation'
+import useFetch from '@/hooks/useFetch'
+import { ApiRoutes } from '@/constants/routes'
 
-const Routes = ['career', 'budget', 'experience', 'degree', 'duration', 'format', 'questions']
+const Routes = ['career', 'budget', 'experience', 'degree', 'duration', 'format']
 type Props = {
   options: string[]
   name: string
@@ -15,11 +17,27 @@ const PageContent: FC<Props> = ({ options, name }) => {
   const nextIndex = Routes.findIndex((item) => item === path) + 1
   const router = useRouter()
   const [selected, setSelected] = useState<string | null>(null)
+  const { request } = useFetch()
+  const { request: submitReq } = useFetch()
   const submitHandler = () => {
     if (selected) {
       const values = JSON.parse(sessionStorage.getItem('preferences') as any)
-      sessionStorage.setItem('preferences', JSON.stringify({ ...values, [name]: selected }))
-      router.push('/preferences/' + Routes[nextIndex])
+      const updated = { ...values, [name]: selected }
+      sessionStorage.setItem('preferences', JSON.stringify(updated))
+      if (path === 'format') {
+        request({
+          url: ApiRoutes.PREFERENCE_STORE,
+          method: 'POST',
+        }).then((res) => {
+          submitReq({
+            url: ApiRoutes.PREFERENCE_STORE + '/' + res?.data?.data?.id,
+            method: 'PUT',
+            data: updated,
+          }).then(() => router.push('/questions'))
+        })
+      } else {
+        router.push('/preferences/' + Routes[nextIndex])
+      }
     }
   }
 
