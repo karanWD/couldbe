@@ -29,7 +29,7 @@ const Career = () => {
     router.push('/preferences/budget')
   }
   return (
-    <article className="w-full">
+    <article className="w-full max-w-screen-xl mx-auto">
       <h1 className="font-[CodecPro-Heavy] text-[50px] text-center py-8">What it couldbe?</h1>
       <div className="max-w-2xl mx-auto relative bg-white shadow-[0_4px_18px_rgba(0,0,0,0.1)] rounded-xl">
         <form>

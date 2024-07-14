@@ -3,6 +3,7 @@ import React, { useRef } from 'react'
 import Range from '@/components/reusable/range/Range'
 import SubmitHandler from '@/components/preferences/submitHandler/SubmitHandler'
 import { useRouter } from 'next/navigation'
+import PreferencesTitle from '@/components/preferences/preferencesTitle/PreferencesTitle'
 
 const BudgetPage = () => {
   const router = useRouter()
@@ -20,11 +21,9 @@ const BudgetPage = () => {
   }
   return (
     <>
-      <article className=" px-40 flex flex-col flex-1 w-full">
-        <h1 className="font-[CodecPro-Heavy] text-[50px] text-left py-8 w-full  mx-auto ">
-          What is your budget for the course?
-        </h1>
-        <div className="w-[700px] relative mt-8 px-9 py-12 rounded-2xl border border-black/[0.2] shadow-[0_4px_18px_rgba(0,0,0,0.15)]">
+      <article className="flex flex-col flex-1 w-full max-w-screen-lg xl:max-w-screen-xl mx-auto pt-6">
+        <PreferencesTitle title="What is your budget for the course?" />
+        <div className="w-full max-w-[700px] relative px-6 py-10 rounded-2xl border border-black/[0.2] shadow-[0_4px_18px_rgba(0,0,0,0.15)]">
           <Range max={100000} min={0} onChange={({ min, max }) => ((budgetRef?.current as any).value = [min, max])} />
         </div>
       </article>

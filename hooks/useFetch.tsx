@@ -8,7 +8,7 @@ const axiosConfig = { baseURL: 'http://dev.couldbe.io/api' }
 const instance: AxiosInstance = axios.create(axiosConfig as CreateAxiosDefaults)
 instance.interceptors.request.use((req) => {
   // const cookie = getCookie(hashedCookie) && JSON.parse(getCookie(hashedCookie) as string)
-  const token = '2|mSB1tpO2Ms4p2jKaNUwnUVGhndeB7biOIdPP0Oo1113c59af'
+  const token = '1|tn1U6wy1Sy4QgGlYEWCH7lxhSZFiqoPFhRNzX9qb8b2840b0'
   req.headers = {
     Authorization: `Bearer ${token}`,
   } as AxiosRequestHeaders
@@ -45,13 +45,7 @@ const UseFetch = () => {
         })
         return Promise.resolve({ data: res?.data, status: res?.status })
       } else {
-        if (Array.isArray(res?.data?.message)) {
-          for (const item of res.data.message) {
-            toast.error(item)
-          }
-        } else {
-          toast.error(res?.data?.message)
-        }
+        toast.error('Sorry we have an error,Please contact with support')
         await setResponse({
           loading: false,
           response: null,
@@ -63,7 +57,7 @@ const UseFetch = () => {
         loading: false,
         response: null,
       })
-      toast.error('متاسفانه خطایی در ارتباط با سرور پیش آمده')
+      toast.error('Sorry we have an error,Please contact with support')
     }
   }
 

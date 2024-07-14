@@ -4,6 +4,7 @@ import SubmitHandler from '@/components/preferences/submitHandler/SubmitHandler'
 import { usePathname, useRouter } from 'next/navigation'
 import useFetch from '@/hooks/useFetch'
 import { ApiRoutes } from '@/constants/routes'
+import { toast } from 'react-toastify'
 
 const Routes = ['career', 'budget', 'experience', 'degree', 'duration', 'format']
 type Props = {
@@ -33,7 +34,7 @@ const PageContent: FC<Props> = ({ options, name }) => {
             url: ApiRoutes.PREFERENCE_STORE + '/' + res?.data?.data?.id,
             method: 'PUT',
             data: updated,
-          }).then(() => router.push('/questions'))
+          }).then(() => router.push('/questions/1'))
         })
       } else {
         router.push('/preferences/' + Routes[nextIndex])
@@ -43,7 +44,7 @@ const PageContent: FC<Props> = ({ options, name }) => {
 
   return (
     <>
-      <section className={'flex flex-1 w-full max-w-[1526px] mx-auto'}>
+      <section className={'flex flex-1 w-full max-w-screen-lg xl:max-w-screen-xl mx-auto'}>
         <section className={'flex gap-4 h-fit '}>
           {options.map((item, index) => (
             <Chips key={'CHIPS_ITEM_' + index} clickHandler={() => setSelected(item)} checked={item === selected}>
