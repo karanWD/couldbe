@@ -40,8 +40,8 @@ const Data = [
 const ShortTermPlan: FC = () => {
   const [activeIndex, setActiveIndex] = useState(1)
   return (
-    <div>
-      <div className="text-[40px] font-[CodecPro-ExtraBold] relative w-full bg-white  flex justify-center  before:ontent-[''] before:flex before:w-[100%] before:h-[2px] before:bg-[#F25D1B] before:bottom-7 before:absolute before:z-0">
+    <div className="flex flex-col w-full ">
+      <div className="w-[90%] ml-auto text-[40px] font-[CodecPro-ExtraBold] relative  bg-white  flex justify-center my-[68px] before:ontent-[''] before:flex before:w-[100%] before:h-[2px] before:bg-[#F25D1B] before:bottom-7 before:absolute before:z-0">
         <span className="text-[40px] font-[CodecPro-ExtraBold]  bg-white  flex text-[#F25D1B] z-20 px-6">
           Short Term Plan
         </span>
