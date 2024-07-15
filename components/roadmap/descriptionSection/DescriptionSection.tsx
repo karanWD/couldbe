@@ -4,7 +4,7 @@ import { FC } from 'react'
 
 const DescriptionSection: FC = () => {
   return (
-    <div className="flex flex-col gap-y-[36px] w-[90%]">
+    <div className="flex flex-col gap-y-[36px] mb-28 w-[90%]">
       <div className="flex justify-between items-center mb-[36px]">
         <div className="flex items-center gap-x-[14px]">
           <div className="flex justify-center items-center rounded-[100%] bg-[#CAD1FB] w-[55px] h-[55px]">
@@ -19,10 +19,14 @@ const DescriptionSection: FC = () => {
           Save roadmap
         </button>
       </div>
-      <span className="text-[50px] font-[CodecPro-Heavy]">Lorem Ipsum</span>
+      <span className="text-[50px] font-[CodecPro-Heavy]">The roadmap powered by AI</span>
       <p className="text-[20px] font-[CodecPro-Regular]">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        Miami Beach offers a vibrant and lively atmosphere perfect for a family vacation. With sunny weather and
+        beautiful beaches, you can enjoy relaxing by the ocean or taking a leisurely stroll along the boardwalk. The
+        citys diverse dining options will satisfy everyone&#39s taste buds, while the numerous shopping opportunities on
+        Lincoln Road provide a fun and exciting experience for all. Whether you&#39re looking to unwind on the sandy
+        shores or explore the city&#39s lively streets, Miami Beach has something for everyone to enjoy during your
+        7-day trip in June.
       </p>
     </div>
   )

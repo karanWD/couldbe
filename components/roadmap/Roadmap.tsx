@@ -2,17 +2,19 @@ import { FC } from 'react'
 import DescriptionSection from './descriptionSection/DescriptionSection'
 import ShortTermPlan from './shortTermPlan/ShortTermPlan'
 import LongTimePlan from './longTermPlan/LongTermPlan'
+import CharacterType from './characterType/CharacterType'
 
-const Offers: FC = () => {
+const Roadmap: FC = () => {
   return (
-    <div className="max-w-[90%] flex flex-col items-center mx-auto py-[95px] gap-y-[88px] ">
+    <div className="max-w-[90%] flex flex-col items-center mx-auto py-[95px] gap-y-[88px]">
       <div className="w-full flex justify-center items-start">
         <div className="w-[50%] flex flex-col items-end">
           <DescriptionSection />
           <ShortTermPlan />
           <LongTimePlan />
         </div>
-        <div className="w-[50%] flex justify-center">
+        <div className="w-[50%] flex flex-col justify-center items-center gap-y-10">
+          <CharacterType />
           <div className="w-[80%] h-[300px] shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-black/[0.2]"></div>
         </div>
       </div>
@@ -26,4 +28,4 @@ const Offers: FC = () => {
     </div>
   )
 }
-export default Offers
+export default Roadmap
