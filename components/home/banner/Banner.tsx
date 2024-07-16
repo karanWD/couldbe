@@ -3,13 +3,13 @@ import { FC } from 'react'
 
 const Banner: FC = () => {
   return (
-    <div className="flex flex-col justify-center items-center max-w-[80%] w-full gap-y-24 mb-28">
-      <div className="bg-[url('/images/banner.svg')] bg-cover bg-no-repeat bg-center w-full h-[682px] rounded-[45px] flex  items-center">
-        <div className="flex flex-col w-[40%] pl-[104px] ">
-          <span className="font-[CodecPro-Heavy] text-[50px] text-white ">
+    <div className="flex flex-col justify-center items-center lg:max-w-[90%] 2xl:max-w-[80%] w-full gap-y-24 mb-28">
+      <div className="bg-[url('/images/banner.svg')] bg-cover bg-no-repeat bg-center w-full lg:h-[430px] xl:h-[520px] 2xl:h-[550px] rounded-[45px] flex  items-center">
+        <div className="flex flex-col lg:w-[50%] 2xl:w-[46%] lg:pl-[64px] xl:pl-[104px] ">
+          <span className="font-[CodecPro-Heavy] lg:text-[42px] xl:text-[48px] text-white ">
             Get started for free in 1 minute or less
           </span>
-          <span className="font-[CodecPro-Light] text-[25px] text-white mt-2 mb-8 ">
+          <span className="font-[CodecPro-Light] lg:text-[20px] xl:text-[25px] text-white mt-2 mb-8 ">
             A step-by-step guide to creating and sustaining your own career path
           </span>
           <Button format="fill" variant="primary" size="md" className="w-[200px] font-[CodecPro-News] text-[20px]">
