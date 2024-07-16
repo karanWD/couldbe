@@ -1,11 +1,12 @@
+'use client'
 import React, { FC } from 'react'
 import Login from '@/components/login/Login'
 
 type Props = {
-  params: any
+  searchParams: any
 }
-const LoginPage: FC<Props> = ({ params }) => {
-  return <Login pageParams={params} />
+const LoginPage: FC<Props> = ({ searchParams }) => {
+  return <Login pageParams={searchParams} />
 }
 
 export default LoginPage

@@ -3,12 +3,12 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosRequestHeaders, CreateAx
 import { getCookie } from 'cookies-next'
 import { toast } from 'react-toastify'
 
-const hashedCookie = process.env.NEXT_PUBLIC_HASH_TOKEN
+// const hashedCookie = process.env.NEXT_PUBLIC_HASH_TOKEN
+const hashedCookie = 'auth_key'
 const axiosConfig = { baseURL: 'http://dev.couldbe.io/api' }
 const instance: AxiosInstance = axios.create(axiosConfig as CreateAxiosDefaults)
 instance.interceptors.request.use((req) => {
-  // const cookie = getCookie(hashedCookie) && JSON.parse(getCookie(hashedCookie) as string)
-  const token = '1|tn1U6wy1Sy4QgGlYEWCH7lxhSZFiqoPFhRNzX9qb8b2840b0'
+  const token = getCookie(hashedCookie)
   req.headers = {
     Authorization: `Bearer ${token}`,
   } as AxiosRequestHeaders
