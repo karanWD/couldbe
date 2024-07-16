@@ -37,7 +37,7 @@ const PlanItem: FC<Props> = ({ title, badge, level, details, description, price,
     },
   ]
   return (
-    <div className="flex flex-col gap-y-10 ">
+    <div className="flex flex-col gap-y-10 border-black border-opacity-0.3 border-[1px] border-solid p-8 rounded-[20px]">
       <div className="flex items-center gap-x-8">
         <Image src={image} alt={title} width={234} height={300} />
         <div className="flex flex-col gap-y-2 flex-1">

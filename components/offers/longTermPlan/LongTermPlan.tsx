@@ -4,51 +4,108 @@ import PlanAccordionItem from '../planAccordionItem/PlanAccordionItem'
 const Data = [
   {
     accordionTitle: 'Books',
-    image: '/images/book.png',
-    title: 'Bulletproof Problem Solving',
-    badge: ['Probiem Salving', 'Working with people'],
-    details: {
-      author: 'Charles Conn, and Robert McLean',
-      publisher: 'John Wiley Sons Inc',
-      language: 'English',
-      numberOfPage: '320',
-    },
-    level: 'Level 2',
-    description:
-      'Complex problem solving is the core skill for 21st Century Teams Complex problem solving is at the very top of the list of essential skills for career progression in the modern world. But how problem  is at the very top of the list of essential skills for career progression in the modern world. But how problem',
-    price: '23.5',
+    slideItems: [
+      {
+        image: '/images/book.png',
+        title: 'Bulletproof Problem Solving',
+        badge: ['Probiem Salving', 'Working with people'],
+        details: {
+          author: 'Charles Conn, and Robert McLean',
+          publisher: 'John Wiley Sons Inc',
+          language: 'English',
+          numberOfPage: '320',
+        },
+        level: 'Level 2',
+        description:
+          'Complex problem solving is the core skill for 21st Century Teams Complex problem solving is at the very top of the list of essential skills for career progression in the modern world. But how problem  is at the very top of the list of essential skills for career progression in the modern world. But how problem',
+        price: '23.5',
+      },
+      {
+        image: '/images/book.png',
+        title: 'Bulletproof Problem Solving',
+        badge: ['Probiem Salving', 'Working with people'],
+        details: {
+          author: 'Charles Conn, and Robert McLean',
+          publisher: 'John Wiley Sons Inc',
+          language: 'English',
+          numberOfPage: '320',
+        },
+        level: 'Level 2',
+        description:
+          'Complex problem solving is the core skill for 21st Century Teams Complex problem solving is at the very top of the list of essential skills for career progression in the modern world. But how problem  is at the very top of the list of essential skills for career progression in the modern world. But how problem',
+        price: '23.5',
+      },
+    ],
   },
   {
     accordionTitle: 'Books',
-    image: '/images/book.png',
-    title: 'Bulletproof Problem Solving',
-    badge: ['Probiem Salving', 'Working with people'],
-    details: {
-      author: 'Charles Conn, and Robert McLean',
-      publisher: 'John Wiley Sons Inc',
-      language: 'English',
-      numberOfPage: '320',
-    },
-    level: 'Level 2',
-    description:
-      'Complex problem solving is the core skill for 21st Century Teams Complex problem solving is at the very top of the list of essential skills for career progression in the modern world. But how problem  is at the very top of the list of essential skills for career progression in the modern world. But how problem',
-    price: '23.5',
+    slideItems: [
+      {
+        image: '/images/book.png',
+        title: 'Bulletproof Problem Solving',
+        badge: ['Probiem Salving', 'Working with people'],
+        details: {
+          author: 'Charles Conn, and Robert McLean',
+          publisher: 'John Wiley Sons Inc',
+          language: 'English',
+          numberOfPage: '320',
+        },
+        level: 'Level 2',
+        description:
+          'Complex problem solving is the core skill for 21st Century Teams Complex problem solving is at the very top of the list of essential skills for career progression in the modern world. But how problem  is at the very top of the list of essential skills for career progression in the modern world. But how problem',
+        price: '23.5',
+      },
+      {
+        image: '/images/book.png',
+        title: 'Bulletproof Problem Solving',
+        badge: ['Probiem Salving', 'Working with people'],
+        details: {
+          author: 'Charles Conn, and Robert McLean',
+          publisher: 'John Wiley Sons Inc',
+          language: 'English',
+          numberOfPage: '320',
+        },
+        level: 'Level 2',
+        description:
+          'Complex problem solving is the core skill for 21st Century Teams Complex problem solving is at the very top of the list of essential skills for career progression in the modern world. But how problem  is at the very top of the list of essential skills for career progression in the modern world. But how problem',
+        price: '23.5',
+      },
+    ],
   },
   {
     accordionTitle: 'Books',
-    image: '/images/book.png',
-    title: 'Bulletproof Problem Solving',
-    badge: ['Probiem Salving', 'Working with people'],
-    details: {
-      author: 'Charles Conn, and Robert McLean',
-      publisher: 'John Wiley Sons Inc',
-      language: 'English',
-      numberOfPage: '320',
-    },
-    level: 'Level 2',
-    description:
-      'Complex problem solving is the core skill for 21st Century Teams Complex problem solving is at the very top of the list of essential skills for career progression in the modern world. But how problem  is at the very top of the list of essential skills for career progression in the modern world. But how problem',
-    price: '23.5',
+    slideItems: [
+      {
+        image: '/images/book.png',
+        title: 'Bulletproof Problem Solving',
+        badge: ['Probiem Salving', 'Working with people'],
+        details: {
+          author: 'Charles Conn, and Robert McLean',
+          publisher: 'John Wiley Sons Inc',
+          language: 'English',
+          numberOfPage: '320',
+        },
+        level: 'Level 2',
+        description:
+          'Complex problem solving is the core skill for 21st Century Teams Complex problem solving is at the very top of the list of essential skills for career progression in the modern world. But how problem  is at the very top of the list of essential skills for career progression in the modern world. But how problem',
+        price: '23.5',
+      },
+      {
+        image: '/images/book.png',
+        title: 'Bulletproof Problem Solving',
+        badge: ['Probiem Salving', 'Working with people'],
+        details: {
+          author: 'Charles Conn, and Robert McLean',
+          publisher: 'John Wiley Sons Inc',
+          language: 'English',
+          numberOfPage: '320',
+        },
+        level: 'Level 2',
+        description:
+          'Complex problem solving is the core skill for 21st Century Teams Complex problem solving is at the very top of the list of essential skills for career progression in the modern world. But how problem  is at the very top of the list of essential skills for career progression in the modern world. But how problem',
+        price: '23.5',
+      },
+    ],
   },
 ]
 const LongTimePlan: FC = () => {
