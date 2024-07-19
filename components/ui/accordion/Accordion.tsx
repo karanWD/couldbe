@@ -41,7 +41,7 @@ const Accordion: FC<AccordionType> = ({ children, title, variant, index, activeI
         </div>
       </div>
       {activeIndex === index && (
-        <div className="bg-white rounded-[24px] p-4 mb-6 transition ease-in-out delay-3000 duration-300">
+        <div className="bg-white rounded-[24px] p-4 mb-6 transition ease-in-out delay-3000 duration-300 max-w-[100%]">
           {children}
         </div>
       )}
