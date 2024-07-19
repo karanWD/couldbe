@@ -19,7 +19,7 @@ const Button: FC<ButtonType> = ({ children, format, variant, size = 'md', ...pro
   return (
     <button
       {...props}
-      className={`${bg} ${color} ${border} ${padding} disabled:opacity-50 disabled:pointer-events-none font-medium rounded-full text-center text-xl ${props.className}`}>
+      className={`${bg} ${color} ${border} ${padding} disabled:opacity-50 disabled:pointer-events-none font-medium rounded-full text-center text-xl flex items-center justify-center ${props.className}`}>
       <>{children}</>
     </button>
   )

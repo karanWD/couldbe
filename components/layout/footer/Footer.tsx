@@ -4,11 +4,11 @@ import { FC } from 'react'
 
 const Footer: FC = () => {
   return (
-    <div className="flex w-full h-[767px] bg-black ">
+    <div className="flex w-full lg:h-[480px] xl:h-[560px] 2xl:h-[700px] bg-black ">
       <div className="bg-[url('/images/footer.svg')] bg-cover bg-no-repeat bg-center w-full h-[100%] flex  ">
-        <div className="w-[80%] flex mx-auto justify-between mt-44">
+        <div className="lg:w-[90%] xl:w-[80%] flex mx-auto justify-between lg:mt-32 xl:mt-36 2xl:mt-44">
           <div className="flex flex-col gap-y-16">
-            <span className="text-[29px] font-[CodecPro-Heavy] text-white">Social Media</span>
+            <span className="lg:text-[22px] xl:text-[29px] font-[CodecPro-Heavy] text-white">Social Media</span>
             <div className="flex gap-x-2 ">
               <Link href={''}>
                 <img src="/images/instagram.svg" />
@@ -25,20 +25,22 @@ const Footer: FC = () => {
             </div>
           </div>
           <div className="flex flex-col gap-y-16">
-            <span className="text-[29px] font-[CodecPro-Heavy] text-white">Contact us</span>
+            <span className="lg:text-[22px] xl:text-[29px] font-[CodecPro-Heavy] text-white">Contact us</span>
             <div className="flex flex-col">
-              <span className="text-[20px] font-[CodecPro-Pro] text-white">+98 912 111 1111</span>
+              <span className="lg:text-[16px] xl:text-[20px] font-[CodecPro-Pro] text-white">+98 912 111 1111</span>
               <span className="text-[20px] font-[CodecPro-Pro] text-white">info@couldbe.io</span>
             </div>
           </div>
           <div className="flex flex-col gap-y-9">
-            <span className="text-[29px] font-[CodecPro-Heavy] text-white">Subscribe for Existential updates</span>
+            <span className="lg:text-[22px] xl:text-[29px] font-[CodecPro-Heavy] text-white">
+              Subscribe for Existential updates
+            </span>
             <form className=" mx-auto w-full">
               <div className="relative">
                 <input
                   type="search"
                   id="default-search"
-                  className="block w-full h-[93px] p-[18px] ps-8 font-[CodecPro-Light] text-[20px] text-[rgba(0, 0, 0, 0.2)]  rounded-[100px] bg-white focus:outline-none"
+                  className="block w-full lg:h-[85px] xl:h-[93px] lg:p-[16px] xl:p-[18px] ps-8 font-[CodecPro-Light] lg:text-[16px] xl:text-[20px] text-[rgba(0, 0, 0, 0.2)]  rounded-[100px] bg-white focus:outline-none"
                   placeholder="Your email address..."
                   required
                 />
@@ -47,7 +49,7 @@ const Footer: FC = () => {
                   format="fill"
                   variant="primary"
                   size="lg"
-                  className=" absolute end-[18px] bottom-[19px]">
+                  className=" absolute lg:end-[16px] xl:end-[18px] lg:bottom-[16px] xl:bottom-[19px]">
                   Submit
                 </Button>
               </div>
