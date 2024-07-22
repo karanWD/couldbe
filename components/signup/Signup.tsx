@@ -140,6 +140,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
                       rules={{ required: true }}
                       render={({ field }) => (
                         <Dropdown
+                          value={field?.value?.value}
                           title={field.value ? field.value.title : 'Day'}
                           onClick={(obj) => field.onChange(obj)}
                           options={days}
@@ -154,6 +155,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
                       rules={{ required: true }}
                       render={({ field }) => (
                         <Dropdown
+                          value={field?.value?.value}
                           title={field.value ? field.value.title : 'Month'}
                           onClick={(obj) => field.onChange(obj)}
                           options={months}
@@ -168,6 +170,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
                       rules={{ required: true }}
                       render={({ field }) => (
                         <Dropdown
+                          value={field?.value?.value}
                           title={field.value ? field.value.title : 'Year'}
                           onClick={(obj) => field.onChange(obj)}
                           options={years}
@@ -203,6 +206,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
                     rules={{ required: true }}
                     render={({ field }) => (
                       <Dropdown
+                        value={field.value?.value}
                         title={field.value ? field.value.title : 'select your gender'}
                         onClick={(obj) => field.onChange(obj)}
                         options={[
