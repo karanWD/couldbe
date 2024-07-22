@@ -9,6 +9,7 @@ import { toast } from 'react-toastify'
 import { setCookie } from 'cookies-next'
 import EyeIcon from '@/components/icons/EyeIcon'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 type Props = {
   pageParams: any
@@ -42,10 +43,8 @@ const Login: FC<Props> = ({ pageParams }) => {
 
   return (
     <section className="flex items-center h-screen w-full">
-      <div className="h-full flex flex-1 bg-neutral-200">
-        <div className="pl-24 pt-12 ">
-          <Image src="/images/logo.svg" alt="couldbe logo" width={198} height={60} />
-        </div>
+      <div className="h-full flex flex-1 relative">
+        <Image src="/images/login.png" alt="couldbe logo" layout="fill" objectFit="cover" />
       </div>
       <div className="h-full flex flex-col flex-1 justify-center ">
         <div className="max-w-screen-md mx-auto flex flex-col  gap-10">
@@ -78,6 +77,12 @@ const Login: FC<Props> = ({ pageParams }) => {
               <Button disabled={loading} type={'submit'} format={'fill'} variant={'secondary'}>
                 {loading ? '...' : 'Login'}
               </Button>
+              <div>
+                {` Don't have an account yet? `}{' '}
+                <Link className="text-secondary font-bold mx-2" href={'/signup'}>
+                  Sign up
+                </Link>
+              </div>
             </div>
           </form>
         </div>
