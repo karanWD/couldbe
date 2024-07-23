@@ -21,8 +21,8 @@ const Hero: FC = () => {
   return (
     <div className="lg:max-w-[80%] xs:max-w-full flex justify-center items-center text-center">
       <div className="flex flex-col justify-center items-center 2xl:max-w-[80%] xs:max-w-[90%] mb-12">
-        <span className="xs:text-[35px] sm:text-[75px] xl:text-[95px] font-[CodecPro-Heavy]">What you couldbe?</span>
-        <span className="xs:text-[20px] sm:text-[35px] font-[codecPro-Light] text-center lg:px-12 xl:px-20">
+        <span className="xs:text-[35px] sm:text-[75px] xl:text-[64px] font-[CodecPro-Heavy]">What you couldbe?</span>
+        <span className="xs:text-[20px] sm:text-[35px] xl:text-[24px] font-[codecPro-Light] text-center lg:px-12 xl:px-20">
           Envision Your Success with AI-Powered Paths toward Your Future Success
         </span>
 
