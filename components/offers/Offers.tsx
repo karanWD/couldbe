@@ -2,6 +2,7 @@ import { FC } from 'react'
 import DescriptionSection from './descriptionSection/DescriptionSection'
 import ShortTermPlan from './shortTermPlan/ShortTermPlan'
 import LongTimePlan from './longTermPlan/LongTermPlan'
+import Chart from './chart/Chart'
 
 const Offers: FC = () => {
   return (
@@ -13,7 +14,9 @@ const Offers: FC = () => {
           <LongTimePlan />
         </div>
         <div className="w-[50%] flex justify-center">
-          <div className="w-[80%] h-[300px] shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-black/[0.2]"></div>
+          <div className="w-[80%] h-fit shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-black/[0.2]">
+            <Chart />
+          </div>
         </div>
       </div>
       <div className="flex flex-col w-[90%] gap-y-[88px]">
