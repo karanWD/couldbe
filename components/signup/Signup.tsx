@@ -76,10 +76,11 @@ const Signup: FC<Props> = ({ pageParams }) => {
       .post(ApiRoutes.BASE + ApiRoutes.REGISTER, data)
       .then((res) => {
         setCookie('auth_key', res.data.data.authentication_token)
-        router.push(pageParams?.return_url ?? '/preferences/career')
+        router.push(pageParams?.return_url ?? '/')
       })
       .catch((e) => {
-        toast.error(e?.response?.data?.errors[0] || e?.response?.data?.errors?.email[0])
+        console.log(e?.response)
+        toast.error(e?.response?.data?.message)
       })
       .finally(() => setLoading(false))
   }

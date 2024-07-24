@@ -1,11 +1,11 @@
+'use client'
 import SearchIcon from '@/components/icons/SearchIcon'
 import Button from '@/components/ui/button/Button'
 import { ApiRoutes } from '@/constants/routes'
-import UseFetch from '@/hooks/useFetch'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { FC, useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+
 type careerItemType = { id: number; title: string; category: string }
 type careerType = { data: careerItemType[] }
 const Hero: FC = () => {

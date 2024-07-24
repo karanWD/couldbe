@@ -1,3 +1,4 @@
+'use client'
 import { FC } from 'react'
 import Button from '@/components/ui/button/Button'
 import { useRouter } from 'next/navigation'

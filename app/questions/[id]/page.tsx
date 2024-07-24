@@ -41,7 +41,7 @@ const QuestionsPage: FC<Props> = ({ params }) => {
         url: ApiRoutes.EXAMS + '/' + data?.exam_id,
         method: 'PUT',
         data: { answershit: values },
-      })
+      }).then(() => router.push('/offers'))
     } else {
       router.push('/questions/' + (+params?.id + 1))
     }

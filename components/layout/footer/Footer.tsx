@@ -1,6 +1,6 @@
-import Button from '@/components/ui/button/Button'
-import Link from 'next/link'
 import { FC } from 'react'
+import Link from 'next/link'
+import Button from '@/components/ui/button/Button'
 
 const Footer: FC = () => {
   return (

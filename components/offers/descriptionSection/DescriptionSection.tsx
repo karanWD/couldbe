@@ -1,4 +1,3 @@
-import Like from '@/components/icons/Like'
 import Image from 'next/image'
 import { FC } from 'react'
 
@@ -12,17 +11,19 @@ const DescriptionSection: FC = () => {
           </div>
           <span className="text-[15px] font-[CodecPro-Bold] text-[#AAAAAA]">powered by AI</span>
         </div>
-        <button className="rounded-[100px] bg-[#CAD1FB] flex items-center h-[65px] px-[32px] gap-x-2 text-[18px] font-[CodecPro-News]">
-          <div className="w-[17px] h-[17px] ">
-            <Like />
-          </div>
-          Save roadmap
-        </button>
+        {/*<button className="rounded-[100px] bg-[#CAD1FB] flex items-center h-[65px] px-[32px] gap-x-2 text-[18px] font-[CodecPro-News]">*/}
+        {/*  <div className="w-[17px] h-[17px] ">*/}
+        {/*    <Like />*/}
+        {/*  </div>*/}
+        {/*  Save roadmap*/}
+        {/*</button>*/}
       </div>
-      <span className="text-[50px] font-[CodecPro-Heavy]">Lorem Ipsum</span>
+      <span className="text-[50px] font-[CodecPro-Heavy]">Design Your Success Pathway with Could Be</span>
       <p className="text-[20px] font-[CodecPro-Regular]">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        Based on your personal preferences and the results of your skill test, we have generated your personalized
+        roadmap for development. Now, its time to choose the resources that best suit your learning style and goals.
+        Please select one or two resources from each category below to ensure a comprehensive and well-rounded growth
+        experience.
       </p>
     </div>
   )
