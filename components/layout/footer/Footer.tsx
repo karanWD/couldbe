@@ -1,6 +1,6 @@
-import Button from '@/components/ui/button/Button'
-import Link from 'next/link'
 import { FC } from 'react'
+import Link from 'next/link'
+import Button from '@/components/ui/button/Button'
 
 const Footer: FC = () => {
   return (
@@ -8,7 +8,7 @@ const Footer: FC = () => {
       <div className="bg-[url('/images/footer.svg')] bg-cover bg-no-repeat bg-center w-full h-[100%] flex  ">
         <div className="lg:w-[90%] xl:w-[80%] flex mx-auto justify-between lg:mt-32 xl:mt-36 2xl:mt-44">
           <div className="flex flex-col gap-y-16">
-            <span className="lg:text-[22px] xl:text-[29px] font-[CodecPro-Heavy] text-white">Social Media</span>
+            <span className="lg:text-[22px] xl:text-[24px] font-[CodecPro-Heavy] text-white">Social Media</span>
             <div className="flex gap-x-2 ">
               <Link href={''}>
                 <img src="/images/instagram.svg" />
@@ -25,31 +25,26 @@ const Footer: FC = () => {
             </div>
           </div>
           <div className="flex flex-col gap-y-16">
-            <span className="lg:text-[22px] xl:text-[29px] font-[CodecPro-Heavy] text-white">Contact us</span>
+            <span className="lg:text-[22px] xl:text-[24px] font-[CodecPro-Heavy] text-white">Contact us</span>
             <div className="flex flex-col">
               <span className="lg:text-[16px] xl:text-[20px] font-[CodecPro-Pro] text-white">+98 912 111 1111</span>
               <span className="text-[20px] font-[CodecPro-Pro] text-white">info@couldbe.io</span>
             </div>
           </div>
           <div className="flex flex-col gap-y-9">
-            <span className="lg:text-[22px] xl:text-[29px] font-[CodecPro-Heavy] text-white">
+            <span className="lg:text-[22px] xl:text-[24px] font-[CodecPro-Heavy] text-white">
               Subscribe for Existential updates
             </span>
             <form className=" mx-auto w-full">
-              <div className="relative">
+              <div className="relative bg-white flex items-center justify-between rounded-full overflow-hidden p-2">
                 <input
                   type="search"
                   id="default-search"
-                  className="block w-full lg:h-[85px] xl:h-[93px] lg:p-[16px] xl:p-[18px] ps-8 font-[CodecPro-Light] lg:text-[16px] xl:text-[20px] text-[rgba(0, 0, 0, 0.2)]  rounded-[100px] bg-white focus:outline-none"
+                  className="block w-full  ps-8 font-[CodecPro-Light] lg:text-[16px] xl:text-[20px] text-[rgba(0, 0, 0, 0.2)] bg-white focus:outline-none"
                   placeholder="Your email address..."
                   required
                 />
-                <Button
-                  type="submit"
-                  format="fill"
-                  variant="primary"
-                  size="lg"
-                  className=" absolute lg:end-[16px] xl:end-[18px] lg:bottom-[16px] xl:bottom-[19px]">
+                <Button type="submit" format="fill" variant="primary" size="md">
                   Submit
                 </Button>
               </div>
