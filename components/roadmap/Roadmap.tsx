@@ -6,13 +6,16 @@ import LongTimePlan from './longTermPlan/LongTermPlan'
 import CharacterType from './characterType/CharacterType'
 import UseFetch from '@/hooks/useFetch'
 import { ApiRoutes } from '@/constants/routes'
-import { dataType } from './types'
+import { dataType, GraphDataType } from './types'
+import Chart from './chart/Chart'
+
 interface ResponseType {
   data: {
     courses: {
       long: dataType
       short: dataType
     }
+    graph_data: GraphDataType
   }
 }
 const Roadmap: FC = () => {
@@ -43,9 +46,13 @@ const Roadmap: FC = () => {
             </>
           )}
         </div>
-        <div className="w-[50%] flex flex-col justify-center items-center gap-y-10">
+        <div className="w-[50%] flex flex-col justify-center items-center gap-y-10 sticky top-0 h-full">
           <CharacterType />
-          <div className="w-[80%] h-[300px] shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-black/[0.2]"></div>
+          {response && (
+            <div className="w-[80%] h-fit shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-black/[0.2]">
+              <Chart data={(response as ResponseType)?.data?.graph_data} />
+            </div>
+          )}
         </div>
       </div>
       <div className="flex flex-col w-[90%] gap-y-[88px]">
