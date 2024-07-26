@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Signup from '@/components/signup/Signup'
 
-const SignUpPage = () => {
-  return <Signup />
+type Props = {
+  searchParams: any
+}
+const SignUpPage: FC<Props> = ({ searchParams }) => {
+  return <Signup pageParams={searchParams} />
 }
 
 export default SignUpPage

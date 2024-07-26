@@ -1,7 +1,11 @@
 export const ApiRoutes = {
-  BASE: 'http://dev.couldbe.io/api',
+  BASE: 'https://couldbe.app/api',
   PREFERENCE_STORE: '/personal-preference',
   CAREERS: '/careers',
   EXAMS: '/exams',
   LOGIN: '/login',
+  REGISTER: '/register',
+  SUGGESTION: '/suggestions',
+  COURSES: '/courses',
+  PROFILES: '/profiles',
 } as const

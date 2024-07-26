@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 
 type BadgeType = {
-  children: string
+  children: ReactNode
   type: 'secondary' | 'default'
 }
 const Badge: FC<BadgeType> = ({ children, type }) => {
