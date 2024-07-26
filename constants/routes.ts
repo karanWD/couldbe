@@ -7,4 +7,5 @@ export const ApiRoutes = {
   REGISTER: '/register',
   SUGGESTION: '/suggestions',
   COURSES: '/courses',
+  PROFILES: '/profiles',
 } as const
