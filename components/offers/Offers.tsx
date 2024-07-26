@@ -1,17 +1,38 @@
-import { FC } from 'react'
+'use client'
+import { FC, useEffect } from 'react'
 import DescriptionSection from './descriptionSection/DescriptionSection'
 import ShortTermPlan from './shortTermPlan/ShortTermPlan'
 import LongTimePlan from './longTermPlan/LongTermPlan'
-
+import UseFetch from '@/hooks/useFetch'
+import { ApiRoutes } from '@/constants/routes'
+import { dataType } from './types'
+interface ResponseType {
+  long: dataType
+  short: dataType
+}
 const Offers: FC = () => {
+  const { request, response } = UseFetch()
+
+  useEffect(() => {
+    request({
+      url: ApiRoutes.SUGGESTION,
+      method: 'get',
+    })
+  }, [])
+
   return (
-    <div className="max-w-[90%] flex flex-col items-center mx-auto py-[95px] gap-y-[88px] ">
+    <div className="xs:max-w-[95%] xl:max-w-[90%] flex flex-col items-center mx-auto py-[95px] gap-y-[88px] ">
       <div className="w-full flex justify-center items-start">
         <div className="w-[50%] flex flex-col items-end">
           <DescriptionSection />
-          <ShortTermPlan />
-          <LongTimePlan />
+          {response && (
+            <>
+              <ShortTermPlan data={(response as ResponseType)?.short} />
+              <LongTimePlan data={(response as ResponseType)?.long} />
+            </>
+          )}
         </div>
+
         <div className="w-[50%] flex justify-center">
           <div className="w-[80%] h-[300px] shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-black/[0.2]"></div>
         </div>

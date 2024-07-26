@@ -1,17 +1,47 @@
-import { FC } from 'react'
+'use client'
+import { FC, useEffect } from 'react'
 import DescriptionSection from './descriptionSection/DescriptionSection'
 import ShortTermPlan from './shortTermPlan/ShortTermPlan'
 import LongTimePlan from './longTermPlan/LongTermPlan'
 import CharacterType from './characterType/CharacterType'
-
+import UseFetch from '@/hooks/useFetch'
+import { ApiRoutes } from '@/constants/routes'
+import { dataType } from './types'
+interface ResponseType {
+  data: {
+    courses: {
+      long: dataType
+      short: dataType
+    }
+  }
+}
 const Roadmap: FC = () => {
+  const { request, response } = UseFetch()
+
+  useEffect(() => {
+    request({
+      url: ApiRoutes.PROFILES,
+      method: 'get',
+    })
+  }, [])
   return (
     <div className="max-w-[90%] flex flex-col items-center mx-auto py-[95px] gap-y-[88px]">
       <div className="w-full flex justify-center items-start">
         <div className="w-[50%] flex flex-col items-end">
           <DescriptionSection />
-          <ShortTermPlan />
-          <LongTimePlan />
+          {response && (
+            <>
+              {(response as ResponseType)?.data?.courses?.short && (
+                <ShortTermPlan data={(response as ResponseType)?.data?.courses?.short} />
+              )}
+              {(response as ResponseType)?.data?.courses?.long && (
+                <LongTimePlan
+                  data={(response as ResponseType)?.data?.courses?.long}
+                  startIndex={Object.keys((response as ResponseType)?.data?.courses?.short).length}
+                />
+              )}
+            </>
+          )}
         </div>
         <div className="w-[50%] flex flex-col justify-center items-center gap-y-10">
           <CharacterType />
