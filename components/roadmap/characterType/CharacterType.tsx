@@ -8,10 +8,10 @@ const CharacterType: FC = () => {
     <div className="flex flex-col gap-y-7 items-center">
       <Image src="/images/character-type.svg" alt="character type" width={460} height={460} />
       <span className="text-[39px] font-[CodecPro-Light] text-[#2C2E86]">Type of your character</span>
-      <button className="bg-[#1232F0] rounded-[19px] w-[426px] h-[85px] text-white text-[39px] font-[CodecPro-Bold] uppercase">
+      <button className="bg-[#1232F0] rounded-[19px] w-[426px] h-[85px] text-white text-[35px] font-[CodecPro-Bold] uppercase">
         Problem solver
       </button>
-      <div className="flex items-center text-[#787878] gap-x-2">
+      {/* <div className="flex items-center text-[#787878] gap-x-2">
         <span className="text-[20px] font-[CodecPro-News]">Share your result:</span>
         <div className="flex gap-x-2 ">
           <Link href={''}>
@@ -27,7 +27,7 @@ const CharacterType: FC = () => {
             <img src="/images/facebook-gray.svg" />
           </Link>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
