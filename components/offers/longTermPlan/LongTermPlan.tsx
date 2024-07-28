@@ -4,8 +4,10 @@ import PlanAccordionItem from '../planAccordionItem/PlanAccordionItem'
 import { dataType, DataTypeKey } from '../types'
 interface Props {
   data: dataType
+  handleAddCourses: (id: number) => void
+  loading: boolean
 }
-const LongTimePlan: FC<Props> = ({ data }) => {
+const LongTimePlan: FC<Props> = ({ data, handleAddCourses, loading }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   return (
     <div className="flex flex-col w-full ">
@@ -24,6 +26,8 @@ const LongTimePlan: FC<Props> = ({ data }) => {
             title={key as DataTypeKey}
             key={index}
             finalIndex={Object.keys(data).length}
+            handleAddCourses={handleAddCourses}
+            loading={loading}
           />
         ))}
     </div>

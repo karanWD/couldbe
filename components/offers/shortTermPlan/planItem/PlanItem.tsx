@@ -1,11 +1,8 @@
 import Badge from '@/components/ui/badge/Badge'
 import Image from 'next/image'
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import LongText from './longText/LongText'
 import Button from '@/components/ui/button/Button'
-import UseFetch from '@/hooks/useFetch'
-import { ApiRoutes } from '@/constants/routes'
-import { toast } from 'react-toastify'
 import { truncate } from '@/helpers/truncate'
 interface Props {
   badge: string[]
@@ -19,31 +16,27 @@ interface Props {
   price: number
   image: string
   id: number
+  handleAddCourses: (id: number) => void
+  loading: boolean
 }
-const PlanItem: FC<Props> = ({ title, badge, level, details, description, price, image, id }) => {
-  const { request, response } = UseFetch()
-  const [loading, setLoading] = useState(false)
-  const handleAddCourses = () => {
-    if (id) {
-      setLoading(true)
-      request({
-        url: ApiRoutes.COURSES,
-        method: 'POST',
-        data: { course_id: id },
-      })
-        .then((res: any) => {
-          toast.success('Your course is added successfully.')
-          console.log('res', res)
-        })
-        .finally(() => {
-          setLoading(false)
-        })
-    }
-  }
+const PlanItem: FC<Props> = ({
+  title,
+  badge,
+  level,
+  details,
+  description,
+  price,
+  image,
+  id,
+  handleAddCourses,
+  loading,
+}) => {
   return (
     <div className="flex flex-col gap-y-10 border-black border-opacity-0.3 border-[1px] border-solid xs:p-5 2xl:p-8 rounded-[20px]">
       <div className="flex items-center xs:gap-x-4 2xl:gap-x-8">
-        <Image src={image} alt={title} width={234} height={300} />
+        <div className="flex shrink w-[234px] h-[300px]">
+          <Image src={image} alt={title} width={234} height={300} />
+        </div>
         <div className="flex flex-col xs:gap-y-1 2xl:gap-y-2 flex-1">
           <span className="xs:text-[22px] 2xl:text-[30px] font-[CodecPro-Bold] xs:mb-4 2xl:mb-16">
             {truncate(title, ' ', 5)}
@@ -85,7 +78,12 @@ const PlanItem: FC<Props> = ({ title, badge, level, details, description, price,
       <div className="flex justify-between items-center">
         <span className="xs:text-[28px] 2xl:text-[40px] font-[CodecPro-Bold]">Price: {price}$</span>
         <div className="max-w-[235px]">
-          <Button format="fill" variant="primary" className="w-[235px]" onClick={handleAddCourses} disabled={loading}>
+          <Button
+            format="fill"
+            variant="primary"
+            className="w-[235px]"
+            onClick={() => handleAddCourses(id)}
+            disabled={loading}>
             {loading ? '...' : '+ Add'}
           </Button>
         </div>

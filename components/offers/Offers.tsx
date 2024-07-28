@@ -1,19 +1,24 @@
 'use client'
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useState } from 'react'
 import DescriptionSection from './descriptionSection/DescriptionSection'
 import ShortTermPlan from './shortTermPlan/ShortTermPlan'
 import LongTimePlan from './longTermPlan/LongTermPlan'
 import UseFetch from '@/hooks/useFetch'
 import { ApiRoutes } from '@/constants/routes'
-import { dataType } from './types'
+import { dataType, GraphDataType } from './types'
 import Chart from './chart/Chart'
+import { toast } from 'react-toastify'
+import Spinner from '../ui/spinner/Spinner'
 interface ResponseType {
   long: dataType
   short: dataType
 }
-
+interface ChartDataType {
+  graph: GraphDataType
+}
 const Offers: FC = () => {
   const { request, response } = UseFetch()
+  const { request: addCourseRequest, response: ChartData } = UseFetch()
 
   useEffect(() => {
     request({
@@ -21,7 +26,23 @@ const Offers: FC = () => {
       method: 'get',
     })
   }, [])
-
+  const [loading, setLoading] = useState(false)
+  const handleAddCourses = (id: number) => {
+    if (id) {
+      setLoading(true)
+      addCourseRequest({
+        url: ApiRoutes.COURSES,
+        method: 'POST',
+        data: { course_id: id },
+      })
+        .then((res: any) => {
+          toast.success('Your course is added successfully.')
+        })
+        .finally(() => {
+          setLoading(false)
+        })
+    }
+  }
   return (
     <div className="xs:max-w-[95%] xl:max-w-[90%] flex flex-col items-center mx-auto py-[95px] gap-y-[88px] ">
       <div className="w-full flex justify-center items-start">
@@ -29,19 +50,37 @@ const Offers: FC = () => {
           <DescriptionSection />
           {response && (
             <>
-              <ShortTermPlan data={(response as ResponseType)?.short} />
-              <LongTimePlan data={(response as ResponseType)?.long} />
+              <ShortTermPlan
+                data={(response as ResponseType)?.short}
+                handleAddCourses={handleAddCourses}
+                loading={loading}
+              />
+              <LongTimePlan
+                data={(response as ResponseType)?.long}
+                handleAddCourses={handleAddCourses}
+                loading={loading}
+              />
             </>
           )}
         </div>
 
-        <div className="w-[50%] flex justify-center">
+        <div className="w-[50%] flex justify-center sticky top-0 h-full">
           <div className="w-[80%] h-fit shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-black/[0.2]">
-            <Chart />
+            {ChartData ? (
+              <Chart data={(ChartData as ChartDataType).graph} />
+            ) : (
+              <div className="w-full px-5 py-8 flex flex-col items-center gap-y-8 min-h-[720px]">
+                <span className="text-[35px] font-[CodecPro-Bold] text-[#1232F0]">Discovery phase result</span>
+                <span className="text-[30px] font-[CodecPro-Thin] text-[#000000]">Make your skills wider</span>
+                <div className="flex items-center justify-center w-[70px] h-full absolute">
+                  <Spinner />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-[90%] gap-y-[88px]">
+      <div className="flex flex-col w-[90%] gap-y-[88px] ">
         <div className="w-full h-[3px] bg-[#FEE7E0]" />
         <p className="text-[30px] font-[CodecPro-News]">
           Every great journey starts with a single step. Focus on those small steps, but never lose sight of your

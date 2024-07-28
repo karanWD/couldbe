@@ -16,8 +16,19 @@ interface Props {
   data: dataItemType[]
   finalIndex: number
   title: DataTypeKey
+  handleAddCourses: (id: number) => void
+  loading: boolean
 }
-const PlanAccordionItem: FC<Props> = ({ index, activeIndex, handleActiveIndex, data, finalIndex, title }) => {
+const PlanAccordionItem: FC<Props> = ({
+  index,
+  activeIndex,
+  handleActiveIndex,
+  data,
+  finalIndex,
+  title,
+  handleAddCourses,
+  loading,
+}) => {
   const [SwiperInstance, setSwiperInstance] = useState<SwiperType>()
   const swiperParams = {
     spaceBetween: 32,
@@ -129,6 +140,8 @@ const PlanAccordionItem: FC<Props> = ({ index, activeIndex, handleActiveIndex, d
                     description={item.description}
                     price={item.price}
                     id={item.id}
+                    handleAddCourses={handleAddCourses}
+                    loading={loading}
                   />
                 </SwiperSlide>
               ))}
@@ -139,15 +152,15 @@ const PlanAccordionItem: FC<Props> = ({ index, activeIndex, handleActiveIndex, d
             <div className="flex items-center z-10 justify-between absolute top-[calc(100%-50%)] xs:left-[2%] xl:left-[5%] w-[100%]">
               <div
                 onClick={() => SwiperInstance?.slidePrev?.()}
-                className="flex items-center justify-center cursor-pointer xs:w-[70px] xs:h-[70px] xl:w-[90px] xl:h-[90px] rounded-[100%] border-[1px] border-[rgba(0, 0, 0, 0.2)] border-solid bg-white">
-                <div className="xs:w-[16px] xl:w-[20px]">
+                className="flex items-center justify-center cursor-pointer xs:w-[50px] xs:h-[50px] xl:w-[70px] xl:h-[70px] rounded-[100%] border-[1px] border-[rgba(0, 0, 0, 0.2)] border-solid bg-white">
+                <div className="xs:w-[12px] xl:w-[16px]">
                   <ArrowLeft />
                 </div>
               </div>
               <div
                 onClick={() => SwiperInstance?.slideNext?.()}
-                className="flex items-center justify-center cursor-pointer xs:w-[70px] xs:h-[70px] xl:w-[90px] xl:h-[90px] rounded-[100%] border-[1px] border-[rgba(0, 0, 0, 0.2)] border-solid bg-white">
-                <div className="xs:w-[16px] xl:w-[20px]">
+                className="flex items-center justify-center cursor-pointer xs:w-[50px] xs:h-[50px] xl:w-[70px] xl:h-[70px] rounded-[100%] border-[1px] border-[rgba(0, 0, 0, 0.2)] border-solid bg-white">
+                <div className="xs:w-[12px] xl:w-[16px]">
                   <ArrowRight />
                 </div>
               </div>

@@ -6,9 +6,11 @@ import { dataType, DataTypeKey } from '../types'
 
 interface Props {
   data: dataType
+  handleAddCourses: (id: number) => void
+  loading: boolean
 }
 
-const ShortTermPlan: FC<Props> = ({ data }) => {
+const ShortTermPlan: FC<Props> = ({ data, handleAddCourses, loading }) => {
   const [activeIndex, setActiveIndex] = useState(1)
   return (
     <div className="flex flex-col w-full ">
@@ -27,6 +29,8 @@ const ShortTermPlan: FC<Props> = ({ data }) => {
             title={key as DataTypeKey}
             key={index}
             finalIndex={Object.keys(data).length}
+            handleAddCourses={handleAddCourses}
+            loading={loading}
           />
         ))}
     </div>
