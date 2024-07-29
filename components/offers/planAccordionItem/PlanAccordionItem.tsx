@@ -31,17 +31,16 @@ const PlanAccordionItem: FC<Props> = ({
 }) => {
   const [SwiperInstance, setSwiperInstance] = useState<SwiperType>()
   const swiperParams = {
-    spaceBetween: 32,
     slidesPerView: 2,
     rewind: true,
     breakpoints: {
       1024: {
-        slidesPerView: 1.5,
-        spaceBetween: 30,
+        slidesPerView: 1,
+        spaceBetween: 10,
       },
       1536: {
-        slidesPerView: 1.5,
-        spaceBetween: 50,
+        slidesPerView: 1.2,
+        spaceBetween: 10,
       },
     },
   }
@@ -130,7 +129,7 @@ const PlanAccordionItem: FC<Props> = ({
               {...swiperParams}
               className="mySwiper flex w-full after:content-[''] after:w-[20%] after:h-[100%] after:bg-gradient-to-l after:from-white after:opacity-75 after:absolute after:top-0 after:right-0 after:z-20">
               {data?.map((item: dataItemType, index: number) => (
-                <SwiperSlide key={index} className="!w-[100%] ">
+                <SwiperSlide key={index}>
                   <PlanItem
                     image={item.picture}
                     title={item.title}
@@ -145,9 +144,9 @@ const PlanAccordionItem: FC<Props> = ({
                   />
                 </SwiperSlide>
               ))}
-              <SwiperSlide key={index} className="!w-[100%] ">
-                <div className="w-[20px]" />
-              </SwiperSlide>
+              {/*<SwiperSlide key={index} className="!w-[100%] ">*/}
+              {/*  <div className="w-[20px]" />*/}
+              {/*</SwiperSlide>*/}
             </Swiper>
             <div className="flex items-center z-10 justify-between absolute top-[calc(100%-50%)] xs:left-[2%] xl:left-[5%] w-[100%]">
               <div

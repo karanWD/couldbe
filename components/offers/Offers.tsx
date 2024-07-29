@@ -64,15 +64,21 @@ const Offers: FC = () => {
           )}
         </div>
 
-        <div className="w-[50%] flex justify-center sticky top-0 h-full">
-          <div className="w-[80%] h-fit shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-black/[0.2]">
+        <div className="w-[50%] flex justify-center sticky top-4 h-full">
+          <div className="w-[80%] h-fit shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-neutral-200">
             {ChartData ? (
               <Chart data={(ChartData as ChartDataType).graph} />
             ) : (
-              <div className="w-full px-5 py-8 flex flex-col items-center gap-y-8 min-h-[720px]">
-                <span className="text-[35px] font-[CodecPro-Bold] text-[#1232F0]">Discovery phase result</span>
-                <span className="text-[30px] font-[CodecPro-Thin] text-[#000000]">Make your skills wider</span>
-                <div className="flex items-center justify-center w-[70px] h-full absolute">
+              <div className="w-full px-5 py-8 flex flex-col items-center gap-y-8 min-h-[620px]">
+                <div>
+                  <div className="text-center text-[24px] font-[CodecPro-Bold] text-[#1232F0]">
+                    Discovery phase result
+                  </div>
+                  <div className="text-center text-[18px] font-[CodecPro-Thin] text-[#000000]">
+                    Make your skills wider
+                  </div>
+                </div>
+                <div className="flex items-center justify-center w-[50px] h-full absolute">
                   <Spinner />
                 </div>
               </div>
