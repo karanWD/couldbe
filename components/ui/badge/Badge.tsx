@@ -25,7 +25,7 @@ const Badge: FC<BadgeType> = ({ children, type }) => {
         Styles[type].color +
         ' ' +
         Styles[type].border +
-        ' border text-xs rounded-full py-1.5 px-4'
+        ' border text-[11px] font-[CodecPro-News]  rounded-full py-1 px-3'
       }>
       {children}
     </span>

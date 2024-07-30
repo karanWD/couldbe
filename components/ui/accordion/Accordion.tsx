@@ -18,7 +18,7 @@ const Accordion: FC<AccordionType> = ({ children, title, variant, index, activeI
     },
     text: {
       fontFamily: 'font-[CodecPro-ExtraBold]',
-      fontSize: 'text-[30px]',
+      fontSize: 'text-[24px]',
       color: '#4D67F0',
       textColor: 'text-[#4D67F0]',
     },
@@ -41,7 +41,7 @@ const Accordion: FC<AccordionType> = ({ children, title, variant, index, activeI
         </div>
       </div>
       <div
-        className={`bg-white rounded-[24px] transition-all ease-in-out duration-300 max-w-[100%] px-4 ${activeIndex === index ? 'max-h-[2000px] py-4' : 'max-h-[0] hidden'} overflow-hidden`}>
+        className={`bg-white rounded-[24px] transition-all ease-in-out duration-300 max-w-[100%]  ${activeIndex === index ? 'max-h-[2000px] py-4' : 'max-h-[0] hidden'} overflow-hidden`}>
         {children}
       </div>
     </>

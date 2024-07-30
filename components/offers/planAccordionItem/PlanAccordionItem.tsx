@@ -35,7 +35,11 @@ const PlanAccordionItem: FC<Props> = ({
     rewind: true,
     breakpoints: {
       1024: {
-        slidesPerView: 1,
+        slidesPerView: 1.2,
+        spaceBetween: 10,
+      },
+      1280: {
+        slidesPerView: 1.2,
         spaceBetween: 10,
       },
       1536: {
@@ -151,15 +155,15 @@ const PlanAccordionItem: FC<Props> = ({
             <div className="flex items-center z-10 justify-between absolute top-[calc(100%-50%)] xs:left-[2%] xl:left-[5%] w-[100%]">
               <div
                 onClick={() => SwiperInstance?.slidePrev?.()}
-                className="flex items-center justify-center cursor-pointer xs:w-[50px] xs:h-[50px] xl:w-[70px] xl:h-[70px] rounded-[100%] border-[1px] border-[rgba(0, 0, 0, 0.2)] border-solid bg-white">
-                <div className="xs:w-[12px] xl:w-[16px]">
+                className="flex items-center justify-center cursor-pointer xs:w-[50px] xs:h-[50px] xl:w-[50px] xl:h-[50px] rounded-[100%] border-[1px] border-[rgba(0, 0, 0, 0.2)] border-solid bg-white">
+                <div className="xs:w-[14px] xl:w-[16px]">
                   <ArrowLeft />
                 </div>
               </div>
               <div
                 onClick={() => SwiperInstance?.slideNext?.()}
-                className="flex items-center justify-center cursor-pointer xs:w-[50px] xs:h-[50px] xl:w-[70px] xl:h-[70px] rounded-[100%] border-[1px] border-[rgba(0, 0, 0, 0.2)] border-solid bg-white">
-                <div className="xs:w-[12px] xl:w-[16px]">
+                className="flex items-center justify-center cursor-pointer xs:w-[50px] xs:h-[50px] xl:w-[50px] xl:h-[50px] rounded-[100%] border-[1px] border-[rgba(0, 0, 0, 0.2)] border-solid bg-white">
+                <div className="xs:w-[14px] xl:w-[16px]">
                   <ArrowRight />
                 </div>
               </div>
