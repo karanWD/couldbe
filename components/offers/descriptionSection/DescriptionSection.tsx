@@ -26,7 +26,7 @@ const DescriptionSection: FC = () => {
         </button>
       </div>
       <span className="text-[28px] font-[CodecPro-Heavy]">Design Your Success Pathway with Could Be</span>
-      <p className="text-[18px] font-[CodecPro-Regular]">
+      <p className="text-[18px] font-[CodecPro-News]">
         Based on your personal preferences and the results of your skill test, we have generated your personalized
         roadmap for development. Now, its time to choose the resources that best suit your learning style and goals.
         Please select one or two resources from each category below to ensure a comprehensive and well-rounded growth

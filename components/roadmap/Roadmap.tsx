@@ -16,6 +16,7 @@ interface ResponseType {
       short: dataType
     }
     graph_data: GraphDataType
+    user: { character: string }
   }
 }
 const Roadmap: FC = () => {
@@ -47,7 +48,7 @@ const Roadmap: FC = () => {
           )}
         </div>
         <div className="w-[50%] flex flex-col justify-center items-center gap-y-10 sticky top-0 h-full">
-          <CharacterType />
+          {response && <CharacterType character={(response as ResponseType)?.data.user?.character} />}
           {response && (
             <div className="w-[80%] h-fit shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-black/[0.2]">
               <Chart data={(response as ResponseType)?.data?.graph_data} />
@@ -57,7 +58,7 @@ const Roadmap: FC = () => {
       </div>
       <div className="flex flex-col w-[90%] gap-y-[88px]">
         <div className="w-full h-[3px] bg-[#FEE7E0]" />
-        <p className="text-[30px] font-[CodecPro-News]">
+        <p className="xs:text-[24px] 2xl:text-[26px] font-[CodecPro-News]">
           Every great journey starts with a single step. Focus on those small steps, but never lose sight of your
           long-term vision. Your plans today will pave the way for your future success
         </p>

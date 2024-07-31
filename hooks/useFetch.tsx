@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 
 // const hashedCookie = process.env.NEXT_PUBLIC_HASH_TOKEN
 const hashedCookie = 'auth_key'
-const axiosConfig = { baseURL: 'https://couldbe.app/api' }
+const axiosConfig = { baseURL: 'https://api.couldbe.io/api' }
 const instance: AxiosInstance = axios.create(axiosConfig as CreateAxiosDefaults)
 instance.interceptors.request.use((req) => {
   const token = getCookie(hashedCookie)

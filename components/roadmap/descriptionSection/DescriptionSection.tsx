@@ -19,8 +19,8 @@ const DescriptionSection: FC = () => {
         {/*  Save roadmap*/}
         {/*</button>*/}
       </div>
-      <span className="text-[32px] font-[CodecPro-Heavy]">The roadmap powered by AI</span>
-      <p className="text-[18px] font-[CodecPro-Regular]">
+      <span className="text-[28px] font-[CodecPro-Heavy]">The roadmap powered by AI</span>
+      <p className="text-[18px] font-[CodecPro-News]">
         Miami Beach offers a vibrant and lively atmosphere perfect for a family vacation. With sunny weather and
         beautiful beaches, you can enjoy relaxing by the ocean or taking a leisurely stroll along the boardwalk. The
         citys diverse dining options will satisfy everyone&#39s taste buds, while the numerous shopping opportunities on

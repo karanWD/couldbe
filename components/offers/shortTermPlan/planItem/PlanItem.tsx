@@ -31,8 +31,11 @@ const PlanItem: FC<Props> = ({
   handleAddCourses,
   loading,
 }) => {
+  const joinItems = (items: string[]) => {
+    return items.join(' , ')
+  }
   return (
-    <div className="flex flex-col gap-y-6 border-black border-opacity-0.3 border-[1px] border-solid xs:p-5 2xl:p-6 rounded-[20px]">
+    <div className="flex flex-col gap-y-4 border-[rgba(0, 0, 0, 0.3)] border-opacity-0.3 border-[1px] border-solid xs:p-5 2xl:p-6 rounded-[20px]">
       <div className="flex items-center xs:gap-x-3 2xl:gap-x-4">
         <div className="flex shrink xs:w-[180px] xs:h-[250px] 2xl:w-[200px] 2xl:h-[280px]">
           <Image src={image} alt={title} width={234} height={300} />
@@ -51,16 +54,13 @@ const PlanItem: FC<Props> = ({
           </div>
           <div className="flex flex-col gap-y-1 mt-3">
             {details?.map((item, index) => (
-              <div key={index} className="flex items-center justify-between gap-x-1">
+              <div key={index} className="flex items-center justify-between gap-x-1.5">
                 <span className="text-[12px] font-[CodecPro-Bold] text-[#9C9B9B]">{item.title}</span>
-                <div className="flex items-center flex-wrap justify-end">
-                  {typeof item.description === 'object' ? (
-                    item.description.map((description, index) => (
-                      <span className="text-[12px] font-[CodecPro-News] text-[#9C9B9B]" key={index}>
-                        {description}
-                        {index !== item.description.length - 1 && ' , '}
-                      </span>
-                    ))
+                <div className="flex items-center justify-end">
+                  {typeof item.description === 'object' && item.description.length > 1 ? (
+                    <span className="text-[12px] font-[CodecPro-News] text-[#9C9B9B] line-clamp-1 w-fit">
+                      {joinItems(item.description)}
+                    </span>
                   ) : (
                     <span className="text-[12px] font-[CodecPro-News] text-[#9C9B9B] line-clamp-1">
                       {item.description}
