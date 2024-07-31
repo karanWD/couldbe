@@ -31,16 +31,17 @@ const PlanItem: FC<Props> = ({
   handleAddCourses,
   loading,
 }) => {
+  const joinItems = (items: string[]) => {
+    return items.join(' , ')
+  }
   return (
-    <div className="flex flex-col gap-y-10 border-black border-opacity-0.3 border-[1px] border-solid xs:p-5 2xl:p-8 rounded-[20px]">
-      <div className="flex items-center xs:gap-x-4 2xl:gap-x-8">
-        <div className="flex shrink w-[234px] h-[300px]">
+    <div className="flex flex-col gap-y-4 border-[rgba(0, 0, 0, 0.3)] border-opacity-0.3 border-[1px] border-solid xs:p-5 2xl:p-6 rounded-[20px]">
+      <div className="flex items-center xs:gap-x-3 2xl:gap-x-4">
+        <div className="flex shrink xs:w-[180px] xs:h-[250px] 2xl:w-[200px] 2xl:h-[280px]">
           <Image src={image} alt={title} width={234} height={300} />
         </div>
         <div className="flex flex-col xs:gap-y-1 2xl:gap-y-2 flex-1">
-          <span className="xs:text-[22px] 2xl:text-[30px] font-[CodecPro-Bold] xs:mb-4 2xl:mb-16">
-            {truncate(title, ' ', 5)}
-          </span>
+          <span className="xs:text-[18px] 2xl:text-[20px] font-[CodecPro-Bold] xs:mb-2 line-clamp-2">{title}</span>
           <div className="flex items-center gap-2 flex-wrap">
             {badge?.map((item, index) => (
               <Badge key={index} type="secondary">
@@ -51,21 +52,18 @@ const PlanItem: FC<Props> = ({
           <div className="max-w-fit">
             <Badge type="default">Level {level}</Badge>
           </div>
-          <div className="flex flex-col gap-y-2.5 mt-3">
+          <div className="flex flex-col gap-y-1 mt-3">
             {details?.map((item, index) => (
-              <div key={index} className="flex items-center justify-between gap-x-1">
-                <span className="text-[15px] font-[CodecPro-Bold] text-[#9C9B9B]">{item.title}</span>
-                <div className="flex items-center flex-wrap justify-end">
-                  {typeof item.description === 'object' ? (
-                    item.description.map((description, index) => (
-                      <span className="text-[15px] font-[CodecPro-News] text-[#9C9B9B]" key={index}>
-                        {description}
-                        {index !== item.description.length - 1 && ' , '}
-                      </span>
-                    ))
+              <div key={index} className="flex items-center justify-between gap-x-1.5">
+                <span className="text-[12px] font-[CodecPro-Bold] text-[#9C9B9B]">{item.title}</span>
+                <div className="flex items-center justify-end">
+                  {typeof item.description === 'object' && item.description.length > 1 ? (
+                    <span className="text-[12px] font-[CodecPro-News] text-[#9C9B9B] line-clamp-1 w-fit">
+                      {joinItems(item.description)}
+                    </span>
                   ) : (
-                    <span className="text-[15px] font-[CodecPro-News] text-[#9C9B9B]">
-                      {truncate(item.description, ' ', 3)}
+                    <span className="text-[12px] font-[CodecPro-News] text-[#9C9B9B] line-clamp-1">
+                      {item.description}
                     </span>
                   )}
                 </div>
@@ -76,12 +74,12 @@ const PlanItem: FC<Props> = ({
       </div>
       <LongText text={description} />
       <div className="flex justify-between items-center">
-        <span className="xs:text-[28px] 2xl:text-[40px] font-[CodecPro-Bold]">Price: {price}$</span>
-        <div className="max-w-[235px]">
+        <span className="xs:text-[20px] 2xl:text-[24px] font-[CodecPro-Bold]">Price: {price}$</span>
+        <div className="xs:max-w-[160px] 2xl:max-w-[200px]">
           <Button
             format="fill"
             variant="primary"
-            className="w-[235px]"
+            className="xs:w-[160px] 2xl:w-[200px]"
             onClick={() => handleAddCourses(id)}
             disabled={loading}>
             {loading ? '...' : '+ Add'}
