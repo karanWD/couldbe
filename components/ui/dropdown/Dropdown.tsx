@@ -14,7 +14,7 @@ const Dropdown: FC<Props> = ({ value, title, options, onClick }) => {
       onBlur={() => {
         setTimeout(() => {
           setOpen(false)
-        }, 100)
+        }, 200)
       }}>
       <button
         data-dropdown-toggle="dropdownRadioBgHover"

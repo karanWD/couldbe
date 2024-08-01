@@ -1,5 +1,5 @@
 export const ApiRoutes = {
-  BASE: 'https://couldbe.app/api',
+  BASE: 'https://api.couldbe.app/api',
   PREFERENCE_STORE: '/personal-preference',
   CAREERS: '/careers',
   EXAMS: '/exams',
