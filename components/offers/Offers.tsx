@@ -14,7 +14,7 @@ interface ResponseType {
     long: dataType
     short: dataType
   }
-  graph: GraphDataType
+  graph_data: GraphDataType
 }
 interface ChartDataType {
   graph: GraphDataType
@@ -80,7 +80,7 @@ const Offers: FC = () => {
             {ChartData ? (
               <Chart data={(ChartData as ChartDataType).graph} />
             ) : !loading ? (
-              response && <Chart data={(response as ResponseType).graph} />
+              response && <Chart data={(response as ResponseType).graph_data} />
             ) : (
               <div className="w-full px-5 py-8 flex flex-col items-center gap-y-8 min-h-[620px]">
                 <div>
