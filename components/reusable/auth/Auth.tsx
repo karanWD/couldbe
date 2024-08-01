@@ -9,9 +9,9 @@ const Auth: FC<Props> = ({ children }) => {
   const cookieStore = cookies()
   const auth = cookieStore.get('auth_key' as any)?.value
   if (!auth) {
-    const headersList = headers()
-    const pathname = headersList.get('x-current-path') || ''
-    redirect(`/login?return_url=${pathname}`)
+    // const headersList = headers()
+    // const pathname = headersList.get('x-current-path') || ''
+    redirect(`/login?return_url=/`)
   }
   return children
 }

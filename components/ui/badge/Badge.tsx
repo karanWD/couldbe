@@ -2,9 +2,10 @@ import React, { FC, ReactNode } from 'react'
 
 type BadgeType = {
   children: ReactNode
+  size?: 'small' | 'base' | 'large'
   type: 'secondary' | 'default'
 }
-const Badge: FC<BadgeType> = ({ children, type }) => {
+const Badge: FC<BadgeType> = ({ children, type, size = 'small' }) => {
   const Styles = {
     secondary: {
       bg: 'bg-secondary',
@@ -17,6 +18,11 @@ const Badge: FC<BadgeType> = ({ children, type }) => {
       border: 'border-black/[0.3]',
     },
   }
+  const Sizes = {
+    small: 'text-[12px]',
+    base: 'text-[14px]',
+    large: 'text-[16px]',
+  }
   return (
     <span
       className={
@@ -25,7 +31,9 @@ const Badge: FC<BadgeType> = ({ children, type }) => {
         Styles[type].color +
         ' ' +
         Styles[type].border +
-        ' border text-[11px] font-[CodecPro-News]  rounded-full py-1 px-3'
+        ' ' +
+        Sizes[size] +
+        ' border font-[CodecPro-News]  rounded-full py-1 px-3'
       }>
       {children}
     </span>

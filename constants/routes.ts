@@ -8,4 +8,5 @@ export const ApiRoutes = {
   SUGGESTION: '/suggestions',
   COURSES: '/courses',
   PROFILES: '/profiles',
+  PWD: '/pwd',
 } as const

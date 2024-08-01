@@ -41,7 +41,10 @@ const QuestionsPage: FC<Props> = ({ params }) => {
         url: ApiRoutes.EXAMS + '/' + data?.exam_id,
         method: 'PUT',
         data: { answershit: values },
-      }).then(() => router.push('/offers'))
+      }).then(() => {
+        router.push('/offers')
+        sessionStorage.removeItem('exam')
+      })
     } else {
       router.push('/questions/' + (+params?.id + 1))
     }
@@ -75,7 +78,9 @@ const QuestionsPage: FC<Props> = ({ params }) => {
         <section className="flex flex-col flex-1 overflow-auto py-5">
           <section className="w-full max-w-screen-lg xl:max-w-screen-xl mx-auto ">
             <div className="mb-4">
-              <Badge type={'secondary'}>{Categories[data?.questions[+id]?.category.name as CategoriesType]}</Badge>
+              <Badge size={'large'} type={'secondary'}>
+                {Categories[data?.questions[+id]?.category.name as CategoriesType]}
+              </Badge>
             </div>
             <PageTitle title={id + 1 + '-' + data?.questions[+id].title} description={''} />
           </section>

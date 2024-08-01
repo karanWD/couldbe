@@ -10,11 +10,35 @@ import { setCookie } from 'cookies-next'
 import EyeIcon from '@/components/icons/EyeIcon'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import useFetch from '@/hooks/useFetch'
 
 type Props = {
   pageParams: any
 }
+
+const Steps = {
+  default: {
+    title: 'Get Started',
+    link: '/preferences/career',
+  },
+  personal_preferences: {
+    title: 'Continue',
+    link: '/preferences/career',
+  },
+  exam: {
+    title: 'Continue',
+    link: '/questions/1',
+  },
+  sugesstions: {
+    title: 'Your Roadmap',
+    link: '/roadmap',
+  },
+}
+
+type Steps = 'default' | 'personal_preferences' | 'exam' | 'sugesstions'
+
 const Login: FC<Props> = ({ pageParams }) => {
+  const { request } = useFetch()
   const router = useRouter()
   const [isHide, setHide] = useState(true)
   const [loading, setLoading] = useState(false)
@@ -33,7 +57,15 @@ const Login: FC<Props> = ({ pageParams }) => {
       .post(ApiRoutes.BASE + ApiRoutes.LOGIN, formRef.current)
       .then((res) => {
         setCookie('auth_key', res.data.data.authentication_token)
-        router.push(pageParams?.return_url ?? '/preferences/career')
+        request({
+          url: ApiRoutes.PWD,
+        }).then((res: any) => {
+          const url = Steps[res.data.next_state as Steps]
+            ? Steps[res.data.next_state as Steps].link
+            : Steps.default.link
+          router.push(url)
+        })
+        // router.push(pageParams?.return_url ?? '/')
       })
       .catch((e) => {
         toast.error(e?.response?.data?.errors[0] || e?.response?.data?.errors?.email[0])
