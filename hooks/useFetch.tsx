@@ -11,6 +11,7 @@ instance.interceptors.request.use((req) => {
   const token = getCookie(hashedCookie)
   req.headers = {
     Authorization: `Bearer ${token}`,
+    Accept: 'application/json',
   } as AxiosRequestHeaders
   return req
 })
@@ -45,7 +46,6 @@ const UseFetch = () => {
         })
         return Promise.resolve({ data: res?.data, status: res?.status })
       } else {
-        toast.error('Sorry we have an error,Please contact with support')
         await setResponse({
           loading: false,
           response: null,
@@ -57,7 +57,6 @@ const UseFetch = () => {
         loading: false,
         response: null,
       })
-      toast.error('Sorry we have an error,Please contact with support')
     }
   }
 

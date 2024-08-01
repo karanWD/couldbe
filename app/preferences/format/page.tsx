@@ -3,7 +3,11 @@ import React from 'react'
 import PageContent from '@/components/preferences/pageContent/PageContent'
 import PreferencesTitle from '@/components/preferences/preferencesTitle/PreferencesTitle'
 
-const Options = ['Online', 'In-person', 'Both']
+const Options = [
+  { title: 'Online', value: 1 },
+  { title: 'In-person', value: 2 },
+  { title: 'Both', value: 3 },
+]
 const FormatPage = () => {
   return (
     <article className="pt-10 flex flex-col flex-1 gap-12">

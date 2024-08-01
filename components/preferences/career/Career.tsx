@@ -25,7 +25,7 @@ const Career = () => {
   }, [])
 
   const careerHandler = (value: number) => {
-    sessionStorage.setItem('preferences', JSON.stringify({ career: value }))
+    sessionStorage.setItem('preferences', JSON.stringify({ intrested_career: value }))
     router.push('/preferences/budget')
   }
   return (

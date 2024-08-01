@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 
 const Routes = ['career', 'budget', 'experience', 'degree', 'duration', 'format']
 type Props = {
-  options: string[]
+  options: { title: string; value: number }[]
   name: string
 }
 const PageContent: FC<Props> = ({ options, name }) => {
@@ -17,7 +17,7 @@ const PageContent: FC<Props> = ({ options, name }) => {
   const path = paths[paths.length - 1]
   const nextIndex = Routes.findIndex((item) => item === path) + 1
   const router = useRouter()
-  const [selected, setSelected] = useState<string | null>(null)
+  const [selected, setSelected] = useState<number | null>(null)
   const { request } = useFetch()
   const { request: submitReq } = useFetch()
   const submitHandler = () => {
@@ -47,8 +47,11 @@ const PageContent: FC<Props> = ({ options, name }) => {
       <section className={'flex flex-1 w-full max-w-screen-lg xl:max-w-screen-xl mx-auto'}>
         <section className={'flex gap-4 h-fit '}>
           {options.map((item, index) => (
-            <Chips key={'CHIPS_ITEM_' + index} clickHandler={() => setSelected(item)} checked={item === selected}>
-              {item}
+            <Chips
+              key={'CHIPS_ITEM_' + index}
+              clickHandler={() => setSelected(item.value)}
+              checked={item.value === selected}>
+              {item.title}
             </Chips>
           ))}
         </section>

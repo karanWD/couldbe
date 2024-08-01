@@ -38,8 +38,11 @@ const Offers: FC = () => {
         method: 'POST',
         data: { course_id: id },
       })
-        .then((res: any) => {
+        .then(() => {
           toast.success('Your course is added successfully.')
+        })
+        .catch((e) => {
+          toast.error(e.message)
         })
         .finally(() => {
           setLoading(false)

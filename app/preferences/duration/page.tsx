@@ -3,7 +3,11 @@ import React from 'react'
 import PageContent from '@/components/preferences/pageContent/PageContent'
 import PreferencesTitle from '@/components/preferences/preferencesTitle/PreferencesTitle'
 
-const Options = ['Less Than 3 months ', 'Less Than 6 months', 'More Than 6 months']
+const Options = [
+  { title: 'Less Than 3 months ', value: 1 },
+  { title: 'Less Than 6 months', value: 2 },
+  { title: 'More Than 6 months', value: 3 },
+]
 const DurationPage = () => {
   return (
     <>

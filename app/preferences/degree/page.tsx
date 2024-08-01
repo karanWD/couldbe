@@ -3,7 +3,11 @@ import React from 'react'
 import PageContent from '@/components/preferences/pageContent/PageContent'
 import PreferencesTitle from '@/components/preferences/preferencesTitle/PreferencesTitle'
 
-const Options = ['Yes', 'No', 'Not Sure Yet']
+const Options = [
+  { title: 'Yes', value: 1 },
+  { title: 'No', value: 2 },
+  { title: 'Not Sure Yet', value: 3 },
+]
 const DegreePage = () => {
   return (
     <>

@@ -14,7 +14,7 @@ const Dropdown: FC<Props> = ({ value, title, options, onClick }) => {
       onBlur={() => {
         setTimeout(() => {
           setOpen(false)
-        }, 200)
+        }, 800)
       }}>
       <button
         data-dropdown-toggle="dropdownRadioBgHover"
@@ -40,19 +40,19 @@ const Dropdown: FC<Props> = ({ value, title, options, onClick }) => {
               return (
                 <li key={'OPTION_ITEM_' + index} onClick={() => onClick(item)}>
                   <div className="flex items-center p-2 rounded hover:bg-gray-100 ">
-                    <input
-                      id={`radio-input-${item.title + item.value}`}
-                      type="radio"
-                      value=""
-                      name="default-radio"
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 "
-                      checked={value == item.value}
-                    />
-                    <label
-                      htmlFor={`radio-input-${item.title + item.value}`}
-                      className="w-full ms-2 text-sm font-medium text-gray-900 rounded ">
-                      {item.title}
-                    </label>
+                    {/*<input*/}
+                    {/*  id={`radio-input-${item.title + item.value}`}*/}
+                    {/*  type="radio"*/}
+                    {/*  value=""*/}
+                    {/*  name="default-radio"*/}
+                    {/*  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 "*/}
+                    {/*  checked={value == item.value}*/}
+                    {/*/>*/}
+                    {/*<label*/}
+                    {/*  htmlFor={`radio-input-${item.title + item.value}`}*/}
+                    {/*  className="w-full ms-2 text-sm font-medium text-gray-900 rounded ">*/}
+                    {item.title}
+                    {/*</label>*/}
                   </div>
                 </li>
               )

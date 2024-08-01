@@ -79,7 +79,9 @@ const Login: FC<Props> = ({ pageParams }) => {
               </Button>
               <div>
                 {` Don't have an account yet? `}{' '}
-                <Link className="text-secondary font-bold mx-2" href={`/signup?return_url=${pageParams?.return_url}`}>
+                <Link
+                  className="text-secondary font-bold mx-2"
+                  href={`/signup?return_url=${pageParams?.return_url ?? '/'}`}>
                   Sign up
                 </Link>
               </div>
