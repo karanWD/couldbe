@@ -13,6 +13,7 @@ import Dropdown from '@/components/ui/dropdown/Dropdown'
 import { Months } from '@/constants/Dates'
 import { Controller, useForm } from 'react-hook-form'
 import Link from 'next/link'
+import { Countries } from '@/constants/countries'
 
 type Props = {
   pageParams: any
@@ -63,6 +64,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
     setLoading(true)
     const data = {
       ...formdata,
+      place_of_residence: formdata.place_of_residence?.title,
       password_confirmation: formdata.password,
       birth_date: formdata.birth_day.value + '-' + formdata.birth_month.value + '-' + formdata.birth_year.value,
       sex: formdata.gender?.value,
@@ -79,7 +81,6 @@ const Signup: FC<Props> = ({ pageParams }) => {
         router.push(pageParams?.return_url ?? '/')
       })
       .catch((e) => {
-        console.log(e?.response)
         toast.error(e?.response?.data?.message)
       })
       .finally(() => setLoading(false))
@@ -88,7 +89,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
   return (
     <section className="flex items-center h-screen w-full">
       <div className="h-full flex flex-col flex-1 justify-center ">
-        <div className="max-w-screen-sm mx-auto flex flex-col gap-4 ">
+        <div className="w-full max-w-screen-sm lg:max-w-screen-sm mx-auto flex flex-col gap-4 p-4 lg:p-0 ">
           <div className="flex flex-col">
             <h5 className="font-[CodecPro-Bold] text-[32px]">Get started with couldbe</h5>
             <h6 className="font-[CodecPro-Light] text-[20px]">Envision Your Success toward Your Future Success</h6>
@@ -182,7 +183,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
                 </div>
               </div>
               <div className="w-full flex gap-3">
-                <div className="flex flex-col flex-1 gap-2">
+                <div className="flex flex-col flex-1 gap-2 w-[50%]">
                   <label htmlFor="" className={errors?.place_of_residence ? 'text-red-500' : ''}>
                     Place of residence
                     {errors?.place_of_residence && <span className="text-red-500 text-xs"> (required) </span>}
@@ -192,11 +193,16 @@ const Signup: FC<Props> = ({ pageParams }) => {
                     control={control}
                     rules={{ required: true }}
                     render={({ field }) => (
-                      <Input type={'text'} name={'place_of_residence'} onChange={field.onChange} />
+                      <Dropdown
+                        value={field.value?.value}
+                        title={field.value ? field.value.title : 'select your country'}
+                        onClick={(obj) => field.onChange(obj)}
+                        options={Countries}
+                      />
                     )}
                   />
                 </div>
-                <div className="flex flex-col flex-1 gap-2">
+                <div className="flex flex-col flex-1 gap-2 w-[50%]">
                   <label htmlFor="" className={errors?.gender ? 'text-red-500' : ''}>
                     Gender
                     {errors?.gender && <span className="text-red-500 text-xs"> (required) </span>}
@@ -213,6 +219,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
                         options={[
                           { title: 'Male', value: 1 },
                           { title: 'Female', value: 2 },
+                          { title: 'Prefer not to say', value: 3 },
                         ]}
                       />
                     )}

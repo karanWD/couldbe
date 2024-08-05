@@ -21,7 +21,7 @@ const Dropdown: FC<Props> = ({ value, title, options, onClick }) => {
         className="justify-between w-full border border-gray-400 text-neutral-800 bg-transparent hover:bg-neutral-100 font-medium rounded-lg text-sm px-5 py-3.5 text-center inline-flex items-center"
         type="button"
         onClick={() => setOpen((prev) => !prev)}>
-        {title}
+        <span className="whitespace-nowrap overflow-hidden text-ellipsis flex flex-1">{title}</span>
         <svg
           className="w-2.5 h-2.5 ms-3"
           aria-hidden="true"

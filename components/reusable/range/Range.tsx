@@ -50,8 +50,8 @@ const Range: FC<Props> = ({ min, max, onChange }) => {
     <>
       <div className="relative w-full">
         <div className="flex justify-between items-center">
-          <div className="bg-neutral-200 rounded-md text-neutral-800 px-2.5 py-1 mb-8">$0</div>
-          <div className="bg-neutral-200 rounded-md text-neutral-800 px-2.5 py-1 mb-8">$100 000</div>
+          <div className="bg-neutral-200 rounded-md text-neutral-800 px-2.5 py-1 mb-8">${min}</div>
+          <div className="bg-neutral-200 rounded-md text-neutral-800 px-2.5 py-1 mb-8">${max}</div>
         </div>
         <div className={Styles['slider__range']} />
         <input
@@ -90,17 +90,17 @@ const Range: FC<Props> = ({ min, max, onChange }) => {
         </div>
 
         <div className="py-2">
-          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">0</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">{min}</span>
           <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-1/4 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
-            25000
+            {(max * 1) / 4}
           </span>
           <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-2/4 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
-            50000
+            {(max * 2) / 4}
           </span>
           <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-3/4 -translate-x-1/2 -bottom-6">
-            75000
+            {(max * 3) / 4}
           </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">100000</span>
+          <span className="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">{max}</span>
         </div>
       </div>
 
