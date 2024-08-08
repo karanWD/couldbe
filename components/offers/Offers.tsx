@@ -52,7 +52,7 @@ const Offers: FC = () => {
 
   return (
     <div className="xs:max-w-[95%] xl:max-w-[80%] flex flex-col items-center mx-auto py-[95px] gap-y-[88px] ">
-      <div className="w-full flex justify-center items-start">
+      <div className="w-full flex justify-center items-start gap-x-6">
         <div className="w-[50%] flex flex-col items-end">
           <DescriptionSection />
           {response && (

@@ -67,7 +67,7 @@ const Header: FC<Props> = ({ isAuthorized }) => {
         <a
           className="rounded-[37px] text-[16px] 2xl:text-[20px] font-[CodecPro-News] text-white bg-[#2C2E86] py-1.5 px-8"
           href={auth ? Statuses[status as Steps]?.link : Statuses.default.link}>
-          {auth ? Statuses[status as Steps]?.title ?? '...' : Statuses.default.title}
+          {auth ? (Statuses[status as Steps]?.title ?? '...') : Statuses.default.title}
         </a>
       </div>
     </div>
