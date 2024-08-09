@@ -32,18 +32,17 @@ const PlanAccordionItem: FC<Props> = ({
   const [SwiperInstance, setSwiperInstance] = useState<SwiperType>()
   const swiperParams = {
     slidesPerView: 2,
-    rewind: true,
     breakpoints: {
       1024: {
-        slidesPerView: 1.2,
-        spaceBetween: 10,
-      },
-      1280: {
         slidesPerView: 1.5,
         spaceBetween: 10,
       },
-      1536: {
-        slidesPerView: 2,
+      1280: {
+        slidesPerView: 1.8,
+        spaceBetween: 10,
+      },
+      1600: {
+        slidesPerView: 2.3,
         spaceBetween: 10,
       },
     },
@@ -123,8 +122,8 @@ const PlanAccordionItem: FC<Props> = ({
           activeIndex={activeIndex}
           setActiveIndex={handleActiveIndex}
           variant="text"
-          className="h-[124px] relative">
-          <div className="flex flex-col gap-y-[62px]">
+          className="py-8 relative px-0">
+          <div className="flex flex-col">
             <Swiper
               onInit={(swiper) => {
                 setSwiperInstance(swiper)

@@ -2,7 +2,10 @@ import Like from '@/components/icons/Like'
 import Image from 'next/image'
 import { FC } from 'react'
 
-const DescriptionSection: FC = () => {
+type Props = {
+  characterStatement: string
+}
+const DescriptionSection: FC<Props> = ({ characterStatement }) => {
   return (
     <div className="flex flex-col gap-y-[18px] mb-20 w-[90%]">
       <div className="flex justify-between items-center ">
@@ -20,14 +23,7 @@ const DescriptionSection: FC = () => {
         {/*</button>*/}
       </div>
       <span className="text-[28px] font-[CodecPro-Heavy]">The roadmap powered by AI</span>
-      <p className="text-[18px] font-[CodecPro-News]">
-        Miami Beach offers a vibrant and lively atmosphere perfect for a family vacation. With sunny weather and
-        beautiful beaches, you can enjoy relaxing by the ocean or taking a leisurely stroll along the boardwalk. The
-        citys diverse dining options will satisfy everyone&#39s taste buds, while the numerous shopping opportunities on
-        Lincoln Road provide a fun and exciting experience for all. Whether you&#39re looking to unwind on the sandy
-        shores or explore the city&#39s lively streets, Miami Beach has something for everyone to enjoy during your
-        7-day trip in June.
-      </p>
+      <p className="text-[18px] font-[CodecPro-News]">{characterStatement}</p>
     </div>
   )
 }

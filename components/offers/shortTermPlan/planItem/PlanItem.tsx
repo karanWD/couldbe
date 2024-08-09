@@ -35,7 +35,7 @@ const PlanItem: FC<Props> = ({
     return items.join(' , ')
   }
   return (
-    <div className="flex flex-col gap-y-4 border-[rgba(0, 0, 0, 0.3)] border-opacity-0.3 border-[1px] border-solid p-3 rounded-[20px] min-h-[360px]">
+    <div className="flex flex-col gap-y-4 border-[rgba(0, 0, 0, 0.3)] border-opacity-0.3 border-[1px] border-solid p-3 rounded-[20px]">
       <div className="flex items-center gap-x-3 ">
         <div className="flex shrink w-[86px] xs:h-[108px]  rounded-[13px] border-[1px] border-solid border-gray-900">
           <Image
@@ -63,7 +63,7 @@ const PlanItem: FC<Props> = ({
       <div className="flex flex-col  ">
         {details?.map((item, index) => (
           <div key={index} className="flex items-center justify-between gap-x-3">
-            <span className="text-[14px] font-[CodecPro-Bold] text-[#9C9B9B]">{item.title}</span>
+            <span className="text-[14px] font-[CodecPro-News] text-[#9C9B9B]">{item.title}</span>
             <div className="flex items-center justify-end">
               {typeof item.description === 'object' && item.description.length > 1 ? (
                 <span className="text-[14px] font-[CodecPro-News] text-[#9C9B9B] line-clamp-1 w-fit">

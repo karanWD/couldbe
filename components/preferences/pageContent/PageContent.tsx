@@ -6,7 +6,7 @@ import useFetch from '@/hooks/useFetch'
 import { ApiRoutes } from '@/constants/routes'
 import { toast } from 'react-toastify'
 
-const Routes = ['career', 'budget', 'experience', 'degree', 'duration', 'format']
+const Routes = ['career', 'budget', 'experience', 'degree', 'duration', 'format', 'abroad']
 type Props = {
   options: { title: string; value: number }[]
   name: string
@@ -25,7 +25,7 @@ const PageContent: FC<Props> = ({ options, name }) => {
       const values = JSON.parse(sessionStorage.getItem('preferences') as any)
       const updated = { ...values, [name]: selected }
       sessionStorage.setItem('preferences', JSON.stringify(updated))
-      if (path === 'format') {
+      if (path === 'abroad') {
         request({
           url: ApiRoutes.PREFERENCE_STORE,
           method: 'POST',

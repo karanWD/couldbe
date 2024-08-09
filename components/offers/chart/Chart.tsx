@@ -1,17 +1,6 @@
 'use client'
 import { FC } from 'react'
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  //   LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  RadialLinearScale,
-  Filler,
-} from 'chart.js'
+import { Chart as ChartJS, PointElement, LineElement, Tooltip, Legend, RadialLinearScale, Filler } from 'chart.js'
 import { Radar } from 'react-chartjs-2'
 import { GraphDataType } from '../types'
 interface Props {
@@ -36,10 +25,10 @@ const Chart: FC<Props> = ({ data }) => {
       {
         label: 'What it couldbe',
         data: [
-          data?.future?.PROBLEM_SOLVING ?? 0,
-          data?.future?.SELF_MANAGMENT ?? 0,
-          data?.future?.LEADER_SHIP_AND_PEPPLE_SKILLS ?? 0,
-          data?.future?.AI_AND_TECH ?? 0,
+          data?.future?.PROBLEM_SOLVING,
+          data?.future?.SELF_MANAGMENT,
+          data?.future?.LEADER_SHIP_AND_PEPPLE_SKILLS,
+          data?.future?.AI_AND_TECH,
         ],
         backgroundColor: 'rgba(18, 50, 240, 0.28)',
         borderColor: '#1232F0',
@@ -48,10 +37,10 @@ const Chart: FC<Props> = ({ data }) => {
       {
         label: 'Your result',
         data: [
-          data?.now?.PROBLEM_SOLVING ?? 0,
-          data?.now?.SELF_MANAGMENT ?? 0,
-          data?.now?.LEADER_SHIP_AND_PEPPLE_SKILLS ?? 0,
-          data?.now?.AI_AND_TECH ?? 0,
+          data?.now?.PROBLEM_SOLVING,
+          data?.now?.SELF_MANAGMENT,
+          data?.now?.LEADER_SHIP_AND_PEPPLE_SKILLS,
+          data?.now?.AI_AND_TECH,
         ],
         backgroundColor: 'rgba(242, 93, 27, 0.28)',
         borderColor: '#F25D1B',
@@ -60,10 +49,10 @@ const Chart: FC<Props> = ({ data }) => {
       {
         label: 'Average of results',
         data: [
-          data?.avrage?.PROBLEM_SOLVING ?? 0,
-          data?.avrage?.SELF_MANAGMENT ?? 0,
-          data?.avrage?.LEADER_SHIP_AND_PEPPLE_SKILLS ?? 0,
-          data?.avrage?.AI_AND_TECH ?? 0,
+          data?.avrage?.PROBLEM_SOLVING,
+          data?.avrage?.SELF_MANAGMENT,
+          data?.avrage?.LEADER_SHIP_AND_PEPPLE_SKILLS,
+          data?.avrage?.AI_AND_TECH,
         ],
         backgroundColor: 'rgba(156, 155, 155, 0.5)',
         borderColor: '#9C9B9B',
@@ -72,31 +61,32 @@ const Chart: FC<Props> = ({ data }) => {
     ],
   }
 
-  const options: any = () => {
-    return {
-      layout: {
-        padding: {
-          left: 50,
-        },
+  const options: any = {
+    scale: {
+      ticks: {
+        min: 0,
+        max: 16,
+        stepSize: 2,
+        showLabelBackdrop: false,
+        backdropColor: 'rgba(203, 197, 11, 1)',
       },
-      scales: {
-        r: {
-          ticks: {
-            backdropPadding: {
-              x: 10,
-              y: 4,
-            },
-          },
-        },
+      angleLines: {
+        color: 'rgba(255, 255, 255, .3)',
+        lineWidth: 1,
       },
+      gridLines: {
+        color: 'rgba(255, 255, 255, .3)',
+        circular: true,
+      },
+    },
 
-      legend: {
-        labels: {
-          position: 'bottom',
-        },
+    legend: {
+      labels: {
+        position: 'bottom',
       },
-    }
+    },
   }
+
   return (
     <div className="w-full px-5 py-8 flex flex-col items-center gap-y-8">
       <span className="text-[24px] font-[CodecPro-Bold] text-[#1232F0]">Discovery phase result</span>

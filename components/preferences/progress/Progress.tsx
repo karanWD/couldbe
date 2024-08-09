@@ -9,8 +9,9 @@ const steps = {
   degree: 4,
   duration: 5,
   format: 6,
+  abroad: 7,
 }
-const percent = 100 / 6
+const percent = 100 / 7
 
 const Progress = () => {
   const router = useRouter()

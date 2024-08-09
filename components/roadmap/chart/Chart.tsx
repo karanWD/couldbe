@@ -1,19 +1,9 @@
 'use client'
 import { FC } from 'react'
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  //   LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  RadialLinearScale,
-  Filler,
-} from 'chart.js'
+import { Chart as ChartJS, PointElement, LineElement, Tooltip, Legend, RadialLinearScale, Filler } from 'chart.js'
 import { Radar } from 'react-chartjs-2'
 import { GraphDataType } from '../types'
+
 interface Props {
   data: GraphDataType
 }
@@ -72,30 +62,22 @@ const Chart: FC<Props> = ({ data }) => {
     ],
   }
 
-  const options: any = () => {
-    return {
-      layout: {
-        padding: {
-          left: 50,
-        },
-      },
-      scales: {
-        r: {
-          ticks: {
-            backdropPadding: {
-              x: 10,
-              y: 4,
-            },
+  const options: any = {
+    scales: {
+      r: {
+        ticks: {
+          min: 0,
+          max: 15,
+          stepSize: 2,
+          backdropPadding: {
+            x: 10,
+            y: 4,
           },
         },
       },
-      plugins: {
-        legend: {
-          position: 'bottom',
-        },
-      },
-    }
+    },
   }
+
   return (
     <div className="w-full px-5 py-8 flex flex-col items-center gap-y-2">
       <span className="text-[24px] font-[CodecPro-Bold] text-[#1232F0]">Discovery phase result</span>

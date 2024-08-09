@@ -16,7 +16,7 @@ interface ResponseType {
       short: dataType
     }
     graph_data: GraphDataType
-    user: { character: string }
+    user: { character: string; character_statement: string; profile_image: string }
   }
 }
 const Roadmap: FC = () => {
@@ -32,7 +32,9 @@ const Roadmap: FC = () => {
     <div className="max-w-[90%] flex flex-col items-center mx-auto py-[95px] gap-y-[88px]">
       <div className="w-full flex justify-center items-start">
         <div className="w-[50%] flex flex-col items-end">
-          <DescriptionSection />
+          {response && (
+            <DescriptionSection characterStatement={(response as ResponseType)?.data?.user?.character_statement} />
+          )}
           {response && (
             <>
               {(response as ResponseType)?.data?.courses?.short && (
@@ -48,7 +50,7 @@ const Roadmap: FC = () => {
           )}
         </div>
         <div className="w-[50%] flex flex-col justify-center items-center gap-y-10 sticky top-0 h-full">
-          {response && <CharacterType character={(response as ResponseType)?.data.user?.character} />}
+          {response && <CharacterType userType={(response as ResponseType)?.data.user} />}
           {response && (
             <div className="w-[80%] h-fit shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-black/[0.2]">
               <Chart data={(response as ResponseType)?.data?.graph_data} />

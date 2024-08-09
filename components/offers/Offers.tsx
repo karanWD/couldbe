@@ -9,6 +9,8 @@ import { dataType, GraphDataType } from './types'
 import Chart from './chart/Chart'
 import { toast } from 'react-toastify'
 import Spinner from '../ui/spinner/Spinner'
+import SaveIcon from '@/components/icons/saveIcon'
+import { useRouter } from 'next/navigation'
 interface ResponseType {
   courses: {
     long: dataType
@@ -20,6 +22,7 @@ interface ChartDataType {
   graph: GraphDataType
 }
 const Offers: FC = () => {
+  const router = useRouter()
   const { request, response } = UseFetch()
   const { request: addCourseRequest, response: ChartData } = UseFetch()
 
@@ -52,7 +55,7 @@ const Offers: FC = () => {
 
   return (
     <div className="xs:max-w-[95%] xl:max-w-[80%] flex flex-col items-center mx-auto py-[95px] gap-y-[88px] ">
-      <div className="w-full flex justify-center items-start gap-x-6">
+      <div className="w-full flex justify-between items-start gap-x-6">
         <div className="w-[50%] flex flex-col items-end">
           <DescriptionSection />
           {response && (
@@ -73,9 +76,24 @@ const Offers: FC = () => {
               )}
             </>
           )}
+          <div className="text-left flex justify-between items-center gap-3 w-full mt-24 bg-blue-50 py-3 px-3 rounded-xl">
+            <p className="text-[18px] w-1/2 font-[CodecPro-news]">
+              After choosing your roadmap, save it so you can access it later
+            </p>
+            <button
+              className="w-fit rounded-[100px] bg-secondary text-white flex items-center py-4 px-[32px] gap-x-2 text-[16px] font-[CodecPro-News]"
+              onClick={() => {
+                router.push('/roadmap')
+              }}>
+              <div className="w-[19px] h-[19px] text-white">
+                <SaveIcon />
+              </div>
+              Save roadmap
+            </button>
+          </div>
         </div>
 
-        <div className="w-[50%] flex justify-center sticky top-4 h-full">
+        <div className="w-[50%] flex justify-center sticky top-4 h-full max-w-[600px]">
           <div className="w-[80%] h-fit shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-neutral-200">
             {ChartData ? (
               <Chart data={(ChartData as ChartDataType).graph} />
@@ -99,7 +117,7 @@ const Offers: FC = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-[90%] gap-y-[88px] ">
+      <div className="flex flex-col gap-y-[88px] ">
         <div className="w-full h-[3px] bg-[#FEE7E0]" />
         <p className="xs:text-[24px] 2xl:text-[26px] font-[CodecPro-News]">
           Every great journey starts with a single step. Focus on those small steps, but never lose sight of your
