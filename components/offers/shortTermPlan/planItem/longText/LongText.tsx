@@ -9,13 +9,17 @@ const LongText: FC<Props> = ({ text }) => {
   const [isShowMore, setShowMore] = useState(false)
   return (
     <div>
-      <p className="text-[16px] font-[CodecPro-News] line-clamp-3">{isShowMore ? text : text.slice(0, 150) + '...'}</p>
-      <button
-        onClick={() => setShowMore(!isShowMore)}
-        className="flex items-center gap-x-1 underline text-[18px] font-[CodecPro-News] mt-[18px]">
-        {isShowMore ? 'Read less' : 'Read more'}
-        <div className="w-[6px]">{isShowMore ? <ArrowUp color="#000000" /> : <ArrowDown color="#000000" />}</div>
-      </button>
+      <p className={`text-[14px] font-[CodecPro-News] ${isShowMore || text.length <= 75 ? '' : 'line-clamp-2'}`}>
+        {text}
+      </p>
+      {text.length > 75 && (
+        <button
+          onClick={() => setShowMore(!isShowMore)}
+          className="flex items-center gap-x-1 underline text-[10px] font-[CodecPro-News] mt-[12px]">
+          {isShowMore ? 'Read less' : 'Read more'}
+          <div className="w-[6px]">{isShowMore ? <ArrowUp color="#000000" /> : <ArrowDown color="#000000" />}</div>
+        </button>
+      )}
     </div>
   )
 }
