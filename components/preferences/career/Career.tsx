@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation'
 import useFetch from '@/hooks/useFetch'
 import { ApiRoutes } from '@/constants/routes'
 import { popularCareers } from '@/constants/CareerSuggestions'
+import DrawerHandler from '@/components/reusable/drawerHandler/DrawerHandler'
+import Guide from '@/components/reusable/guide/Guide'
 
 type careerItemType = { id: number; title: string; category: string }
 type careerType = { data: careerItemType[] }
@@ -12,6 +14,8 @@ const Career = () => {
   const router = useRouter()
   const { request, response } = useFetch()
   const [career, setCareer] = useState('')
+  const [showGuide, setGuide] = useState(false)
+
   const suggestions: careerItemType[] =
     career.length > 0 && response
       ? (response as careerType)?.data?.filter((item) => item.title.toLocaleLowerCase().includes(career))
@@ -22,12 +26,18 @@ const Career = () => {
       url: ApiRoutes.CAREERS,
       method: 'get',
     })
+    const timeout = setTimeout(() => {
+      setGuide(true)
+    }, 500)
+
+    return () => clearTimeout(timeout)
   }, [])
 
   const careerHandler = (value: number) => {
     sessionStorage.setItem('preferences', JSON.stringify({ intrested_career: value }))
     router.push('/preferences/budget')
   }
+
   return (
     <article className="w-full max-w-screen-xl mx-auto">
       <h1 className="font-[CodecPro-Heavy] text-[50px] text-center py-8">What it couldbe?</h1>
@@ -87,6 +97,15 @@ const Career = () => {
           ))}
         </div>
       </div>
+      <DrawerHandler open={showGuide} closeHandler={() => setGuide(false)}>
+        <Guide title={'Complete your preferences'} clickHandler={() => setGuide(false)}>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate delectus, ducimus eaque et
+            exercitationem explicabo fugiat magnam nemo nisi non, quae, quis reprehenderit repudiandae sed soluta veniam
+            voluptate voluptatibus.
+          </p>
+        </Guide>
+      </DrawerHandler>
     </article>
   )
 }

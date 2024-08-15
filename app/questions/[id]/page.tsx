@@ -8,6 +8,8 @@ import { useRouter } from 'next/navigation'
 import useFetch from '@/hooks/useFetch'
 import { ApiRoutes } from '@/constants/routes'
 import { Categories, CategoriesType } from '@/constants/Categories'
+import DrawerHandler from '@/components/reusable/drawerHandler/DrawerHandler'
+import Guide from '@/components/reusable/guide/Guide'
 
 type Props = {
   params: any
@@ -31,6 +33,8 @@ const QuestionsPage: FC<Props> = ({ params }) => {
   const id = params?.id - 1
   const { request, response } = useFetch()
   const { request: submitAnswers } = useFetch()
+  const [showGuide, setGuide] = useState(false)
+
   const submitHandler = () => {
     const values = JSON.parse(sessionStorage.getItem('questions') as any) ?? []
     const newValue = { question_id: data?.questions[id].id, answer_id: checked }
@@ -51,6 +55,7 @@ const QuestionsPage: FC<Props> = ({ params }) => {
   }
 
   useEffect(() => {
+    let timeout: null | ReturnType<typeof setTimeout> = null
     const values = JSON.parse(sessionStorage.getItem('questions') as any)
     const notCompleted = values?.findIndex((item: answersType) => item === null) + 1
     if (notCompleted && notCompleted !== +params.id) {
@@ -69,6 +74,12 @@ const QuestionsPage: FC<Props> = ({ params }) => {
         setData(questions)
       }
     }
+    if (params?.id === '1') {
+      timeout = setTimeout(() => {
+        setGuide(true)
+      }, 500)
+    }
+    return () => clearTimeout(timeout as any)
   }, [params?.id])
 
   return (
@@ -97,6 +108,15 @@ const QuestionsPage: FC<Props> = ({ params }) => {
           </section>
         </section>
         <SubmitHandler disabled={!checked} onClick={submitHandler} />
+        <DrawerHandler open={showGuide} closeHandler={() => setGuide(false)}>
+          <Guide title={'Complete your preferences'} clickHandler={() => setGuide(false)}>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate delectus, ducimus eaque et
+              exercitationem explicabo fugiat magnam nemo nisi non, quae, quis reprehenderit repudiandae sed soluta
+              veniam voluptate voluptatibus.
+            </p>
+          </Guide>
+        </DrawerHandler>
       </>
     )
   )

@@ -1,5 +1,5 @@
 'use client'
-import { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import DescriptionSection from './descriptionSection/DescriptionSection'
 import ShortTermPlan from './shortTermPlan/ShortTermPlan'
 import LongTimePlan from './longTermPlan/LongTermPlan'
@@ -11,6 +11,8 @@ import { toast } from 'react-toastify'
 import Spinner from '../ui/spinner/Spinner'
 import SaveIcon from '@/components/icons/saveIcon'
 import { useRouter } from 'next/navigation'
+import Guide from '@/components/reusable/guide/Guide'
+import DrawerHandler from '@/components/reusable/drawerHandler/DrawerHandler'
 interface ResponseType {
   courses: {
     long: dataType
@@ -25,12 +27,18 @@ const Offers: FC = () => {
   const router = useRouter()
   const { request, response } = UseFetch()
   const { request: addCourseRequest, response: ChartData } = UseFetch()
+  const [showGuide, setGuide] = useState(false)
 
   useEffect(() => {
     request({
       url: ApiRoutes.SUGGESTION,
       method: 'get',
     })
+    const timeout = setTimeout(() => {
+      setGuide(true)
+    }, 500)
+
+    return () => clearTimeout(timeout)
   }, [])
   const [loading, setLoading] = useState(false)
   const handleAddCourses = (id: number) => {
@@ -124,6 +132,15 @@ const Offers: FC = () => {
           long-term vision. Your plans today will pave the way for your future success
         </p>
       </div>
+      <DrawerHandler open={showGuide} closeHandler={() => setGuide(false)}>
+        <Guide title={'Complete your preferences'} clickHandler={() => setGuide(false)}>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate delectus, ducimus eaque et
+            exercitationem explicabo fugiat magnam nemo nisi non, quae, quis reprehenderit repudiandae sed soluta veniam
+            voluptate voluptatibus.
+          </p>
+        </Guide>
+      </DrawerHandler>
     </div>
   )
 }
