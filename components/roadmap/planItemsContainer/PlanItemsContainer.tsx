@@ -20,17 +20,18 @@ const PlanItemsContainer: FC<Props> = ({ index, data, title }) => {
     rewind: true,
     breakpoints: {
       1024: {
-        slidesPerView: 1.2,
+        slidesPerView: 1.4,
         spaceBetween: 16,
       },
       1536: {
-        slidesPerView: 1.3,
+        slidesPerView: 2,
         spaceBetween: 16,
       },
     },
   }
   return (
     <div className={`flex flex-col relative border-[#1232F0] border-l-[9px] border-solid items-end `}>
+      <div className=""></div>
       <div className="flex items-center justify-center bg-white border-[#1232F0] border-[6px] border-solid rounded-[100%] w-[42px] h-[42px] absolute top-0 left-[-26px]">
         {index}
       </div>

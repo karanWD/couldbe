@@ -34,11 +34,11 @@ const PlanAccordionItem: FC<Props> = ({
     slidesPerView: 2,
     breakpoints: {
       1024: {
-        slidesPerView: 1.5,
+        slidesPerView: 1.2,
         spaceBetween: 10,
       },
       1280: {
-        slidesPerView: 1.8,
+        slidesPerView: 1.5,
         spaceBetween: 10,
       },
       1600: {
