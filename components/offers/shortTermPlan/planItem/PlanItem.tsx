@@ -83,7 +83,7 @@ const PlanItem: FC<Props> = ({
           <Button
             format="fill"
             variant="primary"
-            className="w-[100px] h-[30px] !text-[12px] font-[CodecPro-News]"
+            className="w-[100px] h-[30px] !text-[12px] font-[CodecPro-News] guide-tour-button"
             onClick={() => handleAddCourses(id)}
             disabled={loading}>
             {loading ? '...' : 'Add'}
