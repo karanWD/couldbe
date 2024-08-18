@@ -64,7 +64,6 @@ const Offers: FC = () => {
 
   return (
     <>
-      <GuideTour />
       <div className=" max-w-[90%] xl:max-w-[80%] flex flex-col items-center mx-auto py-[32px] lg:py-[95px] gap-y-[88px] ">
         <div className="w-full flex flex-col-reverse lg:flex-row justify-between items-start gap-y-12 lg:gap-y-0 lg:gap-x-6">
           <div className="w-full lg:w-[50%] flex flex-col items-end">
@@ -165,6 +164,7 @@ const Offers: FC = () => {
           </div>
         )}
       </div>
+      {response && <GuideTour />}
     </>
   )
 }

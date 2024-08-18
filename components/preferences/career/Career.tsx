@@ -100,11 +100,26 @@ const Career = () => {
         )}
       </div>
       <DrawerHandler open={showGuide} closeHandler={() => setGuide(false)}>
-        <Guide title={'Complete your preferences'} clickHandler={() => setGuide(false)}>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate delectus, ducimus eaque et
-            exercitationem explicabo fugiat magnam nemo nisi non, quae, quis reprehenderit repudiandae sed soluta veniam
-            voluptate voluptatibus.
+        <Guide title={"Let's Personalize Your Development Journey!"} clickHandler={() => setGuide(false)}>
+          <p className="">
+            Before we start, we need a bit of information to tailor the best learning experience for you.
+            <br />
+            <br />
+            Here’s what we’ll ask:
+            <br />
+            • Budget: Your preferred investment range.
+            <br />
+            • Course Length: Short-term or long-term.
+            <br />
+            • Learning Mode: Online, offline, or both.
+            <br />
+            • Industry of Interest: Your areas of focus.
+            <br />
+            • Job Category: The roles you are targeting.
+            <br />
+            <br />
+            Study Abroad Preferences: Whether you’re interested in opportunities to study abroad. This quick step
+            ensures your roadmap is perfectly suited to your needs. Ready to begin? Click ‘Next’!
           </p>
         </Guide>
       </DrawerHandler>

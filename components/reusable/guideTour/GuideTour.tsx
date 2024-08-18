@@ -5,29 +5,28 @@ import './GuideTour.css'
 
 const steps = [
   {
-    title: 'Very well',
-    intro:
-      'Your test is completed and its time to check your result and choose between courses that suggested for you based on test you had done',
+    title: '',
+    intro: '',
   },
   {
     element: '.chart-container',
     title: 'Chart',
     intro:
-      'This chart shows you in which skills you `are better and with each course which one of your skills will grow',
+      'This chart displays your test results, highlighting your strengths and areas for improvement. It also shows how each course you add will help enhance specific skills.',
     position: 'left',
   },
   {
     element: '.guide-tour-button',
-    title: 'Courses',
+    title: 'Adding Materials to Your Roadmap:',
     intro:
-      'Here is list of courses that is suggested for you and you can add each of this courses to your roadmap by clicking Add button',
+      'This is your personalized selection of suggested materials. Click "Add" to include any materials that align with your goals in your development roadmap. At least, you have to add one or two materials in each section to ensure a well-rounded development plan.',
     position: 'right',
   },
   {
     element: '.guide-tour-save',
     title: 'Save Roadmap',
     intro:
-      'Finally when you are ready and choose all of your courses you can save the roadmap so you can access it later',
+      'Once you’ve chosen your materials, click "Save Roadmap" to securely store your personalized development plan. After saving, you\'ll move on to the next phase to start your development journey.',
     position: 'right',
   },
 ]

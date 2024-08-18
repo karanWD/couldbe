@@ -15,7 +15,7 @@ const Guide: FC<Props> = ({ title, children, clickHandler }) => {
       <div className="font-[CodecPro-Bold] text-2xl">{title}</div>
       <div>{children}</div>
       <Button className="w-full lg:w-[200px]" format={'fill'} variant={'primary'} onClick={clickHandler}>
-        got it
+        Next
       </Button>
     </div>
   )

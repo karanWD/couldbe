@@ -81,18 +81,18 @@ interface ResponseType {
 }
 const Roadmap: FC = () => {
   const { request, response } = UseFetch()
-  const [showGuide, setGuide] = useState(false)
+  // const [showGuide, setGuide] = useState(false)
 
   useEffect(() => {
     request({
       url: ApiRoutes.PROFILES,
       method: 'get',
     })
-    const timeout = setTimeout(() => {
-      setGuide(true)
-    }, 500)
-
-    return () => clearTimeout(timeout)
+    // const timeout = setTimeout(() => {
+    //   setGuide(true)
+    // }, 500)
+    //
+    // return () => clearTimeout(timeout)
   }, [])
 
   return (
@@ -132,9 +132,9 @@ const Roadmap: FC = () => {
           long-term vision. Your plans today will pave the way for your future success
         </p>
       </div>
-      <DrawerHandler open={showGuide} closeHandler={() => setGuide(false)}>
-        <GuideSlider slides={GuideSlides} closeHandler={() => setGuide(false)} />
-      </DrawerHandler>
+      {/*<DrawerHandler open={showGuide} closeHandler={() => setGuide(false)}>*/}
+      {/*  <GuideSlider slides={GuideSlides} closeHandler={() => setGuide(false)} />*/}
+      {/*</DrawerHandler>*/}
     </div>
   )
 }

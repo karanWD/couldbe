@@ -109,11 +109,24 @@ const QuestionsPage: FC<Props> = ({ params }) => {
         </section>
         <SubmitHandler disabled={!checked} onClick={submitHandler} />
         <DrawerHandler open={showGuide} closeHandler={() => setGuide(false)}>
-          <Guide title={'Complete your preferences'} clickHandler={() => setGuide(false)}>
+          <Guide title={'Quick Skills Assessment'} clickHandler={() => setGuide(false)}>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate delectus, ducimus eaque et
-              exercitationem explicabo fugiat magnam nemo nisi non, quae, quis reprehenderit repudiandae sed soluta
-              veniam voluptate voluptatibus.
+              To create the most effective development roadmap for you, we’ll now assess your skills in key areas based
+              on insights from the World Economic Forum and McKinsey reports on future job skills.
+              <br />
+              <br />
+              We’ll evaluate:
+              <br />
+              • Problem Solving <br />
+              • Self Management <br />
+              • Working with People <br />
+              • AI & Technology Use <br />
+              <br />
+              This short assessment is designed to understand your strengths and areas for growth, ensuring your skills
+              are future-proof. It only takes a few minutes and will help us tailor the perfect plan for your
+              development.
+              <br />
+              Ready? Click ‘Next’ to start the assessment!
             </p>
           </Guide>
         </DrawerHandler>
