@@ -13,7 +13,7 @@ export default function HomePage() {
         <link rel="icon" type="image/x-icon" href="/public/images/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-between ">
-        <div className="z-10 w-full ">
+        <div className="z-10 w-full flex flex-col gap-12">
           <Header isAuthorized={isAuth} />
           <Home />
           <Footer />

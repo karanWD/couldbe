@@ -11,6 +11,7 @@ import EyeIcon from '@/components/icons/EyeIcon'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import useFetch from '@/hooks/useFetch'
+import { UseIsMobile } from '@/hooks/useIsMobile'
 
 type Props = {
   pageParams: any
@@ -42,6 +43,7 @@ const Login: FC<Props> = ({ pageParams }) => {
   const router = useRouter()
   const [isHide, setHide] = useState(true)
   const [loading, setLoading] = useState(false)
+  const isMobile = UseIsMobile()
   const formRef = useRef<{ email: string; password: string }>({ email: '', password: '' })
   const changeHandler = (e: { target: HTMLInputElement }) => {
     const key = e.target.name as 'email' | 'password'
@@ -74,11 +76,17 @@ const Login: FC<Props> = ({ pageParams }) => {
   }
 
   return (
-    <section className="flex items-center h-screen w-full">
-      <div className="h-full flex flex-1 relative">
-        <Image src="/images/login.png" alt="couldbe logo" layout="fill" objectFit="cover" />
-      </div>
-      <div className="h-full flex flex-col flex-1 justify-center ">
+    <section className="flex flex-col justify-center lg:flex-row items-center h-screen w-[90%] lg:w-full mx-auto lg:mx-0">
+      {isMobile ? (
+        <div className="w-[70px] h-[70px] relative mb-12">
+          <Image src="/images/fav-logo.svg" alt="couldbe logo" layout="fill" objectFit="contain" />
+        </div>
+      ) : (
+        <div className="flex flex-1 h-full relative">
+          <Image src="/images/login.png" alt="couldbe logo" layout="fill" objectFit="cover" />
+        </div>
+      )}
+      <div className="lg:h-full flex flex-col lg:flex-1 justify-center">
         <div className="max-w-screen-md mx-auto flex flex-col  gap-10">
           <div className="flex flex-col gap-2.5">
             <h5 className="font-[CodecPro-Bold] text-[32px]">Welcome Back!</h5>

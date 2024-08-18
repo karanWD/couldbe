@@ -16,23 +16,21 @@ interface Props {
 const PlanItemsContainer: FC<Props> = ({ index, data, title }) => {
   const [SwiperInstance, setSwiperInstance] = useState<SwiperType>()
   const swiperParams = {
-    slidesPerView: 2,
-    rewind: true,
+    slidesPerView: 1.1,
+    spaceBetween: 10,
     breakpoints: {
       1024: {
         slidesPerView: 1.4,
-        spaceBetween: 16,
       },
       1536: {
         slidesPerView: 2,
-        spaceBetween: 16,
       },
     },
   }
   return (
-    <div className={`flex flex-col relative border-[#1232F0] border-l-[9px] border-solid items-end `}>
+    <div className={`w-full flex flex-col relative border-[#1232F0] border-l-[9px] border-solid items-end `}>
       <div className=""></div>
-      <div className="flex items-center justify-center bg-white border-[#1232F0] border-[6px] border-solid rounded-[100%] w-[42px] h-[42px] absolute top-0 left-[-26px]">
+      <div className="flex items-center justify-center bg-white border-[#1232F0] border-[6px] border-solid rounded-[100%] w-[36px] h-[36px] lg:w-[42px] lg:h-[42px] absolute top-0 left-[-22px] lg:left-[-24px]">
         {index}
       </div>
       <div className="w-[90%] flex flex-col">
@@ -56,24 +54,17 @@ const PlanItemsContainer: FC<Props> = ({ index, data, title }) => {
                 />
               </SwiperSlide>
             ))}
-            <SwiperSlide key={index} className="!w-[100%] ">
-              <div className="w-[20px]" />
-            </SwiperSlide>
           </Swiper>
           <div className="flex items-center z-10 justify-between absolute top-[calc(100%-50%)] xs:left-[4%] xl:left-[5%] w-[100%]">
             <div
               onClick={() => SwiperInstance?.slidePrev?.()}
-              className="flex items-center justify-center cursor-pointer xs:w-[40px] xs:h-[40px] xl:w-[50px] xl:h-[50px] rounded-[100%] border-[1px] border-[rgba(0, 0, 0, 0.2)] border-solid bg-white">
-              <div className="xs:w-[12px] xl:w-[16px]">
-                <ArrowLeft />
-              </div>
+              className="flex items-center justify-center cursor-pointer w-[32px] h-[32px] p-2 lg:p-4 xl:w-[50px] xl:h-[50px] rounded-full border border-[rgba(0, 0, 0, 0.2)] border-solid bg-white ">
+              <ArrowLeft />
             </div>
             <div
               onClick={() => SwiperInstance?.slideNext?.()}
-              className="flex items-center justify-center cursor-pointer xs:w-[40px] xs:h-[40px] xl:w-[50px] xl:h-[50px] rounded-[100%] border-[1px] border-[rgba(0, 0, 0, 0.2)] border-solid bg-white">
-              <div className="xs:w-[12px] xl:w-[16px]">
-                <ArrowRight />
-              </div>
+              className="flex items-center justify-center cursor-pointer w-[32px] h-[32px] p-2 lg:p-4 xl:w-[50px] xl:h-[50px] rounded-full border border-[rgba(0, 0, 0, 0.2)] border-solid bg-white ">
+              <ArrowRight />
             </div>
           </div>
         </div>

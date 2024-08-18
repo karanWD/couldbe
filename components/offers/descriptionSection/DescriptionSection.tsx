@@ -8,7 +8,7 @@ const DescriptionSection: FC = () => {
   const router = useRouter()
   return (
     <div className="flex flex-col gap-y-[24px] ">
-      <div className="flex justify-between items-center mb-[36px]">
+      <div className="flex justify-between items-center lg:mb-[36px]">
         <div className="flex items-center gap-x-[14px]">
           <div className="flex justify-center items-center rounded-[100%] bg-[#CAD1FB] w-[55px] h-[55px]">
             <Image src="/images/online-education.svg" alt="online education" width={32} height={32} />

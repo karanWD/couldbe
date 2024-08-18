@@ -21,7 +21,7 @@ const BudgetPage = () => {
   }
   return (
     <>
-      <article className="flex flex-col flex-1 w-full max-w-screen-lg xl:max-w-screen-xl mx-auto pt-6">
+      <article className="flex flex-col flex-1 w-full lg:max-w-screen-lg xl:max-w-screen-xl mx-auto pt-6 max-w-[90%]">
         <PreferencesTitle title="What is your budget for the course?" />
         <div className="w-full max-w-[700px] relative px-6 py-10 rounded-2xl border border-black/[0.2] shadow-[0_4px_18px_rgba(0,0,0,0.15)]">
           <Range max={3000} min={0} onChange={({ min, max }) => ((budgetRef?.current as any).value = [min, max])} />

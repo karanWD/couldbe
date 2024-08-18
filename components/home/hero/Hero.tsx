@@ -33,9 +33,9 @@ const Hero: FC = () => {
   }
   return (
     <div className="lg:max-w-[80%] xs:max-w-full flex justify-center items-center text-center">
-      <div className="flex flex-col justify-center items-center 2xl:max-w-[80%] xs:max-w-[90%] mb-12">
-        <span className="xs:text-[35px] sm:text-[75px] xl:text-[64px] font-[CodecPro-Heavy]">What you couldbe?</span>
-        <span className="xs:text-[20px] sm:text-[35px] xl:text-[24px] font-[codecPro-Light] text-center lg:px-12 xl:px-20">
+      <div className="flex flex-col justify-center items-center max-w-[90%] 2xl:max-w-[80%] lg:mb-12">
+        <span className="text-[32px] sm:text-[75px] xl:text-[64px] font-[CodecPro-Heavy]">What you couldbe?</span>
+        <span className="text-[20px] sm:text-[35px] xl:text-[24px] font-[codecPro-Light] text-center lg:px-12 xl:px-20">
           Envision Your Success with AI-Powered Paths toward Your Future Success
         </span>
 
@@ -52,7 +52,7 @@ const Hero: FC = () => {
               id="default-search"
               value={career}
               onChange={(e) => setCareer(e.target.value.toLocaleLowerCase())}
-              className="block w-full xs:h-[60px] md:h-[91px] py-5 px-8 xs:ps-10 md:ps-16 font-[CodecPro-Light] xs:text-[12px] md:text-[20px] text-[rgba(0, 0, 0, 0.2)] shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] rounded-[119px] bg-white focus:outline-none"
+              className="block w-full xs:h-[60px] md:h-[91px] py-5 px-8 xs:ps-10 md:ps-16 font-[CodecPro-Light] xs:text-[12px] md:text-[20px] text-[rgba(0, 0, 0, 0.2)] shadow-[0_1px_8.6px_0px_rgba(0,0,0,0.15)] rounded-[119px] bg-white focus:outline-none"
               placeholder="Get Your Roadmap in 1 minute"
               required
             />

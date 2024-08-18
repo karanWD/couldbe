@@ -9,8 +9,8 @@ interface Props {
 const ShortTermPlan: FC<Props> = ({ data }) => {
   return (
     <div className="flex flex-col w-full ">
-      <div className=" w-[90%] ml-auto text-[40px] font-[CodecPro-ExtraBold] relative mb- bg-white mb-[68px] flex justify-center  before:ontent-[''] before:flex before:w-[100%] before:h-[2px] before:bg-[#F25D1B] before:bottom-5 before:absolute before:z-0">
-        <span className="text-[24px] font-[CodecPro-ExtraBold]  bg-white  flex text-[#F25D1B] z-20 px-6">
+      <div className="w-full flex justify-start lg:justify-center lg:w-[90%] font-[CodecPro-ExtraBold] relative  bg-white mb-[68px] lg:before:content-[''] lg:before:flex lg:before:w-[100%] before:h-[2px] before:bg-[#F25D1B] lg:before:bottom-5 lg:before:absolute lg:before:z-0">
+        <span className="w-full text-[24px] font-[CodecPro-ExtraBold]  bg-white  flex text-[#F25D1B] z-20 px-6">
           Short Term Plan
         </span>
       </div>

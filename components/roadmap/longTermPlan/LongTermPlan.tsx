@@ -9,8 +9,8 @@ interface Props {
 const LongTimePlan: FC<Props> = ({ data, startIndex }) => {
   return (
     <div className="flex flex-col w-full ">
-      <div className=" w-[90%] pl-[calc(100%-80%)] h-[100px] text-[40px] font-[CodecPro-ExtraBold] relative bg-white  flex justify-center  before:ontent-[''] before:flex before:w-[100%] before:h-[2px] before:bg-[#F25D1B] before:bottom-[5rem] before:absolute before:z-0  border-[#1232F0] border-l-[9px] border-solid ">
-        <span className="xs:text-[30px] xl:text-[24px] font-[CodecPro-ExtraBold]  bg-white  flex text-[#F25D1B] z-20 px-6">
+      <div className="w-full flex justify-start lg:justify-center lg:w-[90%] font-[CodecPro-ExtraBold] relative  bg-white mb-[68px] lg:before:content-[''] lg:before:flex lg:before:w-[100%] before:h-[2px] before:bg-[#F25D1B] lg:before:bottom-5 lg:before:absolute lg:before:z-0">
+        <span className="w-full text-[24px] font-[CodecPro-ExtraBold]  bg-white  flex text-[#F25D1B] z-20 px-6">
           Long term plan
         </span>
       </div>

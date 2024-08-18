@@ -86,7 +86,7 @@ const QuestionsPage: FC<Props> = ({ params }) => {
     data &&
     data.questions?.length > 0 && (
       <>
-        <section className="flex flex-col flex-1 overflow-auto py-5">
+        <section className="flex flex-col flex-1 overflow-auto py-5 max-w-[90%] mx-auto lg:mx-0">
           <section className="w-full max-w-screen-lg xl:max-w-screen-xl mx-auto ">
             <div className="mb-4">
               <Badge size={'large'} type={'secondary'}>

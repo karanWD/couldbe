@@ -7,7 +7,7 @@ type Props = {
 }
 const DescriptionSection: FC<Props> = ({ characterStatement }) => {
   return (
-    <div className="flex flex-col gap-y-[18px] mb-20 w-[90%]">
+    <div className="flex flex-col gap-y-[18px] mb-20 lg:w-[90%]">
       <div className="flex justify-between items-center ">
         <div className="flex items-center gap-x-[14px]">
           <div className="flex justify-center items-center rounded-[100%] bg-[#CAD1FB] w-[55px] h-[55px]">

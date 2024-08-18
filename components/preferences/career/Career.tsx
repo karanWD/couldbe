@@ -39,8 +39,8 @@ const Career = () => {
   }
 
   return (
-    <article className="w-full max-w-screen-xl mx-auto">
-      <h1 className="font-[CodecPro-Heavy] text-[50px] text-center py-8">What it couldbe?</h1>
+    <article className="w-[90%] lg:w-full  lg:max-w-screen-xl mx-auto">
+      <h1 className="font-[CodecPro-Heavy] text-[32px] lg:text-[50px] text-center py-8">What it couldbe?</h1>
       <div className="max-w-2xl mx-auto relative bg-white shadow-[0_4px_18px_rgba(0,0,0,0.1)] rounded-xl">
         <form>
           <div className="relative flex items-center  ">
@@ -84,18 +84,20 @@ const Career = () => {
         </form>
       </div>
 
-      <div className={'mt-32 max-w-6xl mx-auto'}>
-        <span className="font-[CodecPro-Bold] text-2xl ">Popular Careers</span>
-        <div className="flex items-center justify-between gap-1 mt-4">
-          {popularCareers.map((item, index) => (
-            <div
-              onClick={() => careerHandler(item.id)}
-              key={index}
-              className="w-[200px] h-[200px] flex items-center justify-center bg-gray-200 rounded-md">
-              {item.title}
-            </div>
-          ))}
-        </div>
+      <div className={'mt-16 lg:mt-32 max-w-6xl mx-auto pb-32 lg:pb-0'}>
+        <span className="font-[CodecPro-Bold] text-2xl ">Popular functions</span>
+        {response && (
+          <div className="flex flex-wrap items-center justify-between gap-1 mt-4">
+            {(response as careerType)?.data.slice(0, 6).map((item, index) => (
+              <div
+                onClick={() => careerHandler(item.id)}
+                key={index}
+                className="w-[calc(50%-0.25rem)] lg:w-[180px] h-[180px] flex  items-center justify-center bg-gray-200 rounded-md">
+                {item.title}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <DrawerHandler open={showGuide} closeHandler={() => setGuide(false)}>
         <Guide title={'Complete your preferences'} clickHandler={() => setGuide(false)}>

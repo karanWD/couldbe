@@ -4,11 +4,11 @@ import Button from '@/components/ui/button/Button'
 
 const Footer: FC = () => {
   return (
-    <div className="flex w-full lg:h-[480px] xl:h-[560px] 2xl:h-[700px] bg-black ">
-      <div className="bg-[url('/images/footer.svg')] bg-cover bg-no-repeat bg-center w-full h-[100%] flex  ">
-        <div className="lg:w-[90%] xl:w-[80%] flex mx-auto justify-between lg:mt-32 xl:mt-36 2xl:mt-44">
-          <div className="flex flex-col gap-y-16">
-            <span className="lg:text-[22px] xl:text-[24px] font-[CodecPro-Heavy] text-white">Social Media</span>
+    <div className="flex w-full h-[498px] lg:h-[480px] xl:h-[560px] 2xl:h-[700px] bg-black ">
+      <div className="bg-[url('/images/footer-mobile.svg')] lg:bg-[url('/images/footer.svg')] bg-cover bg-no-repeat bg-center w-full h-[100%] flex items-center lg:items-start">
+        <div className="w-[90%] xl:w-[80%] flex flex-col gap-12 lg:gap-0 lg:flex-row mx-auto justify-between lg:mt-32 xl:mt-36 2xl:mt-44">
+          <div className="flex flex-col gap-y-4 lg:gap-y-16">
+            <span className="text-[20px] xl:text-[24px] font-[CodecPro-Heavy] text-white">Social Media</span>
             <div className="flex gap-x-2 ">
               <Link href={''}>
                 <img src="/images/instagram.svg" />
@@ -24,14 +24,14 @@ const Footer: FC = () => {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col gap-y-16">
+          <div className="flex flex-col gap-y-4 lg:gap-y-16">
             <span className="lg:text-[22px] xl:text-[24px] font-[CodecPro-Heavy] text-white">Contact us</span>
             <div className="flex flex-col">
-              <span className="lg:text-[16px] xl:text-[20px] font-[CodecPro-Pro] text-white">+98 912 111 1111</span>
+              <span className="text-[16px] xl:text-[20px] font-[CodecPro-Pro] text-white">+98 912 111 1111</span>
               <span className="text-[20px] font-[CodecPro-Pro] text-white">info@couldbe.io</span>
             </div>
           </div>
-          <div className="flex flex-col gap-y-9">
+          <div className="flex flex-col gap-y-4 lg:gap-y-9">
             <span className="lg:text-[22px] xl:text-[24px] font-[CodecPro-Heavy] text-white">
               Subscribe for Existential updates
             </span>

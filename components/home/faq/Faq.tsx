@@ -38,17 +38,17 @@ const questions = [
 const Faq: FC = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   return (
-    <div className="flex flex-col justify-center  gap-y-32 mb-32 lg:w-[80%] xl:w-[65%] 2xl:w-[55%]">
+    <div className="flex flex-col justify-center  gap-y-16 lg:gap-y-32 lg:mb-32 lg:w-[80%] xl:w-[65%] 2xl:w-[55%]">
       <div className="flex flex-col justify-center items-center text-center gap-y-3">
         <span className="font-[CodecPro-Bold] text-[16px] text-[#1232F0] uppercase">Imagine what it couldbe</span>
         <span className="font-[CodecPro-ExtraBold] text-[44px]">FAQ</span>
-        <span className="font-[CodecPro-Light] text-[24px] px-32">
+        <span className="font-[CodecPro-Light] text-[20px] lg:text-[24px] lg:px-32">
           Still having questions?
           <br />
           Visit our <span className="underline">FAQ page</span> or <span className="underline">contact us</span>.
         </span>
       </div>
-      <div id="accordion-collapse" data-accordion="collapse" className=" flex flex-col gap-y-8">
+      <div id="accordion-collapse" data-accordion="collapse" className=" flex flex-col gap-y-8 max-w-[90%] mx-auto">
         {questions.map((item, index) => (
           <div key={'FAQ_ITEM_' + index}>
             <Accordion
@@ -57,8 +57,10 @@ const Faq: FC = () => {
               index={index}
               activeIndex={activeIndex}
               setActiveIndex={setActiveIndex}
-              className="bg-[#4D67F0] rtl:text-right text-white rounded-[24px] py-5">
-              <p className="text-gray-500 font-[CodecPro-Light] text-[20px] ">{item.answer}</p>
+              className="bg-[#4D67F0] rtl:text-right text-white rounded-[24px] py-5 lg:py-7">
+              <p className="text-gray-500 font-[CodecPro-Light] text-[14px] lg:text-[20px] px-4 text-justify">
+                {item.answer}
+              </p>
             </Accordion>
           </div>
         ))}

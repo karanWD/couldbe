@@ -96,9 +96,9 @@ const Roadmap: FC = () => {
   }, [])
 
   return (
-    <div className="max-w-[90%] flex flex-col items-center mx-auto py-[95px] gap-y-[88px]">
-      <div className="w-full flex flex-col lg:flex-row justify-between items-start">
-        <div className="w-[50%] flex flex-col items-end">
+    <div className="max-w-[90%] flex flex-col items-center mx-auto py-10 lg:py-[95px] gap-y-[88px]">
+      <div className="w-full flex flex-col-reverse lg:flex-row justify-between items-start gap-8 lg:gap-0">
+        <div className="w-full lg:w-[50%] flex flex-col items-end">
           {response && (
             <DescriptionSection characterStatement={(response as ResponseType)?.data?.user?.character_statement} />
           )}
@@ -116,10 +116,10 @@ const Roadmap: FC = () => {
             </>
           )}
         </div>
-        <div className="w-[50%] max-w-[600px] flex flex-col justify-center items-center gap-y-10 sticky top-0 h-full">
+        <div className="w-full lg:w-[50%] max-w-[600px] flex flex-col justify-center items-center gap-y-10 lg:sticky lg:top-0 lg:h-full">
           {response && <CharacterType userType={(response as ResponseType)?.data.user} />}
           {response && (
-            <div className="w-[80%] h-fit shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-black/[0.2]">
+            <div className="w-full lg:w-[80%] h-fit shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[20px] lg:rounded-[40px] border border-black/[0.2]">
               <Chart data={(response as ResponseType)?.data?.graph_data} />
             </div>
           )}

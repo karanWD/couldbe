@@ -79,7 +79,7 @@ const Chart: FC<Props> = ({ data }) => {
   }
 
   return (
-    <div className="w-full px-5 py-8 flex flex-col items-center gap-y-2">
+    <div className="w-full px-2 lg:px-5 py-8 flex flex-col items-center gap-y-2">
       <span className="text-[24px] font-[CodecPro-Bold] text-[#1232F0]">Discovery phase result</span>
       <span className="text-[20px] font-[CodecPro-Thin] text-[#000000]">Make your skills wider</span>
       <Radar data={chartData} options={options} />

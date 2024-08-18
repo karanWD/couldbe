@@ -8,12 +8,12 @@ import { useRouter } from 'next/navigation'
 const Header = () => {
   const router = useRouter()
   return (
-    <header className="border-b border-gray-300 py-6 relative w-full">
+    <header className="border-b border-gray-300 py-5 px-5 lg:py-6 relative w-full">
       <div className="w-full max-w-screen-lg xl:max-w-screen-xl mx-auto flex items-center justify-between">
         <div className="w-6 h-6"></div>
         <Image src={'/images/db-logo.svg'} alt={'logo'} width={'186'} height={'50'} layout={'fixed'} />
         <div
-          className="w-6 h-6"
+          className="w-4 h-4 lg:w-6 lg:h-6"
           onClick={() => {
             router.push('/')
           }}>

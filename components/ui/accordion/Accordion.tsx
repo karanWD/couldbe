@@ -12,13 +12,13 @@ const Accordion: FC<AccordionType> = ({ children, title, variant, index, activeI
   const Variant = {
     contained: {
       fontFamily: 'font-[CodecPro-Light]',
-      fontSize: 'text-[24px]',
+      fontSize: 'text-[20px] lg:text-[24px]',
       color: 'white',
       textColor: 'text-white',
     },
     text: {
       fontFamily: 'font-[CodecPro-ExtraBold]',
-      fontSize: 'text-[24px]',
+      fontSize: 'text-[20px] lg:text-[24px]',
       color: '#4D67F0',
       textColor: 'text-[#4D67F0]',
     },
@@ -28,11 +28,11 @@ const Accordion: FC<AccordionType> = ({ children, title, variant, index, activeI
     <>
       <div
         onClick={() => handleSetIndex(index)}
-        className={`flex items-center justify-between w-full gap-3 px-9 py-3.5 ${props.className}`}>
+        className={`flex items-center justify-between w-full gap-3 px-9 lg:py-3.5 ${props.className}`}>
         <span className={`${Variant[variant].fontFamily} ${Variant[variant].fontSize} ${Variant[variant].textColor}`}>
           {title}
         </span>
-        <div className="w-[18px]">
+        <div className="w-[24px] lg:w-[18px]">
           {activeIndex === index ? (
             <ArrowUp color={Variant[variant].color} />
           ) : (

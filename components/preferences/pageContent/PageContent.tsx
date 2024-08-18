@@ -44,8 +44,8 @@ const PageContent: FC<Props> = ({ options, name }) => {
 
   return (
     <>
-      <section className={'flex flex-1 w-full max-w-screen-lg xl:max-w-screen-xl mx-auto'}>
-        <section className={'flex gap-4 h-fit '}>
+      <section className={'flex flex-1 w-[90%] lg:max-w-screen-lg xl:max-w-screen-xl mx-auto'}>
+        <section className={'flex flex-wrap gap-4 h-fit'}>
           {options.map((item, index) => (
             <Chips
               key={'CHIPS_ITEM_' + index}

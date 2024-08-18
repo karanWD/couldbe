@@ -14,6 +14,7 @@ import { Months } from '@/constants/Dates'
 import { Controller, useForm } from 'react-hook-form'
 import Link from 'next/link'
 import { Countries } from '@/constants/countries'
+import { UseIsMobile } from '@/hooks/useIsMobile'
 
 type Props = {
   pageParams: any
@@ -22,6 +23,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
   const router = useRouter()
   const [isHide, setHide] = useState(true)
   const [loading, setLoading] = useState(false)
+  const isMobile = UseIsMobile()
 
   const {
     handleSubmit,
@@ -87,8 +89,8 @@ const Signup: FC<Props> = ({ pageParams }) => {
   }
 
   return (
-    <section className="flex items-center h-screen w-full">
-      <div className="h-full flex flex-col flex-1 justify-center ">
+    <section className="flex flex-col-reverse lg:flex-row items-center lg:h-screen w-[90%] lg:w-full mx-auto">
+      <div className="lg:h-full flex flex-col lg:flex-1 justify-center w-full">
         <div className="w-full max-w-screen-sm lg:max-w-screen-sm mx-auto flex flex-col gap-4 p-4 lg:p-0 ">
           <div className="flex flex-col">
             <h5 className="font-[CodecPro-Bold] text-[32px]">Get started with couldbe</h5>
@@ -96,7 +98,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
           </div>
           <form action="" onSubmit={handleSubmit(signupHandler)}>
             <div className="w-full flex flex-col gap-3">
-              <div className="w-full flex gap-3">
+              <div className="w-full flex flex-col lg:flex-row  gap-3">
                 <div className="flex flex-col flex-1 gap-2">
                   <label htmlFor="" className={errors?.first_name ? 'text-red-500' : ''}>
                     First Name
@@ -183,7 +185,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
                 </div>
               </div>
               <div className="w-full flex gap-3">
-                <div className="flex flex-col flex-1 gap-2 w-[50%]">
+                <div className="flex flex-col flex-1 gap-2 w-[calc(50%-0.75rem)]">
                   <label htmlFor="" className={errors?.place_of_residence ? 'text-red-500' : ''}>
                     Place of residence
                     {errors?.place_of_residence && <span className="text-red-500 text-xs"> (required) </span>}
@@ -202,7 +204,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
                     )}
                   />
                 </div>
-                <div className="flex flex-col flex-1 gap-2 w-[50%]">
+                <div className="flex flex-col flex-1 gap-2 w-[calc(50%-0.75rem)]">
                   <label htmlFor="" className={errors?.gender ? 'text-red-500' : ''}>
                     Gender
                     {errors?.gender && <span className="text-red-500 text-xs"> (required) </span>}
@@ -278,11 +280,15 @@ const Signup: FC<Props> = ({ pageParams }) => {
           </form>
         </div>
       </div>
-      <div className="h-full flex flex-1 bg-neutral-200">
-        <div className="h-full flex flex-1 relative">
+      {isMobile ? (
+        <div className="w-[70px] h-[70px] relative my-12">
+          <Image src="/images/fav-logo.svg" alt="couldbe logo" layout="fill" objectFit="contain" />
+        </div>
+      ) : (
+        <div className="flex flex-1 h-full relative">
           <Image src="/images/login.png" alt="couldbe logo" layout="fill" objectFit="cover" />
         </div>
-      </div>
+      )}
     </section>
   )
 }

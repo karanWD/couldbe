@@ -16,11 +16,12 @@ const Button: FC<ButtonType> = ({ children, format, variant, size = 'md', ...pro
   const color = format === 'fill' ? 'text-white' : Variants[variant].color
   const padding = size === 'sm' ? 'px-4 py-1' : size === 'md' ? 'px-5 py-2.5' : 'px-6 py-3.5'
   const border = format === 'fill' ? '' : 'border ' + Variants[variant].border
+  const fontSize = size === 'sm' ? 'text-sm' : size === 'md' ? 'text-base' : 'text-xl'
 
   return (
     <button
       {...props}
-      className={`${bg} ${color} ${border} ${padding} disabled:opacity-50 disabled:pointer-events-none font-medium rounded-full text-center text-xl flex items-center justify-center ${props.className}`}>
+      className={`${bg} ${color} ${border} ${padding} ${fontSize} disabled:opacity-50 disabled:pointer-events-none font-medium rounded-full text-center flex items-center justify-center ${props.className}`}>
       <>{children}</>
     </button>
   )
