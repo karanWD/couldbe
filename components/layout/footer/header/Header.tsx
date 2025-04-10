@@ -45,7 +45,7 @@ const Header: FC<Props> = ({ isAuthorized }) => {
 
   const authHandler = () => {
     if (auth) {
-      deleteCookie('auth_key')
+      deleteCookie('authorized')
       setAuth(false)
     } else {
       router.push('/login')

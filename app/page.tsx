@@ -6,7 +6,7 @@ import Head from 'next/head'
 
 export default function HomePage() {
   const cookieStore = cookies()
-  const isAuth = !!cookieStore.get('auth_key' as any)?.value
+  const isAuth = !!cookieStore.get('authorized' as any)?.value
   return (
     <>
       <Head>
