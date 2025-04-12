@@ -6,7 +6,7 @@ import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { FC, useEffect, useState } from 'react'
 
-type careerItemType = { id: number; title: string; category: string }
+type careerItemType = { _id: number; title: string; category: string }
 type careerType = { data: careerItemType[] }
 const Hero: FC = () => {
   const [career, setCareer] = useState('')
@@ -28,7 +28,7 @@ const Hero: FC = () => {
       .finally(() => {})
   }, [])
   const careerHandler = (value: number) => {
-    sessionStorage.setItem('preferences', JSON.stringify({ intrested_career: value }))
+    sessionStorage.setItem('preferences', JSON.stringify({ interested_career: value }))
     router.push('/preferences/budget')
   }
   return (
@@ -73,7 +73,7 @@ const Hero: FC = () => {
                     key={'SUGGESTION_ITEM_' + index}
                     className=" py-2 px-4"
                     onClick={() => {
-                      careerHandler(item.id)
+                      careerHandler(item._id)
                     }}>
                     {item.title}
                   </li>

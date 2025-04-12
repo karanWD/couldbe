@@ -75,7 +75,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
     delete data.birth_year
 
     axios
-      .post(ApiRoutes.BASE + ApiRoutes.REGISTER, data)
+      .post(ApiRoutes.BASE + ApiRoutes.REGISTER, data, { withCredentials: true })
       .then((res) => {
         setCookie('authorized', 'true')
         router.push(pageParams?.return_url ?? '/')

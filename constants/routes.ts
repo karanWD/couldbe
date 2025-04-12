@@ -1,7 +1,7 @@
 export const ApiRoutes = {
   // BASE: 'https://api.couldbe.app/api',
   BASE: 'http://localhost:5100/api',
-  PREFERENCE_STORE: '/personal-preference',
+  PREFERENCE_STORE: '/user/preferences',
   CAREERS: '/careers',
   EXAMS: '/exams',
   LOGIN: '/auth/login',

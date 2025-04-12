@@ -52,15 +52,15 @@ const Header: FC<Props> = ({ isAuthorized }) => {
     }
   }
 
-  useEffect(() => {
-    if (auth) {
-      request({
-        url: ApiRoutes.PWD,
-      }).then((res: any) => {
-        setStatus(res.data.next_state as Steps)
-      })
-    }
-  }, [auth])
+  // useEffect(() => {
+  //   if (auth) {
+  //     request({
+  //       url: ApiRoutes.PWD,
+  //     }).then((res: any) => {
+  //       setStatus(res.data.next_state as Steps)
+  //     })
+  //   }
+  // }, [auth])
 
   return (
     <div className="flex items-center justify-between max-w-full w-[90%] 2xl:w-[80%] py-6 2xl:py-16 mx-auto">

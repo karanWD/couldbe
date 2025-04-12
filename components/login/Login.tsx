@@ -56,9 +56,10 @@ const Login: FC<Props> = ({ pageParams }) => {
     e.preventDefault()
     setLoading(true)
     axios
-      .post(ApiRoutes.BASE + ApiRoutes.LOGIN, formRef.current)
+      .post(ApiRoutes.BASE + ApiRoutes.LOGIN, formRef.current, { withCredentials: true })
       .then((res) => {
         setCookie('authorized', 'true')
+        router.push(pageParams?.return_url || '/')
         // request({
         //   url: ApiRoutes.PWD,
         // }).then((res: any) => {
@@ -67,7 +68,6 @@ const Login: FC<Props> = ({ pageParams }) => {
         //     : Steps.default.link
         //   router.push(url)
         // })
-        router.push(pageParams?.return_url ?? '/')
       })
       .catch((e) => {
         toast.error(e?.response?.data?.errors[0] || e?.response?.data?.errors?.email[0])

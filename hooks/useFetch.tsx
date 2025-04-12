@@ -1,16 +1,11 @@
 import { useState } from 'react'
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosRequestHeaders, CreateAxiosDefaults } from 'axios'
-import { getCookie } from 'cookies-next'
-import { toast } from 'react-toastify'
+import { ApiRoutes } from '@/constants/routes'
 
-// const hashedCookie = process.env.NEXT_PUBLIC_HASH_TOKEN
-const hashedCookie = 'auth_key'
-const axiosConfig = { baseURL: 'https://api.couldbe.io/api' }
+const axiosConfig = { baseURL: ApiRoutes.BASE, withCredentials: true }
 const instance: AxiosInstance = axios.create(axiosConfig as CreateAxiosDefaults)
 instance.interceptors.request.use((req) => {
-  const token = getCookie(hashedCookie)
   req.headers = {
-    Authorization: `Bearer ${token}`,
     Accept: 'application/json',
   } as AxiosRequestHeaders
   return req

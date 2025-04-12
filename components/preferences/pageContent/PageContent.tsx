@@ -29,13 +29,12 @@ const PageContent: FC<Props> = ({ options, name }) => {
         request({
           url: ApiRoutes.PREFERENCE_STORE,
           method: 'POST',
-        }).then((res) => {
-          submitReq({
-            url: ApiRoutes.PREFERENCE_STORE + '/' + res?.data?.data?.id,
-            method: 'PUT',
-            data: updated,
-          }).then(() => router.push('/questions/1'))
+          data: updated,
         })
+          .then((res) => {
+            router.push('/questions/1')
+          })
+          .catch((e) => toast.error(e.message))
       } else {
         router.push('/preferences/' + Routes[nextIndex])
       }
