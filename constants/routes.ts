@@ -3,7 +3,7 @@ export const ApiRoutes = {
   BASE: 'http://localhost:5100/api',
   PREFERENCE_STORE: '/user/preferences',
   CAREERS: '/careers',
-  EXAMS: '/exams',
+  EXAMS: '/user/exam',
   LOGIN: '/auth/login',
   REGISTER: '/auth/signup',
   SUGGESTION: '/suggestions',
