@@ -79,19 +79,7 @@ const PlanAccordionItem: FC<Props> = ({
           },
         ]
       }
-      case 'online courses': {
-        return [
-          {
-            title: 'Channel',
-            description: data[index].channel,
-          },
-          {
-            title: 'Duration',
-            description: String(data[index].duration),
-          },
-        ]
-      }
-      case 'youtube videos': {
+      case 'videos': {
         return [
           {
             title: 'Channel',
@@ -131,18 +119,18 @@ const PlanAccordionItem: FC<Props> = ({
               className="mySwiper flex w-full after:content-[''] after:w-[20%] after:h-[100%] after:bg-gradient-to-l after:from-white after:opacity-75 after:absolute after:top-0 after:right-0 after:z-20">
               {data?.map((item: dataItemType, index: number) => (
                 <SwiperSlide key={index}>
-                  <PlanItem
-                    image={item.picture}
-                    title={item.title}
-                    badge={item.skills}
-                    details={handleDetails(title, index)}
-                    level={item.level}
-                    description={item.description}
-                    price={item.price}
-                    id={item.id}
-                    handleAddCourses={handleAddCourses}
-                    loading={loading}
-                  />
+                  {/*<PlanItem*/}
+                  {/*  image={item.picture}*/}
+                  {/*  title={item.title}*/}
+                  {/*  badge={item.skills}*/}
+                  {/*  details={handleDetails(title, index)}*/}
+                  {/*  level={item.level}*/}
+                  {/*  description={item.description}*/}
+                  {/*  price={item.price}*/}
+                  {/*  id={item.id}*/}
+                  {/*  handleAddCourses={handleAddCourses}*/}
+                  {/*  loading={loading}*/}
+                  {/*/>*/}
                 </SwiperSlide>
               ))}
             </Swiper>

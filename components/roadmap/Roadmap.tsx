@@ -102,19 +102,19 @@ const Roadmap: FC = () => {
           {response && (
             <DescriptionSection characterStatement={(response as ResponseType)?.data?.user?.character_statement} />
           )}
-          {response && (
-            <>
-              {(response as ResponseType)?.data?.courses?.short && (
-                <ShortTermPlan data={(response as ResponseType)?.data?.courses?.short} />
-              )}
-              {(response as ResponseType)?.data?.courses?.long && (
-                <LongTimePlan
-                  data={(response as ResponseType)?.data?.courses?.long}
-                  startIndex={Object.keys((response as ResponseType)?.data?.courses?.short).length}
-                />
-              )}
-            </>
-          )}
+          {/*{response && (*/}
+          {/*  <>*/}
+          {/*    {(response as ResponseType)?.data?.courses?.short && (*/}
+          {/*      <ShortTermPlan data={(response as ResponseType)?.data?.courses?.short} />*/}
+          {/*    )}*/}
+          {/*    {(response as ResponseType)?.data?.courses?.long && (*/}
+          {/*      <LongTimePlan*/}
+          {/*        data={(response as ResponseType)?.data?.courses?.long}*/}
+          {/*        startIndex={Object.keys((response as ResponseType)?.data?.courses?.short).length}*/}
+          {/*      />*/}
+          {/*    )}*/}
+          {/*  </>*/}
+          {/*)}*/}
         </div>
         <div className="w-full lg:w-[50%] max-w-[600px] flex flex-col justify-center items-center gap-y-10 lg:sticky lg:top-0 lg:h-full">
           {response && <CharacterType userType={(response as ResponseType)?.data.user} />}

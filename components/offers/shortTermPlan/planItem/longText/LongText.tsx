@@ -9,10 +9,8 @@ const LongText: FC<Props> = ({ text }) => {
   const [isShowMore, setShowMore] = useState(false)
   return (
     <div>
-      <p className={`text-[14px] font-[CodecPro-News] ${isShowMore || text.length <= 75 ? '' : 'line-clamp-2'}`}>
-        {text}
-      </p>
-      {text.length > 75 && (
+      <p className={`text-[14px] font-[CodecPro-News] min-h-[42px] line-clamp-2`}>{text}</p>
+      {text.length > 90 && (
         <button
           onClick={() => setShowMore(!isShowMore)}
           className="flex items-center gap-x-1 underline text-[10px] font-[CodecPro-News] mt-[12px]">

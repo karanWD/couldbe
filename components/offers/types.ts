@@ -18,8 +18,8 @@ export interface dataItemType {
 export interface dataType {
   articles: dataItemType[]
   books: dataItemType[]
-  'online courses': dataItemType[]
-  'youtube videos': dataItemType[]
+  videos: dataItemType[]
+  // 'youtube videos': dataItemType[]
 }
 
 export type DataTypeKey = keyof dataType
