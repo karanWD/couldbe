@@ -72,17 +72,16 @@ const PlanItem: FC<Props> = ({
 
       <hr />
       <LongText text={description} />
-      <div className="flex justify-end items-center mt-auto">
-        {price && <span className="text-[18px] font-[CodecPro-Bold]">${price}</span>}
+      <div className={`flex ${price ? 'justify-between' : 'justify-end'} items-center mt-auto`}>
+        {price && <span className="text-[18px] font-[CodecPro-Bold]">{price}</span>}
         <div className="max-w-[100px] h-[30px]">
           <Button
-            format="fill"
+            format={added ? 'outline' : 'fill'}
             variant="primary"
             className={`w-[100px] h-[30px] !text-[12px] font-[CodecPro-News] guide-tour-button ${loading ? 'opacity-70' : 'opacity-100'}`}
             onClick={() => handleAddCourses(id, type)}
             disabled={loading}>
-            {loading && '...'}
-            {added ? 'remove' : 'add'}
+            {loading ? '...' : added ? 'remove' : 'add'}
           </Button>
         </div>
       </div>

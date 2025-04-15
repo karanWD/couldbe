@@ -15,7 +15,6 @@ type Props = {
 const Suggestions: FC<Props> = ({ data, renderCards, title }) => {
   const [SwiperInstance, setSwiperInstance] = useState<SwiperType>()
   const swiperParams = {
-    rtl: true,
     slidesPerView: 1.1,
     spaceBetween: 10,
     breakpoints: {
@@ -31,25 +30,27 @@ const Suggestions: FC<Props> = ({ data, renderCards, title }) => {
     },
   }
 
-  if (data.length < 1) {
+  if (data?.length < 1) {
     return null
   }
   return (
     <div className="w-full relative">
       <div className="flex items-center gap-2 justify-between mb-4">
         <h4 className="text-[24px] font-[CodecPro-ExtraBold] bg-white  flex text-primary z-20 ">{title}</h4>
-        <div className="flex gap-2">
-          <div
-            onClick={() => SwiperInstance?.slidePrev?.()}
-            className="flex items-center justify-center cursor-pointer w-[32px] h-[32px] p-1 lg:p-2 xl:w-[36px] xl:h-[36px] rounded-md border border-[rgba(0, 0, 0, 0.2)] border-solid bg-white ">
-            <ArrowLeft />
+        {data?.length > 1 && (
+          <div className="flex gap-2">
+            <div
+              onClick={() => SwiperInstance?.slidePrev?.()}
+              className="flex items-center justify-center cursor-pointer w-[32px] h-[32px] p-2 xl:w-[36px] xl:h-[36px] rounded-md border border-[rgba(0, 0, 0, 0.2)] border-solid bg-white ">
+              <ArrowLeft />
+            </div>
+            <div
+              onClick={() => SwiperInstance?.slideNext?.()}
+              className="flex items-center justify-center cursor-pointer w-[32px] h-[32px] p-2 xl:w-[36px] xl:h-[36px] rounded-md border border-[rgba(0, 0, 0, 0.2)] border-solid bg-white ">
+              <ArrowRight />
+            </div>
           </div>
-          <div
-            onClick={() => SwiperInstance?.slideNext?.()}
-            className="flex items-center justify-center cursor-pointer w-[32px] h-[32px] p-1 lg:p-2 xl:w-[36px] xl:h-[36px] rounded-md border border-[rgba(0, 0, 0, 0.2)] border-solid bg-white ">
-            <ArrowRight />
-          </div>
-        </div>
+        )}
       </div>
       <Swiper
         onInit={(swiper) => {
@@ -58,9 +59,7 @@ const Suggestions: FC<Props> = ({ data, renderCards, title }) => {
         modules={[Navigation]}
         {...swiperParams}
         className="mySwiper flex w-full after:content-[''] after:w-[20%] after:h-[100%] after:bg-gradient-to-l after:from-white after:opacity-75 after:absolute after:top-0 after:right-0 after:z-20">
-        {data.map((item, index) => (
-          <SwiperSlide key={index}>{renderCards(item)}</SwiperSlide>
-        ))}
+        {data?.map((item, index) => <SwiperSlide key={index}>{renderCards(item)}</SwiperSlide>)}
       </Swiper>
     </div>
   )

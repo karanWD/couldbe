@@ -14,16 +14,10 @@ import Suggestions from '@/components/offers/suggestions/Suggestions'
 import PlanItem from '@/components/offers/shortTermPlan/planItem/PlanItem'
 import GuideTour from '@/components/reusable/guideTour/GuideTour'
 
-interface ResponseType {
-  courses: {
-    long: dataType
-    short: dataType
-  }
-  graph_data: GraphDataType
-}
-
-interface ChartDataType {
-  graph: GraphDataType
+type addedCoursesType = {
+  books: string[]
+  videos: string[]
+  articles: string[]
 }
 
 const handleDetails = (type: DataTypeKey, data: any) => {
@@ -80,28 +74,30 @@ const Offers: FC = () => {
   const router = useRouter()
   const { request, response } = UseFetch()
   const { request: addCourseRequest, loading, response: coursesData } = UseFetch()
+  const [addedCourses, setAddedCourses] = useState<addedCoursesType>({ books: [], articles: [], videos: [] })
   useEffect(() => {
     request({
       url: ApiRoutes.SUGGESTION,
       method: 'get',
+    }).then((res) => {
+      setAddedCourses(res?.data.courses)
     })
   }, [])
 
   const handleAddCourses = (id: number, type: DataTypeKey) => {
-    console.log(id)
     addCourseRequest({
       method: 'POST',
       url: ApiRoutes.COURSES + '/' + type,
       data: { courseId: id },
     })
       .then((res) => {
+        setAddedCourses(res?.data.courses)
         toast.success(res?.data.message)
       })
       .catch((e) => {
         toast.error(e.message)
       })
   }
-  console.log(coursesData)
   return (
     <>
       <div className=" max-w-[90%] xl:max-w-[80%] flex flex-col items-center mx-auto py-[32px] lg:py-[95px] gap-y-[88px] ">
@@ -110,6 +106,26 @@ const Offers: FC = () => {
             <DescriptionSection />
             {(response as any)?.suggestions && (
               <div className="w-full flex flex-col gap-12 mt-6">
+                <Suggestions
+                  title={'Books'}
+                  data={(response as any).suggestions.books}
+                  renderCards={(item) => (
+                    <PlanItem
+                      image={'/'}
+                      title={item.title}
+                      badge={item.skill}
+                      description={item.description}
+                      level={item.level}
+                      price={item.price}
+                      id={item._id}
+                      details={handleDetails('books', item)}
+                      handleAddCourses={handleAddCourses}
+                      loading={loading}
+                      type={'books'}
+                      added={(addedCourses as addedCoursesType)?.books?.includes(item._id)}
+                    />
+                  )}
+                />
                 <Suggestions
                   title={'Videos'}
                   data={(response as any).suggestions.videos}
@@ -126,30 +142,11 @@ const Offers: FC = () => {
                       handleAddCourses={handleAddCourses}
                       loading={loading}
                       type={'videos'}
-                      added={(coursesData as any)?.courses?.include(item._id)}
+                      added={addedCourses?.videos?.includes(item._id)}
                     />
                   )}
                 />
-                <Suggestions
-                  title={'Books'}
-                  data={(response as any).suggestions.books}
-                  renderCards={(item) => (
-                    <PlanItem
-                      image={'/'}
-                      title={item.title}
-                      badge={item.skills}
-                      description={item.description}
-                      level={item.level}
-                      price={item.price}
-                      id={item._id}
-                      details={handleDetails('books', item)}
-                      handleAddCourses={handleAddCourses}
-                      loading={loading}
-                      type={'books'}
-                      added={(coursesData as any)?.courses?.include(item._id)}
-                    />
-                  )}
-                />
+
                 <Suggestions
                   title={'Articles'}
                   data={(response as any).suggestions.articles}
@@ -166,7 +163,7 @@ const Offers: FC = () => {
                       handleAddCourses={handleAddCourses}
                       loading={loading}
                       type={'articles'}
-                      added={(coursesData as any)?.courses?.include(item._id)}
+                      added={addedCourses?.articles?.includes(item._id)}
                     />
                   )}
                 />
@@ -247,53 +244,3 @@ const Offers: FC = () => {
   )
 }
 export default Offers
-
-{
-  // <>
-  //   {(response as ResponseType)?.courses?.short && (
-  //     <ShortTermPlan
-  //       data={(response as ResponseType)?.courses?.short}
-  //       handleAddCourses={handleAddCourses}
-  //       loading={loading}
-  //     />
-  //   )}
-  //   {(response as ResponseType)?.courses?.long && (
-  //     <LongTimePlan
-  //       data={(response as ResponseType)?.courses?.long}
-  //       handleAddCourses={handleAddCourses}
-  //       loading={loading}
-  //     />
-  //   )}
-  // </>
-}
-
-{
-  /*<DrawerHandler open={showGuide} closeHandler={() => setGuide(false)}>*/
-}
-{
-  /*  <Guide title={'Complete your preferences'} clickHandler={() => setGuide(false)}>*/
-}
-{
-  /*    <p>*/
-}
-{
-  /*      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cupiditate delectus, ducimus eaque et*/
-}
-{
-  /*      exercitationem explicabo fugiat magnam nemo nisi non, quae, quis reprehenderit repudiandae sed soluta*/
-}
-{
-  /*      veniam*/
-}
-{
-  /*      voluptate voluptatibus.*/
-}
-{
-  /*    </p>*/
-}
-{
-  /*  </Guide>*/
-}
-{
-  /*</DrawerHandler>*/
-}
