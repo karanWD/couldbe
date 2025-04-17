@@ -78,8 +78,7 @@ const Signup: FC<Props> = ({ pageParams }) => {
       .post(ApiRoutes.BASE + ApiRoutes.REGISTER, data, { withCredentials: true })
       .then((res) => {
         setCookie('authorized', 'true')
-        router.push(pageParams?.return_url ?? '/')
-        // setCookie('auth_key', res.data.data.authentication_token)
+        window.location.href = pageParams?.return_url ?? '/'
       })
       .catch((e) => {
         toast.error(e?.response?.data?.message)

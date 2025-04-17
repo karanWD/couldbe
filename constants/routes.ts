@@ -10,4 +10,5 @@ export const ApiRoutes = {
   SUGGESTION: '/user/suggestions',
   COURSES: '/user/courses',
   ROADMAP: '/user/roadmap',
+  STATUS: '/user/status',
 } as const

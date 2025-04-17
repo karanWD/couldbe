@@ -4,7 +4,7 @@ import Button from '@/components/ui/button/Button'
 
 const Footer: FC = () => {
   return (
-    <div className="flex w-full h-[498px] lg:h-[480px] xl:h-[560px] 2xl:h-[700px] bg-black ">
+    <div className="flex w-full h-[498px] lg:h-[480px] xl:h-[560px] 2xl:h-[700px] bg-black pb-20 lg:pb-0">
       <div className="bg-[url('/images/footer-mobile.svg')] lg:bg-[url('/images/footer.svg')] bg-cover bg-no-repeat bg-center w-full h-[100%] flex items-center lg:items-start">
         <div className="w-[90%] xl:w-[80%] flex flex-col gap-12 lg:gap-0 lg:flex-row mx-auto justify-between lg:mt-32 xl:mt-36 2xl:mt-44">
           <div className="flex flex-col gap-y-4 lg:gap-y-16">

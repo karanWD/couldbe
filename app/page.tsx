@@ -3,6 +3,7 @@ import Header from '@/components/layout/footer/header/Header'
 import Footer from '@/components/layout/footer/Footer'
 import { cookies } from 'next/headers'
 import Head from 'next/head'
+import BottomNavigation from '@/components/bottomNavigation/BottomNavigation'
 
 export default function HomePage() {
   const cookieStore = cookies()
@@ -16,6 +17,7 @@ export default function HomePage() {
         <div className="z-10 w-full flex flex-col gap-12">
           <Header isAuthorized={isAuth} />
           <Home />
+          <BottomNavigation isAuth={isAuth} />
           <Footer />
         </div>
       </main>

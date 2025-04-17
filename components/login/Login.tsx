@@ -59,7 +59,7 @@ const Login: FC<Props> = ({ pageParams }) => {
       .post(ApiRoutes.BASE + ApiRoutes.LOGIN, formRef.current, { withCredentials: true })
       .then((res) => {
         setCookie('authorized', 'true')
-        router.push(pageParams?.return_url || '/')
+        window.location.href = pageParams?.return_url || '/'
         // request({
         //   url: ApiRoutes.PWD,
         // }).then((res: any) => {
