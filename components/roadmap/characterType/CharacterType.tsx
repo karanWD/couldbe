@@ -11,9 +11,9 @@ const CharacterType: FC<Props> = ({ characterInfo }) => {
   const isMobile = UseIsMobile()
   return (
     <div className="flex flex-row lg:flex-col gap-6 items-center">
-      <div className="flex border border-neutral-200 rounded-xl w-[130px] h-[130px] lg:w-[300px] lg:h-[300px]">
+      <div className="flex border border-neutral-100 rounded-xl w-[130px] h-[130px] lg:w-[300px] lg:h-[300px]">
         <Image
-          src={characterInfo?.profile_image ?? '/images/character-type.svg'}
+          src={`/images/characters/${characterInfo?.title}.svg` ?? '/images/character-type.svg'}
           alt="character type"
           width={isMobile ? 130 : 300}
           height={isMobile ? 130 : 300}

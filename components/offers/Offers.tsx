@@ -15,9 +15,9 @@ import PlanItem from '@/components/offers/shortTermPlan/planItem/PlanItem'
 import GuideTour from '@/components/reusable/guideTour/GuideTour'
 
 type addedCoursesType = {
-  books: string[]
-  videos: string[]
-  articles: string[]
+  books: any[]
+  videos: any[]
+  articles: any[]
 }
 
 const handleDetails = (type: DataTypeKey, data: any) => {
@@ -73,14 +73,16 @@ const Offers: FC = () => {
   const isMobile = UseIsMobile()
   const router = useRouter()
   const { request, response } = UseFetch()
-  const { request: addCourseRequest, loading, response: coursesData } = UseFetch()
+  const { request: addCourseRequest, loading } = UseFetch()
   const [addedCourses, setAddedCourses] = useState<addedCoursesType>({ books: [], articles: [], videos: [] })
+  const [chartData, setChartData] = useState<any>({ current: null, couldbe: null, average: null })
   useEffect(() => {
     request({
       url: ApiRoutes.SUGGESTION,
       method: 'get',
     }).then((res) => {
       setAddedCourses(res?.data.courses)
+      setChartData(res?.data.scores)
     })
   }, [])
 
@@ -92,12 +94,14 @@ const Offers: FC = () => {
     })
       .then((res) => {
         setAddedCourses(res?.data.courses)
+        setChartData((prev: any) => ({ ...prev, couldbe: res?.data.couldbe }))
         toast.success(res?.data.message)
       })
       .catch((e) => {
         toast.error(e.message)
       })
   }
+
   return (
     <>
       <div className=" max-w-[90%] xl:max-w-[80%] flex flex-col items-center mx-auto py-[32px] lg:py-[95px] gap-y-[88px] ">
@@ -109,6 +113,28 @@ const Offers: FC = () => {
                 <Suggestions
                   title={'Books'}
                   data={(response as any).suggestions.books}
+                  renderCards={(item) => {
+                    return (
+                      <PlanItem
+                        image={'/'}
+                        title={item.title}
+                        badge={item.skill}
+                        description={item.description}
+                        level={item.level}
+                        price={item.price}
+                        id={item._id}
+                        details={handleDetails('books', item)}
+                        handleAddCourses={handleAddCourses}
+                        loading={loading}
+                        type={'books'}
+                        added={!!addedCourses?.books?.find((book) => book._id === item._id)}
+                      />
+                    )
+                  }}
+                />
+                <Suggestions
+                  title={'Videos'}
+                  data={(response as any).suggestions.videos}
                   renderCards={(item) => (
                     <PlanItem
                       image={'/'}
@@ -118,31 +144,11 @@ const Offers: FC = () => {
                       level={item.level}
                       price={item.price}
                       id={item._id}
-                      details={handleDetails('books', item)}
-                      handleAddCourses={handleAddCourses}
-                      loading={loading}
-                      type={'books'}
-                      added={(addedCourses as addedCoursesType)?.books?.includes(item._id)}
-                    />
-                  )}
-                />
-                <Suggestions
-                  title={'Videos'}
-                  data={(response as any).suggestions.videos}
-                  renderCards={(item) => (
-                    <PlanItem
-                      image={'/'}
-                      title={item.title}
-                      badge={item.skills}
-                      description={item.description}
-                      level={item.level}
-                      price={item.price}
-                      id={item._id}
                       details={handleDetails('videos', item)}
                       handleAddCourses={handleAddCourses}
                       loading={loading}
                       type={'videos'}
-                      added={addedCourses?.videos?.includes(item._id)}
+                      added={!!addedCourses?.videos?.find((video) => video._id === item._id)}
                     />
                   )}
                 />
@@ -154,7 +160,7 @@ const Offers: FC = () => {
                     <PlanItem
                       image={'/'}
                       title={item.title}
-                      badge={item.skills}
+                      badge={item.skill}
                       description={item.description}
                       level={item.level}
                       price={item.price}
@@ -163,7 +169,7 @@ const Offers: FC = () => {
                       handleAddCourses={handleAddCourses}
                       loading={loading}
                       type={'articles'}
-                      added={addedCourses?.articles?.includes(item._id)}
+                      added={!!addedCourses?.articles?.find((article) => article._id === item._id)}
                     />
                   )}
                 />
@@ -191,25 +197,23 @@ const Offers: FC = () => {
 
           <div className="w-full lg:w-[50%] flex justify-center lg:sticky lg:top-4 lg:h-full lg:max-w-[600px]">
             <div className="w-full lg:w-[80%] h-fit shadow-[0_4px_24.3px_rgba(0,0,0,0.05)] rounded-[40px] border border-neutral-200">
-              {/*{ChartData ? (*/}
-              {/*  <Chart data={(ChartData as ChartDataType).graph} />*/}
-              {/*) : !loading ? (*/}
-              {/*  response && <Chart data={(response as ResponseType).graph_data} />*/}
-              {/*) : (*/}
-              {/*  <div className="w-full lg:px-5 py-8 flex flex-col items-center lg:gap-y-8 min-h-[620px]">*/}
-              {/*    <div>*/}
-              {/*      <div className="text-center text-[24px] font-[CodecPro-Bold] text-[#1232F0]">*/}
-              {/*        Discovery phase result*/}
-              {/*      </div>*/}
-              {/*      <div className="text-center text-[18px] font-[CodecPro-Thin] text-[#000000]">*/}
-              {/*        Make your skills wider*/}
-              {/*      </div>*/}
-              {/*    </div>*/}
-              {/*    <div className="flex items-center justify-center w-[50px] h-full absolute">*/}
-              {/*      <Spinner />*/}
-              {/*    </div>*/}
-              {/*  </div>*/}
-              {/*)}*/}
+              {(response as any)?.scores ? (
+                <Chart data={chartData} />
+              ) : (
+                <div className="w-full lg:px-5 py-8 flex flex-col items-center lg:gap-y-8 min-h-[620px]">
+                  <div>
+                    <div className="text-center text-[24px] font-[CodecPro-Bold] text-[#1232F0]">
+                      Discovery phase result
+                    </div>
+                    <div className="text-center text-[18px] font-[CodecPro-Thin] text-[#000000]">
+                      Make your skills wider
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center w-[50px] h-full absolute">
+                    <Spinner />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -26,10 +26,10 @@ const Chart: FC<Props> = ({ data }) => {
       {
         label: 'What it couldbe',
         data: [
-          data?.future?.PROBLEM_SOLVING,
-          data?.future?.SELF_MANAGMENT,
-          data?.future?.LEADER_SHIP_AND_PEPPLE_SKILLS,
-          data?.future?.AI_AND_TECH,
+          Math.min(data?.couldbe?.problemSolving, 15),
+          Math.min(data?.couldbe?.selfManagement, 15),
+          Math.min(data?.couldbe?.leadership, 15),
+          Math.min(data?.couldbe?.technology, 15),
         ],
         backgroundColor: 'rgba(18, 50, 240, 0.28)',
         borderColor: '#1232F0',
@@ -38,10 +38,10 @@ const Chart: FC<Props> = ({ data }) => {
       {
         label: 'Your result',
         data: [
-          data?.now?.PROBLEM_SOLVING,
-          data?.now?.SELF_MANAGMENT,
-          data?.now?.LEADER_SHIP_AND_PEPPLE_SKILLS,
-          data?.now?.AI_AND_TECH,
+          Math.min(data?.current?.problemSolving, 15),
+          Math.min(data?.current?.selfManagement, 15),
+          Math.min(data?.current?.leadership, 15),
+          Math.min(data?.current?.technology, 15),
         ],
         backgroundColor: 'rgba(242, 93, 27, 0.28)',
         borderColor: '#F25D1B',
@@ -50,10 +50,10 @@ const Chart: FC<Props> = ({ data }) => {
       {
         label: 'Average of results',
         data: [
-          data?.avrage?.PROBLEM_SOLVING,
-          data?.avrage?.SELF_MANAGMENT,
-          data?.avrage?.LEADER_SHIP_AND_PEPPLE_SKILLS,
-          data?.avrage?.AI_AND_TECH,
+          Math.min(data?.average?.problemSolving, 15),
+          Math.min(data?.average?.selfManagement, 15),
+          Math.min(data?.average?.leadership, 15),
+          Math.min(data?.average?.technology, 15),
         ],
         backgroundColor: 'rgba(156, 155, 155, 0.5)',
         borderColor: '#9C9B9B',

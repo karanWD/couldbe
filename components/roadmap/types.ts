@@ -24,13 +24,13 @@ export interface dataType {
 export type DataTypeKey = keyof dataType
 
 interface GraphItemData {
-  AI_AND_TECH: number
-  LEADER_SHIP_AND_PEPPLE_SKILLS: number
-  PROBLEM_SOLVING: number
-  SELF_MANAGMENT: number
+  problemSolving: number
+  selfManagement: number
+  leadership: number
+  technology: number
 }
 export interface GraphDataType {
-  avrage: GraphItemData
-  future: GraphItemData
-  now: GraphItemData
+  average: GraphItemData
+  couldbe: GraphItemData
+  current: GraphItemData
 }

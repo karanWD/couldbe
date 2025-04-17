@@ -4,7 +4,7 @@ import DescriptionSection from './descriptionSection/DescriptionSection'
 import CharacterType from './characterType/CharacterType'
 import UseFetch from '@/hooks/useFetch'
 import { ApiRoutes } from '@/constants/routes'
-import { dataType } from './types'
+import { dataType, GraphDataType } from './types'
 import Chart from './chart/Chart'
 import 'swiper/css/pagination'
 import Suggestions from '@/components/offers/suggestions/Suggestions'
@@ -13,6 +13,7 @@ import PlanItem from '@/components/roadmap/planItem/PlanItem'
 interface ResponseType {
   courses: dataType
   character_type: any
+  scores: GraphDataType
 }
 const Roadmap: FC = () => {
   const { request, loading, response } = UseFetch()
@@ -57,20 +58,20 @@ const Roadmap: FC = () => {
                 title={'Videos'}
                 data={(response as any).courses.videos}
                 renderCards={(item) => (
-                  <PlanItem image={'/'} title={item.title} level={item.level} price={item.price} skills={item.skills} />
+                  <PlanItem image={'/'} title={item.title} level={item.level} price={item.price} skills={item.skill} />
                 )}
               />
               <Suggestions
                 title={'Articles'}
                 data={(response as any).courses.articles}
                 renderCards={(item) => (
-                  <PlanItem image={'/'} title={item.title} level={item.level} price={item.price} skills={item.skills} />
+                  <PlanItem image={'/'} title={item.title} level={item.level} price={item.price} skills={item.skill} />
                 )}
               />
             </div>
           </div>
           <div className="w-full lg:w-[40%] flex flex-col items-end">
-            <Chart data={(response as ResponseType).character_type} />
+            <Chart data={(response as ResponseType).scores} />
           </div>
         </div>
         <div className="flex flex-col w-[90%] gap-y-[88px]">
