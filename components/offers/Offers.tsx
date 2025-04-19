@@ -3,7 +3,7 @@ import React, { FC, useEffect, useState } from 'react'
 import DescriptionSection from './descriptionSection/DescriptionSection'
 import UseFetch from '@/hooks/useFetch'
 import { ApiRoutes } from '@/constants/routes'
-import { dataType, DataTypeKey, GraphDataType } from './types'
+import { DataTypeKey } from './types'
 import Chart from './chart/Chart'
 import { toast } from 'react-toastify'
 import Spinner from '../ui/spinner/Spinner'
@@ -243,7 +243,7 @@ const Offers: FC = () => {
           </div>
         )}
       </div>
-      {response && <GuideTour />}
+      <GuideTour />
     </>
   )
 }

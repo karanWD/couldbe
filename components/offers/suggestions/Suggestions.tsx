@@ -58,7 +58,7 @@ const Suggestions: FC<Props> = ({ data, renderCards, title }) => {
         }}
         modules={[Navigation]}
         {...swiperParams}
-        className="mySwiper flex w-full after:content-[''] after:w-[20%] after:h-[100%] after:bg-gradient-to-l after:from-white after:opacity-75 after:absolute after:top-0 after:right-0 after:z-20">
+        className="mySwiper flex w-full after:content-[''] after:w-[10%] after:h-[100%] after:bg-gradient-to-l after:from-white after:opacity-75 after:absolute after:top-0 after:right-0 after:z-20">
         {data?.map((item, index) => <SwiperSlide key={index}>{renderCards(item)}</SwiperSlide>)}
       </Swiper>
     </div>
