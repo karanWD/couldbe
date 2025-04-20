@@ -1,17 +1,17 @@
+'use client'
 import { FC, ReactNode } from 'react'
-import { cookies, headers } from 'next/headers'
-import { redirect } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { getCookie } from 'cookies-next'
 
 type Props = {
   children: ReactNode
 }
 const Auth: FC<Props> = ({ children }) => {
-  const cookieStore = cookies()
-  const auth = cookieStore.get('auth_key' as any)?.value
+  const pathname = usePathname()
+  const router = useRouter()
+  const auth = getCookie('authorized')
   if (!auth) {
-    // const headersList = headers()
-    // const pathname = headersList.get('x-current-path') || ''
-    redirect(`/login?return_url=/`)
+    router.push(`/login?return_url=${pathname || '/'}`)
   }
   return children
 }

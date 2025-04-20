@@ -14,7 +14,7 @@ const BudgetPage = () => {
       'preferences',
       JSON.stringify({
         ...values,
-        budget_amount: { min: budgetRef.current.value[0], max: budgetRef.current.value[1] },
+        budget_amount: budgetRef.current.value,
       })
     )
     router.push('experience')

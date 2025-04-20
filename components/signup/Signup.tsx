@@ -67,20 +67,18 @@ const Signup: FC<Props> = ({ pageParams }) => {
     const data = {
       ...formdata,
       place_of_residence: formdata.place_of_residence?.title,
-      password_confirmation: formdata.password,
       birth_date: formdata.birth_day.value + '-' + formdata.birth_month.value + '-' + formdata.birth_year.value,
-      sex: formdata.gender?.value,
+      gender: formdata.gender?.value,
     }
     delete data.birth_day
     delete data.birth_month
     delete data.birth_year
-    delete data.gender
 
     axios
-      .post(ApiRoutes.BASE + ApiRoutes.REGISTER, data)
+      .post(ApiRoutes.BASE + ApiRoutes.REGISTER, data, { withCredentials: true })
       .then((res) => {
-        setCookie('auth_key', res.data.data.authentication_token)
-        router.push(pageParams?.return_url ?? '/')
+        setCookie('authorized', 'true')
+        window.location.href = pageParams?.return_url ?? '/'
       })
       .catch((e) => {
         toast.error(e?.response?.data?.message)

@@ -56,18 +56,18 @@ const Login: FC<Props> = ({ pageParams }) => {
     e.preventDefault()
     setLoading(true)
     axios
-      .post(ApiRoutes.BASE + ApiRoutes.LOGIN, formRef.current)
+      .post(ApiRoutes.BASE + ApiRoutes.LOGIN, formRef.current, { withCredentials: true })
       .then((res) => {
-        setCookie('auth_key', res.data.data.authentication_token)
-        request({
-          url: ApiRoutes.PWD,
-        }).then((res: any) => {
-          const url = Steps[res.data.next_state as Steps]
-            ? Steps[res.data.next_state as Steps].link
-            : Steps.default.link
-          router.push(url)
-        })
-        // router.push(pageParams?.return_url ?? '/')
+        setCookie('authorized', 'true')
+        window.location.href = pageParams?.return_url || '/'
+        // request({
+        //   url: ApiRoutes.PWD,
+        // }).then((res: any) => {
+        //   const url = Steps[res.data.next_state as Steps]
+        //     ? Steps[res.data.next_state as Steps].link
+        //     : Steps.default.link
+        //   router.push(url)
+        // })
       })
       .catch((e) => {
         toast.error(e?.response?.data?.errors[0] || e?.response?.data?.errors?.email[0])

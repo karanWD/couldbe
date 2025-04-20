@@ -33,7 +33,7 @@ const Badge: FC<BadgeType> = ({ children, type, size = 'small' }) => {
         Styles[type].border +
         ' ' +
         Sizes[size] +
-        ' border font-[CodecPro-News]  rounded-full py-1 px-3'
+        ' border font-[CodecPro-News] flex items-baseline rounded-full py-1 px-3'
       }>
       {children}
     </span>

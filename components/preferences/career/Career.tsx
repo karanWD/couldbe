@@ -7,7 +7,7 @@ import { popularCareers } from '@/constants/CareerSuggestions'
 import DrawerHandler from '@/components/reusable/drawerHandler/DrawerHandler'
 import Guide from '@/components/reusable/guide/Guide'
 
-type careerItemType = { id: number; title: string; category: string }
+type careerItemType = { _id: number; title: string; category: string }
 type careerType = { data: careerItemType[] }
 
 const Career = () => {
@@ -34,7 +34,7 @@ const Career = () => {
   }, [])
 
   const careerHandler = (value: number) => {
-    sessionStorage.setItem('preferences', JSON.stringify({ intrested_career: value }))
+    sessionStorage.setItem('preferences', JSON.stringify({ interested_career: value }))
     router.push('/preferences/budget')
   }
 
@@ -74,7 +74,7 @@ const Career = () => {
             <div className="max-h-60 overflow-auto shadow-[0_4px_18px_rgba(0,0,0,0.1)] absolute transform -translate-y-2 z-10 border-t border-gray-800 w-full bg-white">
               <ul className="py-2  text-sm text-gray-700 divide-y divide-gray-100">
                 {suggestions.map((item, index) => (
-                  <li key={'SUGGESTION_ITEM_' + index} className=" py-2 px-4" onClick={() => careerHandler(item.id)}>
+                  <li key={'SUGGESTION_ITEM_' + index} className=" py-2 px-4" onClick={() => careerHandler(item._id)}>
                     {item.title}
                   </li>
                 ))}
@@ -90,7 +90,7 @@ const Career = () => {
           <div className="flex flex-wrap items-center justify-between gap-1 mt-4">
             {(response as careerType)?.data.slice(0, 6).map((item, index) => (
               <div
-                onClick={() => careerHandler(item.id)}
+                onClick={() => careerHandler(item._id)}
                 key={index}
                 className="w-[calc(50%-0.25rem)] lg:w-[180px] h-[180px] flex  items-center justify-center bg-gray-200 rounded-md">
                 {item.title}
