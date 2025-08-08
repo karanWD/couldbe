@@ -7,15 +7,12 @@ interface Props {
   data: GraphDataType
 }
 const Chart: FC<Props> = ({ data }) => {
-  // chart config
   ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend, {
     id: 'noData',
     afterDraw: (chart) => {
       const ctx = chart.ctx
       ctx.save()
       ctx.textAlign = 'center'
-      //   ctx.textBaseline = 'bottom'
-
       ctx.restore()
     },
   })
